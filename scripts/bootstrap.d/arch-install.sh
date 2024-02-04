@@ -16,6 +16,8 @@ done
 echo "Installing Fonts"
 wget https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.1/FiraMono.zip 
 unzip FiraMono.zip -d "$FONTS_DIR"
+rm -f FiraMono.zip
+curl https://fonts.gstatic.com/s/notocoloremoji/v30/Yq6P-KqIXTD0t4D9z1ESnKM3-HpFab5s79iz64w.ttf -o ~/.local/share/fonts/NotoColorEmoji-Regular.ttf
 
 # Clones dotfiles repository
 if [ ! -d "$DOTFILES_DIR/dotfiles" ]; then
@@ -37,7 +39,13 @@ echo "Installing yay packages..."
 scripts/bootstrap.d/yay-install.sh
 yay -S --needed --noconfirm - < packages/yay.install
 
-# Install asdf packages
+# Install asdf and asdf packages
+if [ ! -d "~/.asdf" ]; then
+    echo "Installing asdf"
+    git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.14.0
+else
+    echo "Asdf already installed, skipping..."
+fi
 echo "Installing asdf packages..."
 for package in $(cat packages/asdf.install); do
     asdf plugin-add $package
@@ -87,6 +95,9 @@ for service in sudo system-local-login; do
     sudo sed -i '/auth.*include/i auth            sufficient      pam_fprintd.so' "/etc/pam.d/$service"
 done
 
+# Create symbolic links
 find ~/.config \( -name 'fish' -o -name 'qtile' \) -type d -exec rm -r {} +
 make link
 make link-x
+sudo ln -sfF /var/lib/snapd/snap /snap
+sudo ln -sfF /run/podman/podman.sock /var/run/docker.sock

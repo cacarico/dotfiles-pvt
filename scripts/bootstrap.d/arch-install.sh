@@ -86,6 +86,6 @@ for service in sudo system-local-login; do
     sudo sed -i '/auth.*include/i auth            sufficient      pam_fprintd.so' "/etc/pam.d/$service"
 done
 
-rm -rf "~/.config/fish"
+find ~/.config \( -name 'fish' -o -name 'qtile' \) -type d -delete
 make link
 make link-x

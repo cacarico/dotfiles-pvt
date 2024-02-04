@@ -1,7 +1,10 @@
 #!/usr/bin/env bash
 
 
-git clone https://github.com/cacarico/dotfiles.git ~/ghq/github.com/cacarico/dotfiles
+DOTFILES_DIR="~/ghq/github.com/cacarico/dotfiles"
+
+git clone https://github.com/cacarico/dotfiles.git $DOTFILES_DIR
+cd $DOTFILES_DIR
 
 sudo cat packages/pacman.install | sudo pacman -S --needed -
 yay -S --needed - < packages/yay.install

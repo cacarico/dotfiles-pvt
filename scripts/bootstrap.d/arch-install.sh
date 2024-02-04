@@ -1,15 +1,21 @@
 #!/usr/bin/env bash
 
 DOTFILES_DIR="$HOME/ghq/github.com/cacarico/dotfiles"
+FONTS_DIR="~/.local/share/fonts"
 
 # Creates default directories
-for directory in ~/Pictures ~/Games ~/Music ~/.local/bin "$DOTFILES_DIR" ~/.local/share/fonts/; do
+for directory in ~/Pictures ~/Games ~/Music ~/.local/bin "$DOTFILES_DIR" "$FONTS_DIR"; do
     if [ ! -d $directory ]; then
         mkdir -p $directory
     else
         echo "Directory $directory already exists, skipping..."
     fi
 done
+
+# Install fonts
+echo "Installing Fonts"
+wget https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.1/FiraMono.zip 
+unzip FiraMono.zip -d "$FONTS_DIR"
 
 # Clones dotfiles repository
 if [ ! -d "$DOTFILES_DIR/dotfiles" ]; then

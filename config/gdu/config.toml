@@ -1,0 +1,17 @@
+# # Enable Vim-like movement
+# [Keybindings]
+# Up=107
+# Down=106
+# Left=104
+# Right=108
+# Quit=113
+
+# Enable Vim-like movement and custom keys for actions
+[Keybindings]
+MoveUp = 107           # k
+MoveDown = 106         # j
+MoveLeft = 104         # h
+MoveRight = 108        # l
+Quit = 113             # q
+GoBack = 98            # b
+OpenFolder = 111       # o

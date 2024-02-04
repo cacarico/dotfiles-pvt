@@ -1,0 +1,9 @@
+[font]
+size = 7
+
+# [font.normal]
+# family = "FiraCode"
+# style = "Mono"
+
+[window]
+opacity = 0.90

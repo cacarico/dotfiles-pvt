@@ -1,0 +1,1 @@
+/home/cacarico/.asdf/completions/asdf.fish

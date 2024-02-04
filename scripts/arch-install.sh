@@ -3,8 +3,8 @@
 
 DOTFILES_DIR="~/ghq/github.com/cacarico/dotfiles"
 
-git clone https://github.com/cacarico/dotfiles.git $DOTFILES_DIR
 mkdir -p $DOTFILES_DIR
+git clone https://github.com/cacarico/dotfiles.git $DOTFILES_DIR
 cd $DOTFILES_DIR
 
 sudo cat packages/pacman.install | sudo pacman -S --needed -

@@ -19,7 +19,9 @@ fi
 sudo cat packages/pacman.install | sudo pacman -S --needed -
 
 # Install yay and yay packages
-scripts/install/yay-setup.sh
+if [ ! command -v yay &> /dev/null ]; then
+    scripts/install/yay-install.sh
+fi
 yay -S --needed - < packages/yay.install
 
 # Install asdf packages
@@ -43,6 +45,14 @@ done
 # Add user to groups
 for group in vboxusers video input; do
     sudo usermod -aG $group cacarico
+done
+
+# Set fish as default shell
+chsh -s /usr/bin/fish
+
+# Enable fingerprint
+for service in sudo system-local-login; do
+    sed '/auth.*include/i auth            sufficient      pam_fprintd.so' "/etc/pam.d/$service"
 done
 
 make link

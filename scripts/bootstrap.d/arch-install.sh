@@ -13,7 +13,7 @@ done
 
 # Clones dotfiles repository
 if [ ! -d "$DOTFILES_DIR/dotfiles" ]; then
-    sudo pacman -S git
+    sudo pacman -S git --noconfirm
     mkdir -p $DOTFILES_DIR
     git clone https://github.com/cacarico/dotfiles.git $DOTFILES_DIR
     cd $DOTFILES_DIR

@@ -6,4 +6,5 @@ config/tmux/plugins
 config/lazygit/state.yml
 config/k9s/config.yml
 **/lazy-lock.json
-__pycache__
+**/__pycache__
+config/lazygit/state.yaml

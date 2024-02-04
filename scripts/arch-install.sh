@@ -8,7 +8,7 @@ for directory in ~/Pictures ~/Games ~/Music ~/.local/bin $DOTFILES_DIR; do
 done
 
 # Clones dotfiles repository
-if [ ! -d $DOTFILES_DIR/dotfiles]; then
+if [ ! -d $DOTFILES_DIR/dotfiles ]; then
     sudo pacman -S git
     mkdir -p $DOTFILES_DIR
     git clone https://github.com/cacarico/dotfiles.git $DOTFILES_DIR

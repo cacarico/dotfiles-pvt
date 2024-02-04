@@ -3,7 +3,7 @@
 DOTFILES_DIR="$HOME/ghq/github.com/cacarico/dotfiles"
 
 # Creates default directories
-for directory in ~/Pictures ~/Games ~/Music ~/.local/bin $DOTFILES_DIR; do
+for directory in ~/Pictures ~/Games ~/Music ~/.local/bin "$DOTFILES_DIR" ~/.local/share/fonts/; do
     mkdir -p $directory
 done
 
@@ -19,9 +19,7 @@ fi
 sudo cat packages/pacman.install | sudo pacman -S --needed -
 
 # Install yay and yay packages
-if [ ! command -v yay &> /dev/null ]; then
-    scripts/install/yay-install.sh
-fi
+scripts/install/yay-install.sh
 yay -S --needed - < packages/yay.install
 
 # Install asdf packages
@@ -39,9 +37,13 @@ curl https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install 
 
 # Enable service daemons
 for service in fprintd bluetooth snapd; do
-    systemctl enable --now d bluetooth; do
+    sudo systemctl enable --now $service
 done
 
+# Enable user service daemons
+for user_service in podman.socket podman.service; do
+    sudo systemctl enable --now $user_service
+done
 # Add user to groups
 for group in vboxusers video input; do
     sudo usermod -aG $group cacarico

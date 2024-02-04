@@ -25,6 +25,10 @@ create_links() {
               ln -sfF "$config/xbindkeysrc" "$HOME/.xbindkeysrc"
               continue
               ;;
+         gnupg)
+              ln -sfF "$config/gpg-agent.conf" "$HOME/.gnupg"
+              continue
+              ;;
       esac
       ln -sfF "$config" "$HOME_CONFIG_DIR/"
   done

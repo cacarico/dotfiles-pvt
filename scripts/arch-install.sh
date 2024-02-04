@@ -3,6 +3,8 @@
 
 DOTFILES_DIR="~/ghq/github.com/cacarico/dotfiles"
 
+sudo pacman -S git
+
 mkdir -p $DOTFILES_DIR
 git clone https://github.com/cacarico/dotfiles.git $DOTFILES_DIR
 cd $DOTFILES_DIR

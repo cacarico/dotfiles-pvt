@@ -67,7 +67,7 @@ for group in vboxusers video input; do
 done
 
 # Set fish as default shell
-if [ "$SHELL" -nq "/usr/bin/fish"]; then
+if [ "$SHELL" -nq "/usr/bin/fish" ]; then
     echo "Setting fish as default shell"
     chsh -s /usr/bin/fish
 else
@@ -77,8 +77,9 @@ fi
 # Enable fingerprint
 echo "Enabling fingerpring service"
 for service in sudo system-local-login; do
-    sed '/auth.*include/i auth            sufficient      pam_fprintd.so' "/etc/pam.d/$service"
+    sudo sed -i '/auth.*include/i auth            sufficient      pam_fprintd.so' "/etc/pam.d/$service"
 done
 
+rm -rf "~/.config/fish"
 make link
 make link-x

@@ -27,7 +27,7 @@ sudo cat packages/pacman.install | sudo pacman -S --needed --noconfirm -
 
 # Install yay and yay packages
 echo "Installing yay packages..."
-scripts/install/yay-install.sh
+scripts/bootstrap.d/yay-install.sh
 yay -S --needed --noconfirm - < packages/yay.install
 
 # Install asdf packages
@@ -63,11 +63,11 @@ done
 # Add user to groups
 echo "Adding user $USER to groups"
 for group in vboxusers video input; do
-    sudo usermod -aG $group cacarico
+    sudo usermod -aG $group $USER
 done
 
 # Set fish as default shell
-if [ "$SHELL" -nq "/usr/bin/fish" ]; then
+if [ "$SHELL" != "/usr/bin/fish" ]; then
     echo "Setting fish as default shell"
     chsh -s /usr/bin/fish
 else

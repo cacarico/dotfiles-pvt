@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 
-DOTFILES_DIR="~/ghq/github.com/cacarico/dotfiles"
+DOTFILES_DIR="$HOME/ghq/github.com/cacarico/dotfiles"
 
 sudo pacman -S git
 

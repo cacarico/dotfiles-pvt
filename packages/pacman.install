@@ -34,8 +34,6 @@ blueman
 usbutils
 less
 fprintd
-virtualbox
-virtualbox-guest-iso
 gdu
 k9s
 kubectl

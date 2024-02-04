@@ -29,6 +29,7 @@ fi
 
 # Install packman packages
 echo "Installing pacman packages..."
+sudo pacman -S virtualbox virtualbox-guest-iso
 sudo cat packages/pacman.install | sudo pacman -S --needed --noconfirm -
 
 # Install yay and yay packages

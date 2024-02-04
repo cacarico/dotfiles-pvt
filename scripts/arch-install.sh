@@ -7,11 +7,13 @@ for directory in ~/Pictures ~/Games ~/Music ~/.local/bin $DOTFILES_DIR; do
     mkdir -p $directory
 done
 
-# 
-sudo pacman -S git
-mkdir -p $DOTFILES_DIR
-git clone https://github.com/cacarico/dotfiles.git $DOTFILES_DIR
-cd $DOTFILES_DIR
+# Clones dotfiles repository
+if [ ! -d $DOTFILES_DIR/dotfiles]; then
+    sudo pacman -S git
+    mkdir -p $DOTFILES_DIR
+    git clone https://github.com/cacarico/dotfiles.git $DOTFILES_DIR
+    cd $DOTFILES_DIR
+fi
 
 # Install packman packages
 sudo cat packages/pacman.install | sudo pacman -S --needed -

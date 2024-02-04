@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 
+set -x
 
 DOTFILES_DIR="$HOME/ghq/github.com/cacarico/dotfiles"
 

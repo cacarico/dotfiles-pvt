@@ -51,7 +51,7 @@ def startup():
     """
     Run after qtile is started
     """
-    script = os.path.expanduser("~/ghq/github.com/cacarico/dotfiles-pvt/config/qtile/autostart.sh")
+    script = os.path.expanduser("~/ghq/github.com/cacarico/dotfiles/config/qtile/autostart.sh")
     subprocess.run([script])
 
 widget_defaults = dict(

@@ -1,8 +1,8 @@
 [font]
-size = 8
+size = 7
 
 [font.normal]
-family = "FiraMonoNerdFont"
+family = "FiraCodeNerdFont"
 
 [window]
 opacity = 0.90

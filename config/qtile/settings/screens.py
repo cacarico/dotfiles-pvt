@@ -9,23 +9,25 @@ screens = [
     Screen(
         top=bar.Bar(
             [
-                widget.Clock(format="%b %d %Y %a"),
-                Sep(
-                    linewidth = 0,
-                    padding = 6
-                    ),
                 widget.GroupBox(),
                 Sep(
                     linewidth = 0,
                     padding = 6
                     ),
+                widget.Spacer(),
+                widget.Clock(format="%b %d %Y %a %I:%M %p"),
+                widget.Spacer(),
+                Sep(
+                    linewidth = 0,
+                    padding = 6
+                    ),
                 widget.Backlight(
+                    format="🔦 {percent:2.0%}",
                     brightness_file='/sys/class/backlight/amdgpu_bl1/brightness',
                     max_brightness_file='/sys/class/backlight/amdgpu_bl1/max_brightness',
                     scroll=True
                     ),
-                widget.Battery(format="{percent:2.0%}"),
-                widget.Clock(format="%b %d %Y %a %I:%M %p"),
+                widget.Battery(format="⚡{percent:2.0%}"),
             ],
             24,
             background=background_color,

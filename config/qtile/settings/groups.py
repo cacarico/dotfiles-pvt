@@ -3,6 +3,7 @@ from libqtile.config import Group, Key
 from libqtile.lazy import lazy
 
 mod = "mod4"
+alt = "mod1"
 
 groups = [
     # Screen affinity here is used to make

@@ -1,7 +1,3 @@
-# [](#9A348E)\
-# $username\
-# [](bg:#DA627D fg:#9A348E)\
-
 format = """
 [](#DA627D)\
 $directory\
@@ -138,4 +134,5 @@ format = '[ $symbol ($version) ]($style)'
 disabled = false
 time_format = "%R" # Hour:Minute Format
 style = "bg:#33658A"
-format = '[ ♥ $time ]($style)'
+format = '[ 🦄 $time ]($style)'
+# format = '[ ♥ $time ]($style)'

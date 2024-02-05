@@ -39,18 +39,20 @@ echo "Installing yay packages..."
 scripts/bootstrap.d/yay-install.sh
 yay -S --needed --noconfirm - < packages/yay.install
 
-# Install asdf and asdf packages
+# Install asdf
 if [ ! -d "~/.asdf" ]; then
     echo "Installing asdf"
     git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.14.0
 else
     echo "Asdf already installed, skipping..."
 fi
+
+# Install asdf packages
 echo "Installing asdf packages..."
 for package in $(cat packages/asdf.install); do
-    asdf plugin-add $package
-    asdf install $package latest
-    asdf global $package latest
+    ~/.asdf/bin/asdf plugin-add $package
+    ~/.asdf/bin/asdf asdf install $package latest
+    ~/.asdf/bin/asdf global $package latest
 done
 
 # Install Tmux Plugin Manager

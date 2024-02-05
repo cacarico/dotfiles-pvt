@@ -2,10 +2,13 @@
 fish_variables
 omf.fish
 packer_compiled.lua
+**/lazy-lock.json
+**/__pycache__
+__pycache__/
+
+# Confi files
 config/tmux/plugins
 config/lazygit/state.yml
 config/k9s/config.yml
-**/lazy-lock.json
-**/__pycache__
+config/tmux/plugins/
 config/lazygit/state.yaml
-__pycache__/

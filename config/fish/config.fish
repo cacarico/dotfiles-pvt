@@ -6,9 +6,6 @@ end
 set -x EDITOR nvim
 set -x KUBE_EDITOR nvim
 
-# Set java
-set -x JAVA_HOME /usr/lib/jvm/java-20-openjdk/
-
 # -----------------------------
 # PATHS -----------------------
 # -----------------------------
@@ -89,7 +86,6 @@ alias kn 'kubectl ns'
 # Vi mode
 # fish_vi_key_bindings
 
-
 # Helpers
 alias xc 'xclip -selection clipboard'
 
@@ -98,6 +94,7 @@ set -g fish_u
 direnv hook fish | source
 jump shell fish | source
 starship init fish | source
+zoxide init fish | source
 
 source ~/.config/fish/conf.d/*
 source ~/.config/fish/functions/*

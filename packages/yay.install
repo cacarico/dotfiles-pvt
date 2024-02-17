@@ -6,4 +6,5 @@ k3s-bin
 podman-docker
 rancher-k3d-bin
 snapd
-spotify
+spotify-tui
+ueberzugpp

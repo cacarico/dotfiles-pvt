@@ -67,14 +67,14 @@ fi
 
 # Enable service daemons
 echo "Enabling service daemons"
-for service in fprintd bluetooth snapd; do
+for service in fprintd bluetooth snapd snapd.apparmor; do
     sudo systemctl enable --now $service
 done
 
 # Enable user daemons
 echo "Enabling user daemons"
 for user_service in podman.socket podman.service; do
-    sudo systemctl enable --now $user_service
+    sudo systemctl --user enable --now $user_service
 done
 
 # Add user to groups

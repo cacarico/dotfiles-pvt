@@ -1,6 +1,0 @@
-#!/usr/bin/env fish
-
-function fish_greeting
-  # neofetch --ascii_distro fedora_small
-  # fm6000 -c bright_magenta -dog
-end

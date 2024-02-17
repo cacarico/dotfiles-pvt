@@ -10,6 +10,7 @@ direnv
 dunst
 eza
 feh
+firefox
 fish
 flameshot
 fprintd
@@ -27,6 +28,7 @@ neofetch
 neovim
 noto-fonts-emoji
 obsidian
+pavucontrol
 pcmanfm-gtk3
 peco
 picom
@@ -35,6 +37,7 @@ pre-commit
 ranger
 ripgrep
 rofi
+spotify-launcher
 starship
 tmux
 unzip

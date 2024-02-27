@@ -1,3 +1,6 @@
+amd-ucode
+jaq
+bat
 arandr
 autorandr
 awesome-terminal-fonts
@@ -6,6 +9,7 @@ blueman
 bluez
 bluez-utils
 btop
+cpio
 direnv
 dunst
 eza
@@ -28,6 +32,7 @@ neofetch
 neovim
 noto-fonts-emoji
 obsidian
+pacman-contrib
 pavucontrol
 pcmanfm-gtk3
 peco
@@ -44,3 +49,4 @@ unzip
 usbutils
 xclip
 xsecurelock
+yazi

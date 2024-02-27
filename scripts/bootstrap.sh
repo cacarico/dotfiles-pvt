@@ -32,11 +32,6 @@ create_links() {
       esac
       ln -sfF "$config" "$HOME_CONFIG_DIR/"
   done
-
-  for desktop_entry in "$DESKTOP_DIR"/*
-  do
-      ln -sfF "$desktop_entry" "$HOME_DESKTOP_DIR"
-  done
 }
 
 # Create links for X

@@ -1,3 +1,6 @@
+amd-ucode
+jaq
+bat
 arandr
 autorandr
 awesome-terminal-fonts
@@ -6,10 +9,12 @@ blueman
 bluez
 bluez-utils
 btop
+cpio
 direnv
 dunst
 eza
 feh
+firefox
 fish
 flameshot
 fprintd
@@ -27,6 +32,8 @@ neofetch
 neovim
 noto-fonts-emoji
 obsidian
+pacman-contrib
+pavucontrol
 pcmanfm-gtk3
 peco
 picom
@@ -35,9 +42,11 @@ pre-commit
 ranger
 ripgrep
 rofi
+spotify-launcher
 starship
 tmux
 unzip
 usbutils
 xclip
 xsecurelock
+yazi

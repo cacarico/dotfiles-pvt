@@ -11,7 +11,7 @@ vim.keymap.set("n", "N", "Nzzzv")
 
 -- greatest remap ever
 -- vim.keymap.set("x", "<leader>p", [["_dP]])
-vim.api.nvim_set_keymap('n', '<leader>p', '"+p', { noremap = true })
+vim.keymap.set("n", '<leader>p', '"+p')
 
 -- Next greatest remap ever : asbjornHaland
 vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]])
@@ -38,27 +38,27 @@ vim.keymap.set("n", "<C-s>", ":w <CR>")
 -- Replace all occurrences of the current word under the cursor with the same word
 vim.keymap.set("n", "<leader>sg", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/g<Left><Left>]])
 
--- vim.api.nvim_set_keymap('n', '<A-h>', '<C-w>h', {noremap = true})
--- vim.api.nvim_set_keymap('n', '<A-j>', '<C-w>j', {noremap = true})
--- vim.api.nvim_set_keymap('n', '<A-k>', '<C-w>k', {noremap = true})
--- vim.api.nvim_set_keymap('n', '<A-l>', '<C-w>l', {noremap = true})
+vim.keymap.set("n", '<A-h>', '<C-w>h', {noremap = true})
+vim.keymap.set("n", '<A-j>', '<C-w>j', {noremap = true})
+vim.keymap.set("n", '<A-k>', '<C-w>k', {noremap = true})
+vim.keymap.set("n", '<A-l>', '<C-w>l', {noremap = true})
 
-vim.api.nvim_set_keymap('n', '<C-q>', ':bd<CR>', { noremap = true })
+vim.keymap.set("n", '<C-q>', ':bd<CR>', { noremap = true })
 
 -- Resize split
-vim.api.nvim_set_keymap('n', '<A-C-l>', ':vertical resize -5<CR>', {})
-vim.api.nvim_set_keymap('n', '<A-k>', ':resize +5<CR>', {})
-vim.api.nvim_set_keymap('n', '<A-j>', ':resize -5<CR>', {})
-vim.api.nvim_set_keymap('n', '<A-h>', ':vertical resize +5<CR>', {})
+vim.keymap.set("n", '<A-C-l>', ':vertical resize -5<CR>')
+vim.keymap.set("n", '<A-C-k>', ':resize +5<CR>')
+vim.keymap.set("n", '<A-C-j>', ':resize -5<CR>')
+vim.keymap.set("n", '<A-C-h>', ':vertical resize +5<CR>')
 
 -- Move split
-vim.api.nvim_set_keymap('n', '<A-S-h>', '<C-w>H', {silent = true})
-vim.api.nvim_set_keymap('n', '<A-S-j>', '<C-w>J', {silent = true})
-vim.api.nvim_set_keymap('n', '<A-S-k>', '<C-w>K', {silent = true})
-vim.api.nvim_set_keymap('n', '<A-S-l>', '<C-w>L', {silent = true})
+vim.keymap.set("n", '<A-S-h>', '<C-w>H', {silent = true})
+vim.keymap.set("n", '<A-S-j>', '<C-w>J', {silent = true})
+vim.keymap.set("n", '<A-S-k>', '<C-w>K', {silent = true})
+vim.keymap.set("n", '<A-S-l>', '<C-w>L', {silent = true})
 
 -- Windows
 vim.keymap.set("n", "\\\\", ":vsplit<CR>")
 
 -- Starts lazyvim in the current project
-vim.keymap.set("n", "<C-g>", "<cmd>silent !floating_git<CR>")
+vim.keymap.set("n", "<C-g>", "<cmd>silent !fish -c 'floating_git'<CR>")

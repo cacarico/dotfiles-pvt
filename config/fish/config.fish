@@ -42,16 +42,27 @@ abbr -a ninstall nvim +PlugInstall +qal
 # -----------------------------
 # Aliases ---------------------
 # -----------------------------
-alias awsp '_awsp'
-alias av "aws-vault exec"
-alias avl "aws-vault login"
+
+if type -q aws-vault
+    alias av "aws-vault exec"
+    alias avl "aws-vault login"
+end
+
+if type -q autojump
+    alias j 'autojump'
+    alias jump 'autojump'
+end
+
+if type -q bat
+    alias cat 'bat'
+end
 
 if type -q exa
-  alias ls 'exa'
-  alias l ll
-  alias ll 'ls -l -g --icons'
-  alias la 'll -a'
-  alias lt 'la -T -L2'
+    alias ls 'exa'
+    alias l ll
+    alias ll 'ls -l -g --icons'
+    alias la 'll -a'
+    alias lt 'la -T -L2'
 end
 
 if type -q git
@@ -74,23 +85,15 @@ if type -q jaq
     alias jq 'jaq'
 end
 
-if type -q autojump
-    alias j 'autojump'
-    alias jump 'autojump'
+# Kubernetes
+if type -q kubectl
+    alias kc 'kubectl ctx'
+    alias kn 'kubectl ns'
 end
 
-# Kubernetes
-alias kc 'kubectl ctx'
-alias kn 'kubectl ns'
-
-# Vi mode
-# fish_vi_key_bindings
-
-# Helpers
 alias xc 'xclip -selection clipboard'
 
-set -g fish_u
-
+# Sources for fish commands
 direnv hook fish | source
 jump shell fish | source
 starship init fish | source

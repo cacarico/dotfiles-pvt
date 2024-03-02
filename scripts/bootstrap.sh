@@ -43,6 +43,7 @@ link_x() {
   sudo ln -sfF "$PWD/system/backlight/backlight.rules" /etc/udev/rules.d/
   sudo ln -sfF "$PWD/system/fingerprint/50-net.reactivated.fprint.device.enroll.rules" /etc/polkit-1/rules.d/
   sudo ln -sfF "$PWD/system/modprobe/nobeep.conf" /etc/modprobe.d/
+  sudo ln -sfF "$PWD/system/NetworkManager/09-timezone" /etc/NetworkManager/dispatcher.d/
 
 }
 

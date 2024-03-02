@@ -1,6 +1,4 @@
 amd-ucode
-jaq
-bat
 arandr
 autorandr
 awesome-terminal-fonts
@@ -22,7 +20,8 @@ fzf
 gdu
 gimp
 helm
-jq
+imagemagick
+jaq
 k9s
 kubectl
 lazygit

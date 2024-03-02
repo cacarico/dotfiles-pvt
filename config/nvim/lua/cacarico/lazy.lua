@@ -30,6 +30,7 @@ require("lazy").setup({
     "farmergreg/vim-lastplace",
     "junegunn/goyo.vim",
     "mg979/vim-visual-multi",
+    "cappyzawa/trim.nvim",
     { "kylechui/nvim-surround", event = "VeryLazy", },
     { "folke/neoconf.nvim",              cmd = "Neoconf" },
     { "nvim-treesitter/nvim-treesitter", cmd = "TSUpdate" },
@@ -56,7 +57,7 @@ require("lazy").setup({
 
 
 
-            -- 
+            --
         }
     },
     -- {

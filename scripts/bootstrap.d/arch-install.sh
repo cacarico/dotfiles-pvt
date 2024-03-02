@@ -97,8 +97,10 @@ for service in sudo system-local-login; do
     sudo sed -i '/auth.*include/i auth            sufficient      pam_fprintd.so' "/etc/pam.d/$service"
 done
 
-# Create symbolic links
+# Delete default directories before creating symbolic links
 find ~/.config \( -name 'fish' -o -name 'qtile' \) -type d -exec rm -r {} +
+
+# Create symbolic links
 make link
 make link-x
 sudo ln -sfF /var/lib/snapd/snap /snap

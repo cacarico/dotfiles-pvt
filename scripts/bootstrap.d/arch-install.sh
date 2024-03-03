@@ -14,7 +14,7 @@ done
 
 # Install fonts
 echo "Installing Fonts"
-wget https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.1/FiraMono.zip 
+wget https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.1/FiraMono.zip
 unzip FiraMono.zip -d "$FONTS_DIR"
 rm -f FiraMono.zip
 curl https://fonts.gstatic.com/s/notocoloremoji/v30/Yq6P-KqIXTD0t4D9z1ESnKM3-HpFab5s79iz64w.ttf -o ~/.local/share/fonts/NotoColorEmoji-Regular.ttf

@@ -1,9 +1,7 @@
 #!/usr/bin/env bash
 #
 CONFIG_DIR="$PWD/config"
-DESKTOP_DIR="$PWD/desktop"
 HOME_CONFIG_DIR="$HOME/.config"
-HOME_DESKTOP_DIR="$HOME/Desktop"
 XORG_DIR="/etc/X11/xorg.conf.d/"
 HOME_XORG_DIR="$PWD/system/X11"
 
@@ -79,7 +77,7 @@ case $1 in
         arch_install
         ;;
     link_x)
-       link_x 
+       link_x
         ;;
     *)
         echo "Option $1 not found"

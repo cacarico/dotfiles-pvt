@@ -23,7 +23,7 @@ function tmux_session
         end
     end
 
-    if not tmux has-session -t=$selected_name 2> /dev/null
+    if not tmux has-session -t=$selected_name 2>/dev/null
         tmux new-session -ds $selected_name -c $selected
     end
 

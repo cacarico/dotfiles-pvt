@@ -38,4 +38,3 @@ for i in groups:
                 desc="move focused window to group {}".format(i.name)),
         ]
     )
-

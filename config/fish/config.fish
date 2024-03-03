@@ -22,7 +22,7 @@ set -x STARSHIP_CONFIG $HOME/.config/starship.toml
 
 # Shorts
 abbr -a vim nvim
-abbr -a k 'kubectl'
+abbr -a k kubectl
 abbr -a x 'xclip -selection clipboard'
 
 # Edit files
@@ -30,8 +30,7 @@ abbr -a arc 'nvim ~/.config/alacritty/alacritty.toml'
 abbr -a vrc 'nvim ~/.config/nvim/init.vim'
 abbr -a frc 'nvim ~/.config/fish/config.fish'
 abbr -a trc 'nvim ~/.tmux.conf'
-abbr -a gitd 'git diff --ignore-space-at-eol -b -w --ignore-blank-lines'
-abbr -a lg 'lazygit'
+abbr -a lg lazygit
 
 # Sources
 abbr -a ff 'source ~/.config/fish/config.fish'
@@ -49,16 +48,16 @@ if type -q aws-vault
 end
 
 if type -q autojump
-    alias j 'autojump'
-    alias jump 'autojump'
+    alias j autojump
+    alias jump autojump
 end
 
 if type -q bat
-    alias cat 'bat'
+    alias cat bat
 end
 
 if type -q exa
-    alias ls 'exa'
+    alias ls exa
     alias l ll
     alias ll 'ls -l -g --icons'
     alias la 'll -a'
@@ -66,7 +65,7 @@ if type -q exa
 end
 
 if type -q git
-    alias g 'git'
+    alias g git
     alias gs 'git status'
     alias ga 'git add'
     alias gc 'git commit -m'
@@ -79,10 +78,11 @@ if type -q git
     alias gp 'git push'
     alias gpl 'git pull'
     alias gpsup 'echo git push --set-upstream origin (git rev-parse --abbrev-ref HEAD) '
+    abbr -a gitd 'git diff --ignore-space-at-eol -b -w --ignore-blank-lines'
 end
 
 if type -q jaq
-    alias jq 'jaq'
+    alias jq jaq
 end
 
 # Kubernetes

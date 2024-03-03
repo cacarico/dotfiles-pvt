@@ -1,21 +1,16 @@
 #!/usr/bin/env fish
 
 function project
-  set -l query (commandline)
+    set selected (find ~/ghq/ -mindepth 3 -maxdepth 3 -type d | fzf)
+    set clean (echo $selected | awk -F/ '{print $NF}')
 
-  if test -n $query
-    set peco_flags --query "$query"
-  end
+    if [ $selected ]
+        tmux new-window -c "$selected" -n "$clean"
+        tmux send-keys -t 0 nvim Enter
+        tmux split-window -c "$selected" -v -l 20% ';'
+        tmux select-pane -U
 
-  set selected (find ~/ghq/ -mindepth 3 -maxdepth 3 -type d | fzf)
-  set clean (echo $selected | awk -F/ '{print $NF}')
-  if [ $selected ]
-      tmux new-window -c "$selected" -n "$clean"
-      tmux send-keys -t 0 "nvim" Enter
-      tmux split-window -c "$selected" -v -l 20% ';'
-      tmux select-pane -U
-
-      commandline -r ''
-      commandline -f repaint
-  end
+        commandline -r ''
+        commandline -f repaint
+    end
 end

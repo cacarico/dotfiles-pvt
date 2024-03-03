@@ -5,7 +5,7 @@ I'm not an experienced Rice maker, the only rice I know how to cook is Brazilian
 Feel free to clone my configurations and give some ideas on how to improve them.
 
 
-``` 
+```
           A             cacarico@darknet
          ooo            ----------------
         ooooo           OS: Arch Linux x86_64

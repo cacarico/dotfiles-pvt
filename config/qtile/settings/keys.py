@@ -77,4 +77,3 @@ keys = [
     Key([], "XF86MonBrightnessDown", lazy.spawn("brillo -U 8")),
     Key([], "XF86MonBrightnessUp", lazy.spawn("brillo -A 8")),
 ]
-

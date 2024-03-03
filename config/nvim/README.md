@@ -2,7 +2,7 @@
 
 Here you find the configuration files for NeoVim.
 
-## 
+##
 
 ### Directory Structure
 

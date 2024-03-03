@@ -4,4 +4,3 @@ vim.g.goyo_linenr = 1
 
 -- mappings
 vim.keymap.set('n', 'mg', '<CMD>Goyo <CR>')
-

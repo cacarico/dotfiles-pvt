@@ -4,7 +4,7 @@ DOTFILES_DIR="$HOME/ghq/github.com/cacarico/dotfiles"
 FONTS_DIR="~/.local/share/fonts"
 
 # Creates default directories
-for directory in ~/Pictures ~/Games ~/Music ~/.local/bin "$DOTFILES_DIR" "$FONTS_DIR"; do
+for directory in ~/Pictures ~/Games ~/Music ~/.local/bin ~/Books "$DOTFILES_DIR" "$FONTS_DIR"; do
     if [ ! -d $directory ]; then
         mkdir -p $directory
     else
@@ -67,9 +67,12 @@ fi
 
 # Enable service daemons
 echo "Enabling service daemons"
-for service in fprintd bluetooth snapd snapd.apparmor; do
+for service in fprintd bluetooth snapd snapd.apparmor cups.socket avahi-daemon.service; do
     sudo systemctl enable --now $service
 done
+
+# Enables mdns resolution for Avahi
+sudo sed -i 's/hosts: mymachines resolve \[!UNAVAIL=return\] files myhostname dns/hosts: mymachines mdns_minimal \[NOTFOUND=return\] resolve \[!UNAVAIL=return\] files myhostname dns/' /etc/nsswitch.conf
 
 # Enable user daemons
 echo "Enabling user daemons"

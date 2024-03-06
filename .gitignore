@@ -12,3 +12,4 @@ config/lazygit/state.yml
 config/k9s/config.yml
 config/tmux/plugins/
 config/lazygit/state.yaml
+config/btop/btop.log

@@ -4,7 +4,7 @@ DOTFILES_DIR="$HOME/ghq/github.com/cacarico/dotfiles"
 FONTS_DIR="$HOME/.local/share/fonts"
 
 # Creates default directories
-for directory in ~/Pictures ~/Games ~/Music ~/.local/bin ~/Books "$DOTFILES_DIR" "$FONTS_DIR"; do
+for directory in ~/Mounts/usb ~/Pictures ~/Games ~/Music ~/.local/bin ~/Books "$DOTFILES_DIR" "$FONTS_DIR"; do
     if [ ! -d "$directory" ]; then
         mkdir -p "$directory"
     else

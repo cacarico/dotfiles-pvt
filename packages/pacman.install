@@ -17,6 +17,7 @@ eza
 feh
 firefox
 fish
+transmission-gtk
 flameshot
 fprintd
 fzf
@@ -39,6 +40,7 @@ neovim
 noto-fonts-emoji
 nss-mdns
 obsidian
+p7zip
 pacman-contrib
 pavucontrol
 pcmanfm-gtk3
@@ -57,3 +59,4 @@ usbutils
 xclip
 xsecurelock
 yazi
+zoxide

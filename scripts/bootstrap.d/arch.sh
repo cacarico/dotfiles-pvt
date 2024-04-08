@@ -1,28 +1,18 @@
 #!/usr/bin/env bash
 
-DOTFILES_DIR="$HOME/ghq/github.com/cacarico/dotfiles"
 BOOTSTRAP_DIR="scripts/bootstrap.d"
 
-# Clones dotfiles repository
-if [ ! -d "$DOTFILES_DIR/dotfiles" ]; then
-    sudo pacman -S git --noconfirm
-    mkdir -p "$DOTFILES_DIR"
-    git clone https://github.com/cacarico/dotfiles.git "$DOTFILES_DIR"
-    cd "$DOTFILES_DIR"
-else
-    echo "Dotfiles repository already cloned, skipping..."
-fi
+echo "Starting Arch Linux installation"
 
 # Install packman packages
-echo "Starting Arch Linux installation"
 sudo pacman -S virtualbox virtualbox-guest-iso
 sudo cat packages/pacman.install | sudo pacman -S --needed --noconfirm -
 
 # Install yay and yay packages
-$BOOTSTRAP_DIR/yay-install.sh
+$BOOTSTRAP_DIR/yay.sh
 
 # Install asdf
-$BOOTSTRAP_DIR/asdf-install.sh
+$BOOTSTRAP_DIR/asdf.sh
 
 # Enable service daemons
 echo "Enabling service daemons"

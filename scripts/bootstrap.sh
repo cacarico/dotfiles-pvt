@@ -1,11 +1,12 @@
 #!/usr/bin/env bash
 
 DOTFILES_DIR="$HOME/ghq/github.com/cacarico/dotfiles"
+GHQ_CACARICO_DIR="$HOME/ghq/github.com/cacarico"
 FONTS_DIR="$HOME/.local/share/fonts"
 BOOTSTRAP_DIR="scripts/bootstrap.d"
 
 # Creates default directories
-for directory in ~/Mounts/usb ~/Pictures ~/Games ~/Music ~/.local/bin ~/Books "$DOTFILES_DIR" "$FONTS_DIR"; do
+for directory in ~/Mounts/usb ~/Pictures ~/Games ~/Music ~/.local/bin ~/Books $GHQ_CACARICO_DIR; do
     if [ ! -d "$directory" ]; then
         mkdir -p "$directory"
     else
@@ -13,17 +14,15 @@ for directory in ~/Mounts/usb ~/Pictures ~/Games ~/Music ~/.local/bin ~/Books "$
     fi
 done
 
-# Install fonts
-echo "Installing Fonts"
-wget https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.1/FiraMono.zip
-unzip FiraMono.zip -d "$FONTS_DIR"
-rm -f FiraMono.zip
-curl https://fonts.gstatic.com/s/notocoloremoji/v30/Yq6P-KqIXTD0t4D9z1ESnKM3-HpFab5s79iz64w.ttf -o ~/.local/share/fonts/NotoColorEmoji-Regular.ttf
-
 # Clones dotfiles repository
 if [ ! -d "$DOTFILES_DIR/dotfiles" ]; then
-    sudo pacman -S git --noconfirm
-    mkdir -p "$DOTFILES_DIR"
+    if command -v git &>/dev/null; then
+        echo "Installing git"
+        sudo pacman -S git --noconfirm
+    else
+        echo "Git already installed, skipping..."
+    fi
+    mkdir -p "$GHQ_CACARICO_DIR"
     git clone https://github.com/cacarico/dotfiles.git "$DOTFILES_DIR"
     cd "$DOTFILES_DIR"
 else
@@ -32,6 +31,7 @@ fi
 
 [ "$(uname -a | grep arch)" ] && $BOOTSTRAP_DIR/arch-install.sh
 [ "$(uname -a | grep fedora)" ] && $BOOTSTRAP_DIR/fedora-install.sh
+[ "$(uname -a | grep kali)" ] && $BOOTSTRAP_DIR/kali-install.sh
 
 # Install Tmux Plugin Manager
 if [ ! -d "$HOME/.tmux/plugins/tpm" ]; then
@@ -42,24 +42,6 @@ fi
 if [ ! -d "$HOME/.local/share/omf" ]; then
     curl https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install | fish
 fi
-
-# Enable service daemons
-echo "Enabling service daemons"
-for service in fprintd bluetooth snapd snapd.apparmor cups.socket avahi-daemon.service; do
-    sudo systemctl enable --now $service
-done
-
-# Enable user daemons
-echo "Enabling user daemons"
-for user_service in podman.socket podman.service; do
-    sudo systemctl --user enable --now $user_service
-done
-
-# Add user to groups
-echo "Adding user $USER to groups"
-for group in vboxusers video input; do
-    sudo usermod -aG "$group" "$USER"
-done
 
 # Sets git default configs
 git config --global user.name cacarico
@@ -79,3 +61,6 @@ find ~/.config \( -name 'fish' -o -name 'qtile' \) -type d -exec rm -r {} +
 # Create symbolic links
 make link
 make link-x
+
+echo "Installation finished."
+echo "It is recomended to restart now..."

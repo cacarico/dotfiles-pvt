@@ -4,12 +4,13 @@
 function mount_usb
 
     set DEVICE "$argv[1]"
-    if lsblk | grep --quiet $DEVICE
-        sudo mount /dev/sd$DEVICE1 "$USER/mounts/usb-$DEVICE"
+    set PARTITION "$argv[2]"
+    if lsblk | grep --quiet "sd$DEVICE"
+        sudo mount "/dev/sd$DEVICE$PARTITION" "/home/$USER/Mounts/usb-$DEVICE"
         if test $status -eq 0
-            echo "usb mounted on a"
+            echo "USB mounted at /home/$USER/Mounts/usb-$DEVICE"
         else
-            echo "failed"
+            echo "Failed"
         end
     end
 end

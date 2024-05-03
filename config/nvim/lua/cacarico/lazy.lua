@@ -79,12 +79,21 @@ require("lazy").setup({
 
 
     -- Debugger
-    "mfussenegger/nvim-dap",
+    {
+        "mfussenegger/nvim-dap",
+        dependencies = "nvim-neotest/nvim-nio"
+    },
     "rcarriga/nvim-dap-ui",
     "leoluz/nvim-dap-go",
     "theHamsta/nvim-dap-virtual-text",
     "nvim-telescope/telescope-dap.nvim",
 
+
+    -- UI
+    {
+        "VonHeikemen/fine-cmdline.nvim",
+        dependencies = "MunifTanjim/nui.nvim"
+    },
 
     -- Navigation
     "mhinz/vim-startify",

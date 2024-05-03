@@ -10,6 +10,5 @@ vim.keymap.set("n", "<leader>h2", function() ui.nav_file(2) end)
 vim.keymap.set("n", "<leader>h3", function() ui.nav_file(3) end)
 vim.keymap.set("n", "<leader>h4", function() ui.nav_file(4) end)
 
-
 vim.keymap.set("n", "<leader>hj", ui.nav_prev)
 vim.keymap.set("n", "<leader>hl", ui.nav_next)

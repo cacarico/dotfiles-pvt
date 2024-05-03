@@ -68,14 +68,6 @@ mouse = [
     Click([mod], "Button2", lazy.window.bring_to_front()),
 ]
 
-floating_defaults = [
-    ("border_focus", "#0000ff", "Border colour(s) for the focused window."),
-    ("border_normal", "#000000", "Border colour(s) for un-focused windows."),
-    ("border_width", 1, "Border width."),
-    ("max_border_width", 0, "Border width for maximize."),
-    ("fullscreen_border_width", 0, "Border width for fullscreen."),
-]
-
 dgroups_key_binder = None
 dgroups_app_rules = []  # type: list
 follow_mouse_focus = False
@@ -83,6 +75,7 @@ follow_mouse_focus = True
 bring_front_click = False
 floats_kept_above = True
 cursor_warp = False
+
 floating_layout = layout.Floating(
     border_normal ="#000000",
     border_focus = "#d75f5f",
@@ -91,8 +84,9 @@ floating_layout = layout.Floating(
     float_rules=[
         # Run the utility of `xprop` to see the wm class and name of an X client.
         *layout.Floating.default_float_rules,
-        *layout.Floating.default_float_rules,
-        # Match(wm_class="Alacritty"),  # gitk
+        Match(wm_class="Arandr"),
+        Match(wm_class="Blueman-manager"),
+        Match(wm_class="Pavucontrol"),
     ]
 )
 

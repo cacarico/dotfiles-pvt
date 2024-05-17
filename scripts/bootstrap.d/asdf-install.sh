@@ -3,7 +3,7 @@
 # Installs asdf if not already installed
 if [ ! -d "$HOME/.asdf" ]; then
     echo "Installing asdf"
-    git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.14.0
+    git clone https://github.com/asdf-vm/asdf.git ~/.asdf
 else
     echo "Asdf already installed, skipping..."
 fi

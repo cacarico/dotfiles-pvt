@@ -1,0 +1,2 @@
+# Nmap 7.94 scan initiated Tue May 14 20:14:03 2024 as: nmap -p- --min-rate 1000 -sV -sC -oN nmap.txt 192.168.0.26
+# Nmap done at Tue May 14 20:14:05 2024 -- 1 IP address (0 hosts up) scanned in 2.11 seconds

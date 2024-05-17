@@ -6,8 +6,8 @@ link: ## Create symlinks
 link-x: ## Create symlinks
 	@scripts/bootstrap.sh link_x
 
-package_install: ## Install Arch Linux Packages
-	@scripts/bootstrap.sh arch_install
+asdf: ## Install asdf packages
+	@scripts/bootstrap.d/asdf-install.sh
 
 unlink: ## Delete symlinks
 	@scripts/bootstrap.sh remove_links

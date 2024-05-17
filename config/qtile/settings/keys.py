@@ -41,6 +41,7 @@ keys = [
     # Unsplit = 1 window displayed, like Max layout, but still with
     # multiple stack panes
     Key([mod, "shift"], "f", lazy.layout.toggle_split(), desc="Toggle between split and unsplit sides of stack"),
+    Key([mod, alt], "b", lazy.hide_show_bar("top")),
     # Key([mod, "shift"], "Tab", lazy.next_layout(), desc="Toggle between layouts"),
     Key([mod], "w", lazy.window.kill(), desc="Kill focused window"),
     Key( [mod], "f", lazy.window.toggle_fullscreen(), desc="Toggle fullscreen on the focused window",),
@@ -49,9 +50,8 @@ keys = [
     # Launchers
     Key([mod, alt], "o", lazy.spawn("bash -c 'setxkbmap -query | grep -q us && setxkbmap br ||  setxkbmap us'"), desc="Launch terminal"),
     Key([mod], "r", lazy.spawncmd(), desc="Spawn a command using a prompt widget"),
-    Key([mod], "Return", lazy.spawn(terminal), desc="Launch terminal"),
+    Key([mod], "Return", lazy.spawn('alacritty'), desc="Launch terminal"),
     Key([mod], "space", lazy.spawn("rofi -show run"), desc="Launch rofi"),
-    Key([mod, "shift"], "f", lazy.spawn("alacritty -e yazi"), desc="Launch rofi"),
     Key([mod, "shift"], "q", lazy.spawn("xsecurelock"), desc="Launch rofi"),
     Key([mod], "p", lazy.spawn("flameshot gui"), desc="Screenshot"),
     Key([mod], "1", lazy.spawn("brillo -A 8")),
@@ -60,6 +60,8 @@ keys = [
         Key([mod], "a", lazy.spawn("arandr")),
         Key([mod], "b", lazy.spawn("blueman-manager")),
         Key([mod], "o", lazy.spawn("obsidian")),
+        Key([mod], "s", lazy.spawn("spotify-launcher")),
+        Key([mod], "n", lazy.spawn("alacritty -e nmtui"), desc="Launch nmtui"),
     ]),
     KeyChord([mod], "b", [
         Key([mod], "b", lazy.spawn("brave-nightly")),

@@ -10,6 +10,8 @@ require('telescope').setup {
             i = {
                 ["<C-h>"] = "which_key",
                 ["<C-o>"] = actions.select_default,
+                ["<C-v>"] = actions.select_vertical,
+                ["<C-s>"] = actions.select_horizontal,
                 ["<C-t>"] = trouble.open_with_trouble,
             },
             n = {

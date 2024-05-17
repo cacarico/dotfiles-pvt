@@ -6,3 +6,6 @@ family = "FiraMonoNerdFont"
 
 [window]
 opacity = 0.80
+
+[colors]
+transparent_background_colors = true

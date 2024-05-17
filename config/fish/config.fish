@@ -81,6 +81,10 @@ if type -q git
     abbr -a gitd 'git diff --ignore-space-at-eol -b -w --ignore-blank-lines'
 end
 
+if type -q ghq
+    abbr -a gg 'ghq get'
+end
+
 if type -q jaq
     alias jq jaq
 end

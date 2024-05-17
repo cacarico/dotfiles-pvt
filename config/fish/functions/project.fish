@@ -1,12 +1,6 @@
 #!/usr/bin/env fish
 
 function project
-    set tmux_running (pgrep tmux)
-
-    if test -n "$TMUX" -a -n "$tmux_running"
-        tmux
-    end
-
     set selected (find ~/ghq/ -mindepth 3 -maxdepth 3 -type d | fzf)
     set clean (echo $selected | awk -F/ '{print $NF}')
 

@@ -5,6 +5,8 @@ layout_opts = {
         "border_width": 1,
         "margin":  4,
         "rounded":  True,
+        "border_normal": "#000000",
+        "border_focus": "#d75f5f",
         }
 
 layouts = [
@@ -21,4 +23,4 @@ layouts = [
         # layout.TreeTab(),
         # layout.VerticalTile(),
         # layout.Zoomy(),
-        ]
+]

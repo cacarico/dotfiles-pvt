@@ -1,4 +1,22 @@
+# -----------------------------------------------------------------------------
+# Name        : Caio Quinilato Teixeira
+# Email       : caio.quinilato@gmail.com
+# Repository  : https://github.com/github/dotfiles
+# Description : Lazygit configuration File
+# -----------------------------------------------------------------------------
+
+# https://github.com/jesseduffield/lazygit/blob/master/docs/Config.md
+
+#+++++ Sets up Vim Mode +++++#
 keybindingMode: "vim"
+
+#+++++ Sets up Vim Mode +++++#
+keybinding:
+  universal:
+    nextScreenMode: "="
+    prevScreenMode: "-"
+
+#+++++ GUI and Theme Configuration +++++#
 gui:
   # Theme Macchiato
   theme:

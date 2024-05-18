@@ -14,9 +14,7 @@ else
 fi
 
 # Install packman packages
-echo "Starting Arch Linux installation"
-sudo pacman -S virtualbox virtualbox-guest-iso
-sudo cat packages/pacman.install | sudo pacman -S --needed --noconfirm -
+$BOOTSTRAP_DIR/pacman-install.sh
 
 # Install yay and yay packages
 $BOOTSTRAP_DIR/yay-install.sh

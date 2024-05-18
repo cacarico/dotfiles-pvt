@@ -9,6 +9,9 @@ link-x: ## Create symlinks
 asdf: ## Install asdf packages
 	@scripts/bootstrap.d/asdf-install.sh
 
+pacman: ## Install asdf packages
+	@scripts/bootstrap.d/pacman-install.sh
+
 unlink: ## Delete symlinks
 	@scripts/bootstrap.sh remove_links
 

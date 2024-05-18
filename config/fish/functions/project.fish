@@ -6,11 +6,8 @@ function project
 
     if [ $selected ]
         tmux new-window -c "$selected" -n "$clean"
-        tmux send-keys -t 0 nvim Enter
+        tmux send-keys -t "$clean" nvim Enter
         tmux split-window -c "$selected" -v -l 20% ';'
         tmux select-pane -U
-
-        commandline -r ''
-        commandline -f repaint
     end
 end

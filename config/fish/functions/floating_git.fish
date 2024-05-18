@@ -1,5 +1,5 @@
 #!/usr/bin/env fish
 
 function floating_git
-    alacritty -e lazygit &
+    alacritty -T floating_lazygit -e lazygit &
 end

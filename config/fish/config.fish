@@ -5,6 +5,7 @@ end
 # exports nvim as default editor
 set -x EDITOR nvim
 set -x KUBE_EDITOR nvim
+set -g  fish_term_bell
 
 # -----------------------------
 # PATHS -----------------------
@@ -79,6 +80,10 @@ if type -q git
     alias gpl 'git pull'
     alias gpsup 'echo git push --set-upstream origin (git rev-parse --abbrev-ref HEAD) '
     abbr -a gitd 'git diff --ignore-space-at-eol -b -w --ignore-blank-lines'
+end
+
+if type -q ghq
+    abbr -a gg 'ghq get'
 end
 
 if type -q jaq

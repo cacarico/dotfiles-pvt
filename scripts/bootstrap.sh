@@ -1,84 +1,66 @@
 #!/usr/bin/env bash
-#
-CONFIG_DIR="$PWD/config"
-HOME_CONFIG_DIR="$HOME/.config"
-XORG_DIR="/etc/X11/xorg.conf.d/"
-HOME_XORG_DIR="$PWD/system/X11"
 
-# Creates symlinks
-create_links() {
-  for config in "$CONFIG_DIR"/*
-  do
-      app=$(echo "$config" | awk -F/ '{print $NF}')
-      case $app in
-          rofi)
-              ln -sfF "$config/config.rasi" "$HOME_CONFIG_DIR/rofi"
-              continue
-              ;;
-          starship)
-              ln -sfF "$config/starship.toml" "$HOME_CONFIG_DIR"
-              continue
-              ;;
-         xbindkey)
-              ln -sfF "$config/xbindkeysrc" "$HOME/.xbindkeysrc"
-              continue
-              ;;
-         gnupg)
-              ln -sfF "$config/gpg-agent.conf" "$HOME/.gnupg"
-              continue
-              ;;
-      esac
-      ln -sfF "$config" "$HOME_CONFIG_DIR/"
-  done
-}
+DOTFILES_DIR="$HOME/ghq/github.com/cacarico/dotfiles"
+GHQ_CACARICO_DIR="$HOME/ghq/github.com/cacarico"
+FONTS_DIR="$HOME/.local/share/fonts"
+BOOTSTRAP_DIR="scripts/bootstrap.d"
 
-# Create links for X
-link_x() {
-  for file in "$HOME_XORG_DIR"/*; do
-      sudo ln -sfF "$file" "$XORG_DIR/"
-  done
+# Creates default directories
+for directory in ~/Mounts/usb ~/Pictures ~/Games ~/Music ~/.local/bin ~/Books $GHQ_CACARICO_DIR; do
+    if [ ! -d "$directory" ]; then
+        mkdir -p "$directory"
+    else
+        echo "Directory $directory already exists, skipping..."
+    fi
+done
 
-  sudo ln -sfF "$PWD/system/backlight/backlight.rules" /etc/udev/rules.d/
-  sudo ln -sfF "$PWD/system/fingerprint/50-net.reactivated.fprint.device.enroll.rules" /etc/polkit-1/rules.d/
-  sudo ln -sfF "$PWD/system/modprobe/nobeep.conf" /etc/modprobe.d/
-  sudo ln -sfF "$PWD/system/NetworkManager/09-timezone" /etc/NetworkManager/dispatcher.d/
-}
+# Clones dotfiles repository
+if [ ! -d "$DOTFILES_DIR/dotfiles" ]; then
+    if command -v git &>/dev/null; then
+        echo "Installing git"
+        sudo pacman -S git --noconfirm
+    else
+        echo "Git already installed, skipping..."
+    fi
+    mkdir -p "$GHQ_CACARICO_DIR"
+    git clone https://github.com/cacarico/dotfiles.git "$DOTFILES_DIR"
+    cd "$DOTFILES_DIR"
+else
+    echo "Dotfiles repository already cloned, skipping..."
+fi
 
-# Remove symlinks
-remove_links() {
-    for config in "$CONFIG_DIR"/*
-    do
-        file="${config#"$CONFIG_DIR"/}"
-        unlink "$HOME_CONFIG_DIR/$file" 2>/dev/null
-    done
-}
+[ "$(uname -a | grep arch)" ] && $BOOTSTRAP_DIR/arch-install.sh
+[ "$(uname -a | grep fedora)" ] && $BOOTSTRAP_DIR/fedora-install.sh
+[ "$(uname -a | grep kali)" ] && $BOOTSTRAP_DIR/kali-install.sh
 
-# Install Arch Linux Packages
-arch_install() {
-    sudo cat packages/pacman.install | sudo pacman -S --needed -
-    yay -S --needed - < packages/yay.install
+# Install Tmux Plugin Manager
+if [ ! -d "$HOME/.tmux/plugins/tpm" ]; then
+    git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+fi
 
-    while IFS= read -r package
-    do
-        sudo snap install "$package"
-    done < packages/snap.install
+# Install Oh My Fish
+if [ ! -d "$HOME/.local/share/omf" ]; then
+    curl https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install | fish
+fi
 
-}
+# Sets git default configs
+git config --global user.name cacarico
+git config --global user.email "caio.quinilato@gmail.com"
 
-case $1 in
-    create_links)
-        create_links
-        ;;
-    remove_links)
-        remove_links
-        ;;
-    arch_install)
-        arch_install
-        ;;
-    link_x)
-       link_x
-        ;;
-    *)
-        echo "Option $1 not found"
-        ;;
-esac
+# Set fish as default shell
+if [ "$SHELL" != "/usr/bin/fish" ]; then
+    echo "Setting fish as default shell"
+    chsh -s /usr/bin/fish
+else
+    echo "Fish already default shell, skipping..."
+fi
+
+# Delete default directories before creating symbolic links
+find ~/.config \( -name 'fish' -o -name 'qtile' \) -type d -exec rm -r {} +
+
+# Create symbolic links
+make link
+make link-x
+
+echo "Installation finished."
+echo "It is recomended to restart now..."

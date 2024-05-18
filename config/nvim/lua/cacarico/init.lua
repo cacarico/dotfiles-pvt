@@ -1,3 +1,3 @@
-require("cacarico.mappings")
-require("cacarico.options")
+require("cacarico.keymaps")
 require("cacarico.lazy")
+require("cacarico.options")

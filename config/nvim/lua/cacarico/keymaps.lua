@@ -46,16 +46,16 @@ vim.keymap.set("n", '<A-l>', '<C-w>l', {noremap = true})
 vim.keymap.set("n", '<C-q>', ':bd<CR>', { noremap = true })
 
 -- Resize split
-vim.keymap.set("n", '<A-C-l>', ':vertical resize -5<CR>')
-vim.keymap.set("n", '<A-C-k>', ':resize +5<CR>')
-vim.keymap.set("n", '<A-C-j>', ':resize -5<CR>')
-vim.keymap.set("n", '<A-C-h>', ':vertical resize +5<CR>')
+vim.keymap.set("n", '<A-S-l>', ':vertical resize -5<CR>')
+vim.keymap.set("n", '<A-S-k>', ':resize +5<CR>')
+vim.keymap.set("n", '<A-S-j>', ':resize -5<CR>')
+vim.keymap.set("n", '<A-S-h>', ':vertical resize +5<CR>')
 
 -- Move split
-vim.keymap.set("n", '<A-S-h>', '<C-w>H', {silent = true})
-vim.keymap.set("n", '<A-S-j>', '<C-w>J', {silent = true})
-vim.keymap.set("n", '<A-S-k>', '<C-w>K', {silent = true})
-vim.keymap.set("n", '<A-S-l>', '<C-w>L', {silent = true})
+vim.keymap.set("n", '<A-C-h>', '<C-w>H', {silent = true})
+vim.keymap.set("n", '<A-C-j>', '<C-w>J', {silent = true})
+vim.keymap.set("n", '<A-C-k>', '<C-w>K', {silent = true})
+vim.keymap.set("n", '<A-C-l>', '<C-w>L', {silent = true})
 
 -- Windows
 vim.keymap.set("n", "\\\\", ":vsplit<CR>")

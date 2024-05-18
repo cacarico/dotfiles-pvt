@@ -59,8 +59,8 @@ fi
 find ~/.config \( -name 'fish' -o -name 'qtile' \) -type d -exec rm -r {} +
 
 # Create symbolic links
-make link
-make link-x
+$BOOTSTRAP_DIR/create_links.sh create_links
+$BOOTSTRAP_DIR/create_links.sh link_x
 
 echo "Installation finished."
 echo "It is recomended to restart now..."

@@ -1,4 +1,4 @@
-# Hyprland Documentation
+# Hyprland
 
 ![Working Laptop Setup](../../images/desktop-vim-spt-neofetch.png)
 

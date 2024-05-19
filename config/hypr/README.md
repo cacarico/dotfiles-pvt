@@ -1,5 +1,7 @@
 # Hyprland Documentation
 
+![Working Laptop Setup](../../images/desktop-vim-spt-neofetch.png)
+
 ## Keybindings
 
 ### General Keybindings

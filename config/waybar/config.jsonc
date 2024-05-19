@@ -1,3 +1,11 @@
+/*
+# -----------------------------------------------------------------------------
+# Name        : Caio Quinilato Teixeira
+# Email       : caio.quinilato@gmail.com
+# Repository  : https://github.com/github/dotfiles
+# Description : Waybar configuration
+# -----------------------------------------------------------------------------
+*/
 {
     // Waybar Configuration
 	"layer": "top",
@@ -24,7 +32,9 @@
 	"network": {
 		"tooltip": false,
 		"format-wifi": "  {essid}",
-		"format-ethernet": ""
+		"format-ethernet": "",
+   		"on-click":"alacritty -T floating_nmtui -e nmtui",
+
 	},
 	"backlight": {
 		"tooltip": false,

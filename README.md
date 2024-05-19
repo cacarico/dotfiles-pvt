@@ -6,24 +6,24 @@ Feel free to clone my configurations and give some ideas on how to improve them.
 
 
 ```
-                   -`
-                  .o+`
-                 `ooo/                          cacarico@darknet
-                `+oooo:                         ----------------
-               `+oooooo:                        OS: Arch Linux x86_64
-               -+oooooo+:                       Host: 21C5CTO1WW ThinkPad L14 Gen 3
-             `/:-:++oooo+:                      Kernel: 6.9.1-arch1-1
-            `/++++/+++++++:                     Uptime: 1 hour, 47 mins
-           `/++++++++++++++:                    Packages: 880 (pacman)
-          `/+++ooooooooooooo/`                  Shell: fish 3.7.1
-         ./ooosssso++osssssso+`                 Resolution: 1920x1200
-        .oossssso-````/ossssss+`                DE: Hyprland
-       -osssssso.      :ssssssso.               Theme: Adwaita [GTK2/3]
-      :osssssss/        osssso+++.              Icons: Adwaita [GTK2/3]
-     /ossssssss/        +ssssooo/-              Terminal: tmux
-   `/ossssso+/:-        -:/+osssso+-            CPU: AMD Ryzen 7 PRO 5875U with Radeon Graphics (16) @ 4.546GHz
-  `+sso+:-`                 `.-/+oso:           GPU: AMD ATI 07:00.0 Barcelo
- `++:.                           `-/+/          Memory: 4026MiB / 30878MiB
+                   -`                       cacarico@darknet
+                  .o+`                      ----------------
+                 `ooo/                      OS: Arch Linux x86_64
+                `+oooo:                     Host: 21C5CTO1WW ThinkPad L14 Gen 3
+               `+oooooo:                    Kernel: 6.9.1-arch1-1
+               -+oooooo+:                   Uptime: 1 hour, 47 mins
+             `/:-:++oooo+:                  Packages: 880 (pacman)
+            `/++++/+++++++:                 Shell: fish 3.7.1
+           `/++++++++++++++:                Resolution: 1920x1200
+          `/+++ooooooooooooo/`              DE: Hyprland
+         ./ooosssso++osssssso+`             Theme: Adwaita [GTK2/3]
+        .oossssso-````/ossssss+`            Icons: Adwaita [GTK2/3]
+       -osssssso.      :ssssssso.           Terminal: tmux
+      :osssssss/        osssso+++.          CPU: AMD Ryzen 7 PRO 5875U with Radeon Graphics (16) @ 4.546GHz
+     /ossssssss/        +ssssooo/-          GPU: AMD ATI 07:00.0 Barcelo
+   `/ossssso+/:-        -:/+osssso+-        Memory: 4026MiB / 30878MiB
+  `+sso+:-`                 `.-/+oso:
+ `++:.                           `-/+/
  .`                                 `/
 
 

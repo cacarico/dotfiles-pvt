@@ -1,5 +1,13 @@
 #!/usr/bin/env bash
 
+# -----------------------------------------------------------------------------
+# Name        : Caio Quinilato Teixeira
+# Email       : caio.quinilato@gmail.com
+# Repository  : https://github.com/github/dotfiles
+# Description : Script to configure Archlinux
+# -----------------------------------------------------------------------------
+
+
 DOTFILES_DIR="$HOME/ghq/github.com/cacarico/dotfiles"
 BOOTSTRAP_DIR="scripts/bootstrap.d"
 
@@ -14,13 +22,13 @@ else
 fi
 
 # Install packman packages
-$BOOTSTRAP_DIR/pacman-install.sh
+$BOOTSTRAP_DIR/pacman.sh
 
 # Install yay and yay packages
-$BOOTSTRAP_DIR/yay-install.sh
+$BOOTSTRAP_DIR/yay.sh
 
 # Install asdf
-$BOOTSTRAP_DIR/asdf-install.sh
+$BOOTSTRAP_DIR/asdf.sh
 
 # Enable service daemons
 echo "Enabling service daemons"
@@ -39,3 +47,6 @@ echo "Adding user $USER to groups"
 for group in vboxusers video input; do
     sudo usermod -aG "$group" "$USER"
 done
+
+# Enable fingerprint
+$BOOTSTRAP_DIR/fingerprint.sh

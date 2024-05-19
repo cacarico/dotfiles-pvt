@@ -101,7 +101,7 @@ require("lazy").setup({
     "ThePrimeagen/harpoon",
     "ThePrimeagen/refactoring.nvim",
     "stevearc/oil.nvim",
-    'akinsho/bufferline.nvim',
+    -- 'akinsho/bufferline.nvim',
     "easymotion/vim-easymotion",
     "mbbill/undotree",
     "folke/which-key.nvim",

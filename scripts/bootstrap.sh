@@ -6,7 +6,7 @@ FONTS_DIR="$HOME/.local/share/fonts"
 BOOTSTRAP_DIR="scripts/bootstrap.d"
 
 # Creates default directories
-for directory in ~/Mounts/usb ~/Pictures ~/Games ~/Music ~/.local/bin ~/Books $GHQ_CACARICO_DIR; do
+for directory in ~/Mounts/usb ~/Pictures ~/Games ~/Music ~/.local/bin ~/.local/share/waybar ~/Books $GHQ_CACARICO_DIR; do
     if [ ! -d "$directory" ]; then
         mkdir -p "$directory"
     else
@@ -29,9 +29,9 @@ else
     echo "Dotfiles repository already cloned, skipping..."
 fi
 
-[ "$(uname -a | grep arch)" ] && $BOOTSTRAP_DIR/arch-install.sh
-[ "$(uname -a | grep fedora)" ] && $BOOTSTRAP_DIR/fedora-install.sh
-[ "$(uname -a | grep kali)" ] && $BOOTSTRAP_DIR/kali-install.sh
+[ "$(uname -a | grep arch)" ] && $BOOTSTRAP_DIR/arch.sh
+[ "$(uname -a | grep fedora)" ] && $BOOTSTRAP_DIR/fedora.sh
+[ "$(uname -a | grep kali)" ] && $BOOTSTRAP_DIR/kali.sh
 
 # Install Tmux Plugin Manager
 if [ ! -d "$HOME/.tmux/plugins/tpm" ]; then
@@ -59,8 +59,8 @@ fi
 find ~/.config \( -name 'fish' -o -name 'qtile' \) -type d -exec rm -r {} +
 
 # Create symbolic links
-$BOOTSTRAP_DIR/create_links.sh create_links
-$BOOTSTRAP_DIR/create_links.sh link_x
+$BOOTSTRAP_DIR/links.sh create_links
+$BOOTSTRAP_DIR/links.sh link_x
 
 echo "Installation finished."
 echo "It is recomended to restart now..."

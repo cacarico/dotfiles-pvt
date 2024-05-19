@@ -12,7 +12,7 @@
     "output": "HDMI-A-1",
 	"modules-left": ["hyprland/workspaces"],
 	"modules-center": ["clock"],
-	"modules-right": ["custom/updates", "network", "backlight","pulseaudio", "upower"],
+	"modules-right": ["custom/updates", "network", "backlight","pulseaudio", "bluetooth", "upower"],
     // Modules Configuration
     "upower": {
         "icon-size": 15,
@@ -24,10 +24,12 @@
 		"tooltip": false,
 		"scroll-step": 5,
 		"format": "{icon} {volume}%",
-		"format-muted": "{icon} {volume}%",
+		"format-muted": "🔇 {volume}%",
 		"on-click":"pactl set-sink-mute @DEFAULT_SINK@ toggle",
+        "on-click-right": "pavucontrol",
 		"format-icons": {
-			"default": ["", "", ""]
+			"default": ["", "", ""],
+			// "default": ["🔈", "🔉", "🔊"],
 		}
 	},
 	"network": {
@@ -41,8 +43,8 @@
 		"tooltip": false,
 		"format": " {}%",
 		"interval":1,
-        "on-scroll-up": "light -A 5",
-		"on-scroll-down": "light -U 5"
+        "on-scroll-up": "light -A 10",
+		"on-scroll-down": "light -U 10"
 	},
 	"tray":{
 		"icon-size":18,
@@ -66,8 +68,18 @@
             "1": "",
             "2": "",
             "3": "",
-            "active": "",
+            //"active": "",
             "default": ""
         },
+    },
+    "bluetooth": {
+        // "controller": "controller1", // specify the alias of the controller if there are more than 1 on the system
+        "format": " {status}",
+        "format-disabled": "", // an empty format will hide the module
+        "format-connected": " {num_connections}",
+        "tooltip-format": "{controller_alias}\\t{controller_address}",
+        "tooltip-format-connected": "{controller_alias}\\t{controller_address}\\n\\n{device_enumerate}",
+        "tooltip-format-enumerate-connected": "{device_alias}\\t{device_address}",
+        "on-click": "blueman-manager"
     }
 }

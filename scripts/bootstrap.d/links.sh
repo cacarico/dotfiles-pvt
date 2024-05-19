@@ -38,9 +38,11 @@ create_links() {
 
 # Create links for X
 link_x() {
-    for file in "$HOME_XORG_DIR"/*; do
-        sudo ln -sfF "$file" "$XORG_DIR/"
-    done
+    #TODO Add check for X and Wayland
+    #
+    # for file in "$HOME_XORG_DIR"/*; do
+    #     sudo ln -sfF "$file" "$XORG_DIR/"
+    # done
 
     sudo ln -sfF "$PWD/system/backlight/backlight.rules" /etc/udev/rules.d/
     sudo ln -sfF "$PWD/system/fingerprint/50-net.reactivated.fprint.device.enroll.rules" /etc/polkit-1/rules.d/

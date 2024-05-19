@@ -68,10 +68,10 @@
             "active": "",
             "default": ""
         },
-        "persistent-workspaces": {
-            "HDMI-A-1": [ 1 ], // but only workspace 1 on HDMI-A-1
-            "DP-2": [ 2 ], // 2-5 on every monitor
-            "eDP-1": [ 3 ] // but only workspace 1 on HDMI-A-1
-        }
+        // "persistent-workspaces": {
+        //     "HDMI-A-1": [ 1 ], // Main Monitor
+        //     "DP-2": [ 2 ],     // Side Monitor
+        //     "eDP-1": [ 3 ],    // Laptop Monitor
+        // }
     }
 }

@@ -10,7 +10,16 @@ set -g  fish_term_bell
 # -----------------------------
 # PATHS -----------------------
 # -----------------------------
-set fish_user_paths $HOME/.cargo/bin $HOME/go/bin $HOME/.local/bin $HOME/.config/emacs/bin/ $JAVA_HOME/bin/ $HOME/.asdf/bin $HOME/.asdf/shims $HOME/.krew/bin $HOME/.local/share/gem/ruby/3.0.0/bin/ $HOME/bin
+set fish_user_paths \
+    $HOME/.asdf/bin \
+    $HOME/.asdf/shims \
+    $HOME/.cargo/bin \
+    $HOME/.config/emacs/bin \
+    $HOME/.krew/bin \
+    $HOME/.local/share/gem/ruby/3.0.0/bin \
+    $HOME/bin \
+    $HOME/go/bin $HOME/.local/bin \
+    $JAVA_HOME/bin
 
 # This is neede so signing commits with git works
 set -x GPG_TTY $(tty)

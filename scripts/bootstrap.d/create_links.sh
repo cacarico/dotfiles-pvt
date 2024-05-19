@@ -6,6 +6,11 @@ XORG_DIR="/etc/X11/xorg.conf.d/"
 HOME_XORG_DIR="$PWD/system/X11"
 # Creates symlinks
 create_links() {
+
+    # Links bin directory
+    ln -sfF "$PWD/bin" "$HOME/bin"
+
+    # Links config directory
     for config in "$CONFIG_DIR"/*
     do
         app=$(echo "$config" | awk -F/ '{print $NF}')

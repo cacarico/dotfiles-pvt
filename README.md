@@ -8,27 +8,27 @@ Feel free to clone my configurations and give some ideas on how to improve them.
 ```
                    -`
                   .o+`
-                 `ooo/
-                `+oooo:
-               `+oooooo:
-               -+oooooo+:
-             `/:-:++oooo+:
-            `/++++/+++++++:              cacarico@darknet
-           `/++++++++++++++:             ----------------
-          `/+++ooooooooooooo/`           OS: Arch Linux x86_64
-         ./ooosssso++osssssso+`          Host: 21C5CTO1WW ThinkPad L14 Gen 3
-        .oossssso-````/ossssss+`         Kernel: 6.9.1-arch1-1
-       -osssssso.      :ssssssso.        Uptime: 1 hour, 47 mins
-      :osssssss/        osssso+++.       Packages: 880 (pacman)
-     /ossssssss/        +ssssooo/-       Shell: fish 3.7.1
-   `/ossssso+/:-        -:/+osssso+-     Resolution: 1920x1200
-  `+sso+:-`                 `.-/+oso:    DE: Hyprland
- `++:.                           `-/+/   Theme: Adwaita [GTK2/3]
- .`                                 `/   Icons: Adwaita [GTK2/3]
-                                         Terminal: tmux
-                                         CPU: AMD Ryzen 7 PRO 5875U with Radeon Graphics (16) @ 4.546GHz
-                                         GPU: AMD ATI 07:00.0 Barcelo
-                                         Memory: 4026MiB / 30878MiB
+                 `ooo/                          cacarico@darknet
+                `+oooo:                         ----------------
+               `+oooooo:                        OS: Arch Linux x86_64
+               -+oooooo+:                       Host: 21C5CTO1WW ThinkPad L14 Gen 3
+             `/:-:++oooo+:                      Kernel: 6.9.1-arch1-1
+            `/++++/+++++++:                     Uptime: 1 hour, 47 mins
+           `/++++++++++++++:                    Packages: 880 (pacman)
+          `/+++ooooooooooooo/`                  Shell: fish 3.7.1
+         ./ooosssso++osssssso+`                 Resolution: 1920x1200
+        .oossssso-````/ossssss+`                DE: Hyprland
+       -osssssso.      :ssssssso.               Theme: Adwaita [GTK2/3]
+      :osssssss/        osssso+++.              Icons: Adwaita [GTK2/3]
+     /ossssssss/        +ssssooo/-              Terminal: tmux
+   `/ossssso+/:-        -:/+osssso+-            CPU: AMD Ryzen 7 PRO 5875U with Radeon Graphics (16) @ 4.546GHz
+  `+sso+:-`                 `.-/+oso:           GPU: AMD ATI 07:00.0 Barcelo
+ `++:.                           `-/+/          Memory: 4026MiB / 30878MiB
+ .`                                 `/
+
+
+
+
 ```
 ![Working Laptop Setup](images/desktop-vim-spt-neofetch.png)
 

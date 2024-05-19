@@ -1,3 +1,77 @@
+# Hyprland Documentation
+
+## Keybindings
+
+### General Keybindings
+
+| Key Combination           | Action                                 |
+|---------------------------|----------------------------------------|
+| SUPER + Alt + r           | Exit Hyprland                          |
+| SUPER + w                 | Close the active window                |
+| SUPER + SHIFT + b         | Toggle Waybar                          |
+| SUPER + ALT + o           | Change keyboard layout                 |
+
+### Fullscreen and Floating
+
+| Key Combination           | Action                                 |
+|---------------------------|----------------------------------------|
+| SUPER + f                 | Toggle fullscreen mode                 |
+| SUPER + c                 | Maximize current window                |
+| SUPER + SHIFT + F         | Toggle floating mode for current window|
+
+### Dwindle Layout
+
+| Key Combination           | Action                                 |
+|---------------------------|----------------------------------------|
+| SUPER + SHIFT + p         | Toggle pseudotiling                    |
+| SUPER + SHIFT + s         | Toggle split direction                 |
+
+### Windows and Workspaces
+
+| Key Combination           | Action                                 |
+|---------------------------|----------------------------------------|
+| SUPER + h / l / k / j     | Move focus left / right / up / down    |
+| SUPER + CTRL + h / l      | Move window left / right               |
+| SUPER + CTRL + k / j      | Move window up / down                  |
+| SUPER + SHIFT + l / h     | Resize window right / left             |
+| SUPER + SHIFT + k / j     | Resize window up / down                |
+| SUPER + [1-10]            | Switch to workspace 1-10               |
+| SUPER + SHIFT + [1-10]    | Move window to workspace 1-10          |
+| SUPER + Scroll Down       | Switch to next workspace               |
+| SUPER + Scroll Up         | Switch to previous workspace           |
+| SUPER + Tab               | Switch to next workspace               |
+| SUPER + SHIFT + Tab       | Switch to previous workspace           |
+| SUPER + Left Mouse Button | Move window                            |
+| SUPER + Right Mouse Button| Resize window                          |
+
+### Program Launchers
+
+| Key Combination           | Action                                 |
+|---------------------------|----------------------------------------|
+| SUPER + Return            | Launch terminal                        |
+| SUPER + Space             | Open application menu                  |
+| SUPER + e                 | Launch `yazi` file manager             |
+| SUPER + SHIFT + e         | Launch `pcmanfm` file manager          |
+| SUPER + SHIFT + q         | Lock the screen                        |
+| SUPER + b, b              | Launch Brave browser                   |
+| SUPER + b, f              | Launch Firefox                         |
+| SUPER + o, o              | Launch Obsidian                        |
+| SUPER + o, p              | Launch `pavucontrol`                   |
+| SUPER + o, b              | Launch `bluetoothctl`                  |
+| SUPER + o, a              | Launch `arandr`                        |
+| SUPER + o, n              | Launch `nmtui` in floating terminal    |
+
+### Scratchpad Submap
+
+| Key Combination           | Action                                 |
+|---------------------------|----------------------------------------|
+| SUPER + s, s              | Toggle scratchpad workspace 1          |
+| SUPER + SHIFT + s, s      | Move window to scratchpad workspace 1  |
+| SUPER + s, a              | Toggle scratchpad workspace 2          |
+| SUPER + SHIFT + s, a      | Move window to scratchpad workspace 2  |
+| SUPER + s, d              | Toggle scratchpad workspace 3          |
+| SUPER + SHIFT + s, d      | Move window to scratchpad workspace 3  |
+
 ## Key Settings and Customizations
 
 ### General Settings
@@ -62,78 +136,6 @@ If you encounter issues, check the following:
 Ensure all dependencies are installed.
 Verify the configuration file syntax.
 Check logs for errors: ~/.config/hypr/hyprland.log.
-
-# Hyprland Keybindings
-
-## General Keybindings
-
-| Key Combination           | Action                                 |
-|---------------------------|----------------------------------------|
-| SUPER + Alt + r           | Exit Hyprland                          |
-| SUPER + w                 | Close the active window                |
-| SUPER + SHIFT + b         | Toggle Waybar                          |
-| SUPER + ALT + o           | Change keyboard layout                 |
-
-## Fullscreen and Floating
-
-| Key Combination           | Action                                 |
-|---------------------------|----------------------------------------|
-| SUPER + f                 | Toggle fullscreen mode                 |
-| SUPER + c                 | Maximize current window                |
-| SUPER + SHIFT + F         | Toggle floating mode for current window|
-
-## Dwindle Layout
-
-| Key Combination           | Action                                 |
-|---------------------------|----------------------------------------|
-| SUPER + SHIFT + p         | Toggle pseudotiling                    |
-| SUPER + SHIFT + s         | Toggle split direction                 |
-
-## Windows and Workspaces
-
-| Key Combination           | Action                                 |
-|---------------------------|----------------------------------------|
-| SUPER + h / l / k / j     | Move focus left / right / up / down    |
-| SUPER + CTRL + h / l      | Move window left / right               |
-| SUPER + CTRL + k / j      | Move window up / down                  |
-| SUPER + SHIFT + l / h     | Resize window right / left             |
-| SUPER + SHIFT + k / j     | Resize window up / down                |
-| SUPER + [1-10]            | Switch to workspace 1-10               |
-| SUPER + SHIFT + [1-10]    | Move window to workspace 1-10          |
-| SUPER + Scroll Down       | Switch to next workspace               |
-| SUPER + Scroll Up         | Switch to previous workspace           |
-| SUPER + Tab               | Switch to next workspace               |
-| SUPER + SHIFT + Tab       | Switch to previous workspace           |
-| SUPER + Left Mouse Button | Move window                            |
-| SUPER + Right Mouse Button| Resize window                          |
-
-## Program Launchers
-
-| Key Combination           | Action                                 |
-|---------------------------|----------------------------------------|
-| SUPER + Return            | Launch terminal                        |
-| SUPER + Space             | Open application menu                  |
-| SUPER + e                 | Launch `yazi` file manager             |
-| SUPER + SHIFT + e         | Launch `pcmanfm` file manager          |
-| SUPER + SHIFT + q         | Lock the screen                        |
-| SUPER + b, b              | Launch Brave browser                   |
-| SUPER + b, f              | Launch Firefox                         |
-| SUPER + o, o              | Launch Obsidian                        |
-| SUPER + o, p              | Launch `pavucontrol`                   |
-| SUPER + o, b              | Launch `bluetoothctl`                  |
-| SUPER + o, a              | Launch `arandr`                        |
-| SUPER + o, n              | Launch `nmtui` in floating terminal    |
-
-## Scratchpad Submap
-
-| Key Combination           | Action                                 |
-|---------------------------|----------------------------------------|
-| SUPER + s, s              | Toggle scratchpad workspace 1          |
-| SUPER + SHIFT + s, s      | Move window to scratchpad workspace 1  |
-| SUPER + s, a              | Toggle scratchpad workspace 2          |
-| SUPER + SHIFT + s, a      | Move window to scratchpad workspace 2  |
-| SUPER + s, d              | Toggle scratchpad workspace 3          |
-| SUPER + SHIFT + s, d      | Move window to scratchpad workspace 3  |
 
 # Resources
 Hyprland GitHub Repository

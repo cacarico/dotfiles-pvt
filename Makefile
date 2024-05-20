@@ -11,7 +11,10 @@ link-x: ## Create symlinks
 	@scripts/bootstrap.d/links.sh link_x
 
 asdf: ## Install asdf packages
-	@scripts/bootstrap.d/asdf-install.sh
+	@scripts/bootstrap.d/packages/asdf.sh
+
+dnf: ## Install dnf packages
+	@scripts/bootstrap.d/packages/dnf.sh
 
 pacman: ## Install asdf packages
 	@scripts/bootstrap.d/pacman-install.sh

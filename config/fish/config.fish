@@ -57,11 +57,6 @@ if type -q aws-vault
     alias avl "aws-vault login"
 end
 
-if type -q autojump
-    alias j autojump
-    alias jump autojump
-end
-
 if type -q bat
     alias cat bat
 end
@@ -109,9 +104,8 @@ alias xc 'xclip -selection clipboard'
 
 # Sources for fish commands
 direnv hook fish | source
-jump shell fish | source
 starship init fish | source
 zoxide init fish | source
 
-source ~/.config/fish/conf.d/*
-source ~/.config/fish/functions/*
+# source ~/.config/fish/conf.d/*
+# source ~/.config/fish/functions/*

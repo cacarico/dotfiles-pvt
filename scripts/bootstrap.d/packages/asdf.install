@@ -1,5 +1,11 @@
 ghq
+rust
 golang
 nodejs
 erlang
 elixir
+terraform
+terragrunt
+kubectl
+helm
+k9s

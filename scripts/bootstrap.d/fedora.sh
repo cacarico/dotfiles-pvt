@@ -15,6 +15,9 @@ PACKAGES_DIR="$BOOTSTRAP_DIR/packages"
 # Install dnf packages
 $PACKAGES_DIR/dnf.sh
 
+# Install asdf
+$BOOTSTRAP_DIR/asdf.sh
+
 # Enable service daemons
 echo "Enabling service daemons"
 #TODO  for service in snapd snapd.apparmor; do

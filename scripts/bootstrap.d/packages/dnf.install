@@ -1,9 +1,20 @@
 alacritty
+blueman
 fish
 fzf
 hyprland
 make
+ncurses-devel # erlang - compile dep
 neovim
 tmux
 waybar
+wxBase # erlang - compile dep
+wxGTK-devel   # erlang - compile dep
 zoxide
+lz4-devel # swww - compile dep
+scdoc # swww - used to build manual pages
+openssl-devel # erlang - compile dep
+autoconf # erlang - compile dep
+automake # erlang - compile dep
+btop
+nodejs-bash-language-server

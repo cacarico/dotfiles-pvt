@@ -14,4 +14,4 @@ while IFS= read -r package; do
     ~/.asdf/bin/asdf plugin-add "$package"
     ~/.asdf/bin/asdf install "$package" latest
     ~/.asdf/bin/asdf global "$package" latest
-done < packages/asdf.install
+done < scripts/bootstrap.d/packages/asdf.install

@@ -1,10 +1,14 @@
-install: link link-x package_install ## Creates links and install packages
+# install: link link-x package_install ## Creates links and install packages
+install: bootstrap
+
+bootstrap: ## Starts Bootstrap
+	@scripts/bootstrap.sh
 
 link: ## Create symlinks
-	@scripts/bootstrap.sh create_links
+	@scripts/bootstrap.d/links.sh create_links
 
 link-x: ## Create symlinks
-	@scripts/bootstrap.sh link_x
+	@scripts/bootstrap.d/links.sh link_x
 
 asdf: ## Install asdf packages
 	@scripts/bootstrap.d/asdf-install.sh

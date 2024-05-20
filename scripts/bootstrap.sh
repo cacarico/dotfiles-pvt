@@ -4,9 +4,10 @@ DOTFILES_DIR="$HOME/ghq/github.com/cacarico/dotfiles"
 GHQ_CACARICO_DIR="$HOME/ghq/github.com/cacarico"
 FONTS_DIR="$HOME/.local/share/fonts"
 BOOTSTRAP_DIR="scripts/bootstrap.d"
+LOGS_DIR="$HOME/.local/share/logs"
 
 # Creates default directories
-for directory in ~/Mounts/usb ~/Pictures ~/Games ~/Music ~/.local/bin ~/.local/share/waybar ~/Books $GHQ_CACARICO_DIR; do
+for directory in ~/Mounts/usb ~/Pictures ~/Games ~/Music ~/.local/share/waybar ~/Books $GHQ_CACARICO_DIR $LOGS_DIR; do
     if [ ! -d "$directory" ]; then
         mkdir -p "$directory"
     else
@@ -15,20 +16,25 @@ for directory in ~/Mounts/usb ~/Pictures ~/Games ~/Music ~/.local/bin ~/.local/s
 done
 
 # Clones dotfiles repository
-if [ ! -d "$DOTFILES_DIR/dotfiles" ]; then
-    if command -v git &>/dev/null; then
+if [ ! -d "$DOTFILES_DIR" ]; then
+    echo $DOTFILES_DIR
+    if ! command -v git &>/dev/null; then
         echo "Installing git"
-        sudo pacman -S git --noconfirm
+        echo sudo pacman -S git --noconfirm
     else
         echo "Git already installed, skipping..."
     fi
     mkdir -p "$GHQ_CACARICO_DIR"
-    git clone https://github.com/cacarico/dotfiles.git "$DOTFILES_DIR"
+    git clone git@github.com:cacarico/dotfiles.git "$DOTFILES_DIR"
     cd "$DOTFILES_DIR"
 else
     echo "Dotfiles repository already cloned, skipping..."
 fi
 
+# Create symbolic links
+$BOOTSTRAP_DIR/links.sh create_links
+
+# Start Distro Install
 [ "$(uname -a | grep arch)" ] && $BOOTSTRAP_DIR/arch.sh
 [ "$(uname -a | grep fedora)" ] && $BOOTSTRAP_DIR/fedora.sh
 [ "$(uname -a | grep kali)" ] && $BOOTSTRAP_DIR/kali.sh
@@ -58,9 +64,7 @@ fi
 # Delete default directories before creating symbolic links
 find ~/.config \( -name 'fish' -o -name 'qtile' \) -type d -exec rm -r {} +
 
-# Create symbolic links
-$BOOTSTRAP_DIR/links.sh create_links
-$BOOTSTRAP_DIR/links.sh link_x
+# $BOOTSTRAP_DIR/links.sh link_x
 
 echo "Installation finished."
 echo "It is recomended to restart now..."

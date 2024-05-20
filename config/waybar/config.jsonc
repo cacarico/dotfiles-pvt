@@ -9,7 +9,8 @@
 {
     // Waybar Configuration
 	"layer": "top",
-    "output": "HDMI-A-1",
+    // "output": "HDMI-A-1",
+    "output": "eDP-1",
 	"modules-left": ["hyprland/workspaces"],
 	"modules-center": ["clock"],
 	"modules-right": ["custom/updates", "network", "backlight","pulseaudio", "bluetooth", "upower"],

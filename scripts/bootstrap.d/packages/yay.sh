@@ -14,4 +14,4 @@ else
 fi
 
 echo "Installing yay packages..."
-yay -S --needed --noconfirm - < packages/yay.install
+yay -S --needed --noconfirm - < scripts/bootstrap.d/packages/yay.install

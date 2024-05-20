@@ -26,8 +26,8 @@
 		"scroll-step": 5,
 		"format": "{icon} {volume}%",
 		"format-muted": "🔇 {volume}%",
-		"on-click":"pactl set-sink-mute @DEFAULT_SINK@ toggle",
-        "on-click-right": "pavucontrol",
+		"on-click-right":"pactl set-sink-mute @DEFAULT_SINK@ toggle",
+        "on-click": "pavucontrol",
 		"format-icons": {
 			"default": ["", "", ""],
 			// "default": ["🔈", "🔉", "🔊"],

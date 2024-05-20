@@ -80,6 +80,7 @@
         "tooltip-format": "{controller_alias}\\t{controller_address}",
         "tooltip-format-connected": "{controller_alias}\\t{controller_address}\\n\\n{device_enumerate}",
         "tooltip-format-enumerate-connected": "{device_alias}\\t{device_address}",
-        "on-click": "blueman-manager"
+        "on-click": "blueman-manager",
+        "on-click-right": "bluetoothctl show | grep Powered | grep yes && bluetoothctl power off || bluetoothctl power on"
     }
 }

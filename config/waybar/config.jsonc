@@ -44,8 +44,9 @@
 		"tooltip": false,
 		"format": " {}%",
 		"interval":1,
-        "on-scroll-up": "light -A 10",
-		"on-scroll-down": "light -U 10"
+        "on-scroll-up": "brillo -A 10",
+		"on-scroll-down": "brillo -U 10",
+        "smooth-scrolling-threshold": "1000"
 	},
 	"tray":{
 		"icon-size":18,

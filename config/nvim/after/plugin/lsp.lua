@@ -31,13 +31,27 @@ local capabilities = require("cmp_nvim_lsp").default_capabilities()
 local lspconfig = require('lspconfig')
 
 -- Enable some language servers with the additional completion capabilities offered by nvim-cmp
-local servers = { 'clangd', 'rust_analyzer', 'pyright', 'tsserver', 'gopls', 'bashls' , 'lua_ls', 'elixirls', 'terraform-lsp'}
+-- local servers = { 'clangd', 'rust_analyzer', 'pyright', 'tsserver', 'gopls', 'bashls' , 'lua_ls', "elixirls"}
+local servers = { 'clangd', 'rust_analyzer', 'pyright', 'tsserver', 'gopls', 'bashls' , 'lua_ls'}
 for _, lsp in ipairs(servers) do
   lspconfig[lsp].setup {
     -- on_attach = my_custom_on_attach,
     capabilities = capabilities,
   }
 end
+
+require'lspconfig'.elixirls.setup{
+    cmd = {"/home/cacarico/.asdf/shims/elixir-ls"},
+    filetypes = {"elixir", "eelixir", "heex", "surface"},
+    root_dir = require'lspconfig'.util.root_pattern("mix.exs", ".git"),
+    settings = {
+        elixirLS = {
+            dialyzerEnabled = false,
+            fetchDeps = false,
+            enableTestLenses = false
+        }
+    }
+}
 
 -- luasnip setup
 local luasnip = require 'luasnip'

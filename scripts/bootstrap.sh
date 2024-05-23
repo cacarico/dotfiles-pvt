@@ -7,7 +7,8 @@ BOOTSTRAP_DIR="scripts/bootstrap.d"
 LOGS_DIR="$HOME/.local/share/logs"
 
 # Creates default directories
-for directory in ~/Mounts/usb ~/Pictures ~/Games ~/Music ~/.local/share/waybar ~/Books $GHQ_CACARICO_DIR $LOGS_DIR; do
+create_dirs=( ~/.cache/nvim/undodir ~/Mounts/usb ~/Pictures ~/Games ~/Music ~/.local/share/waybar ~/Books ~/.themes/ "$GHQ_CACARICO_DIR" "$LOGS_DIR" )
+for directory in "${create_dirs[@]}"; do
     if [ ! -d "$directory" ]; then
         mkdir -p "$directory"
     else
@@ -31,13 +32,17 @@ else
     echo "Dotfiles repository already cloned, skipping..."
 fi
 
+# Delete default directories before creating symbolic links
+find ~/.config \( -name 'fish' -o -name 'qtile' \) -type d -exec rm -r {} +
+
 # Create symbolic links
 $BOOTSTRAP_DIR/links.sh create_links
 
 # Start Distro Install
-[ "$(uname -a | grep arch)" ] && $BOOTSTRAP_DIR/arch.sh
-[ "$(uname -a | grep fedora)" ] && $BOOTSTRAP_DIR/fedora.sh
-[ "$(uname -a | grep kali)" ] && $BOOTSTRAP_DIR/kali.sh
+uname -a | grep -q arch && $BOOTSTRAP_DIR/arch.sh
+uname -a | grep -q fedora && $BOOTSTRAP_DIR/fedora.sh
+uname -a | grep -q kali && $BOOTSTRAP_DIR/kali.sh
+
 
 # Install Tmux Plugin Manager
 if [ ! -d "$HOME/.tmux/plugins/tpm" ]; then
@@ -49,9 +54,18 @@ if [ ! -d "$HOME/.local/share/omf" ]; then
     curl https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install | fish
 fi
 
-# Sets git default configs
-git config --global user.name cacarico
-git config --global user.email "caio.quinilato@gmail.com"
+# Enable service daemons
+user_services=(dunst.service)
+echo "Enabling service daemons"
+for service in "${user_services[@]}"; do
+    sudo systemctl enable --now "$service"
+done
+
+# Add user to groups
+echo "Adding user $USER to groups"
+for group in vboxusers video input; do
+    sudo usermod -aG "$group" "$USER"
+done
 
 # Set fish as default shell
 if [ "$SHELL" != "/usr/bin/fish" ]; then
@@ -61,10 +75,10 @@ else
     echo "Fish already default shell, skipping..."
 fi
 
-# Delete default directories before creating symbolic links
-find ~/.config \( -name 'fish' -o -name 'qtile' \) -type d -exec rm -r {} +
-
-# $BOOTSTRAP_DIR/links.sh link_x
+# Sets git default configs
+git config --global user.name cacarico
+git config --global user.email "caio.quinilato@gmail.com"
+git config --global commit.gpgsign true
 
 echo "Installation finished."
 echo "It is recomended to restart now..."

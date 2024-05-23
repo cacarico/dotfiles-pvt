@@ -1,11 +1,17 @@
-ghq
-rust
-golang
-nodejs
-erlang
 elixir
-terraform
-terragrunt
-kubectl
+erlang
+ghq
+golang
 helm
 k9s
+kubectl
+lua-language-server
+meson # swaylocker
+nodejs
+rust
+terraform
+terragrunt
+terraform-lsp
+minikube
+awscli
+aws-vault

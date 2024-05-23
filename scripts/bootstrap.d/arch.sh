@@ -29,24 +29,3 @@ $BOOTSTRAP_DIR/yay.sh
 
 # Install asdf
 $BOOTSTRAP_DIR/asdf.sh
-
-# Enable service daemons
-echo "Enabling service daemons"
-for service in fprintd bluetooth snapd snapd.apparmor cups.socket avahi-daemon.service; do
-    sudo systemctl enable --now $service
-done
-
-# Enable user daemons
-echo "Enabling user daemons"
-for user_service in podman.socket podman.service; do
-    sudo systemctl --user enable --now $user_service
-done
-
-# Add user to groups
-echo "Adding user $USER to groups"
-for group in vboxusers video input; do
-    sudo usermod -aG "$group" "$USER"
-done
-
-# Enable fingerprint
-$BOOTSTRAP_DIR/fingerprint.sh

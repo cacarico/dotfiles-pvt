@@ -52,10 +52,18 @@ abbr -a ninstall nvim +PlugInstall +qal
 # Aliases ---------------------
 # -----------------------------
 
+if type -q aws
+    alias awsp "set -gx AWS_PROFILE "
+end
+
 if type -q aws-vault
     alias av "aws-vault exec"
     alias avl "aws-vault login"
 end
+
+# if type -q _awsp
+#     alias awsp "source /home/cacarico/.asdf/shims/_awsp"
+# end
 
 if type -q bat
     alias cat bat
@@ -71,18 +79,18 @@ end
 
 if type -q git
     alias g git
-    alias gs 'git status'
     alias ga 'git add'
-    alias gc 'git commit -m'
     alias gb 'git branch'
+    alias gc 'git commit -m'
+    alias gcm 'git switch main 2>/dev/null || git switch master'
     alias gco 'git switch'
     alias gcu 'git branch -u origin'
-    alias gcm 'git switch main 2>/dev/null || git switch master'
     alias gd 'git diff'
     alias gl 'git log'
     alias gp 'git push'
     alias gpl 'git pull'
-    alias gpsup 'echo git push --set-upstream origin (git rev-parse --abbrev-ref HEAD) '
+    alias gpsup 'echo git push --set-upstream origin (git rev-parse --abbrev-ref HEAD)'
+    alias gs 'git status'
     abbr -a gitd 'git diff --ignore-space-at-eol -b -w --ignore-blank-lines'
 end
 
@@ -99,8 +107,6 @@ if type -q kubectl
     alias kc 'kubectl ctx'
     alias kn 'kubectl ns'
 end
-
-alias xc 'xclip -selection clipboard'
 
 # Sources for fish commands
 direnv hook fish | source

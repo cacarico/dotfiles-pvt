@@ -55,7 +55,7 @@ install_brillo() {
 
     ghq get git@github.com:CameronNemo/brillo.git
     (
-    cd "$GHQ_DIR/brillo"
+    cd "$GHQ_DIR/brillo" || return 1
 
     # Build Package and Install
     make build
@@ -71,7 +71,7 @@ install_lazygit() {
 install_swaylock() {
     ghq get git@github.com:mortie/swaylock-effects.git
     (
-        cd "$GHQ_DIR/mortie/swaylock-effects"
+        cd "$GHQ_DIR/mortie/swaylock-effects" || return 1
 
         # Build and Install
         meson build

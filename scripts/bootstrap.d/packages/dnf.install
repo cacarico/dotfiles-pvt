@@ -1,20 +1,38 @@
 alacritty
+autoconf # erlang - compile dep
+automake # erlang - compile dep
+bat
 blueman
+btop
+docker
+docker-compose
+dunst
+exa
 fish
+forticlient
 fzf
+go-md2man # brillo - compiple dep
 hyprland
+jaq #TODO
+lz4-devel # swww - compile dep
 make
 ncurses-devel # erlang - compile dep
 neovim
+NetworkManager-tui
+ninja-build # swaylocker
+nodejs-bash-language-server
+openssl # podman
+openssl-devel # erlang - compile dep
+pam-devel
+pamixer
+pavucontrol
+scdoc # swww - compile dep
+telnet
+terraform-ls
 tmux
 waybar
+wayland-protocols-devel # swaylocker
+wev
 wxBase # erlang - compile dep
 wxGTK-devel   # erlang - compile dep
 zoxide
-lz4-devel # swww - compile dep
-scdoc # swww - used to build manual pages
-openssl-devel # erlang - compile dep
-autoconf # erlang - compile dep
-automake # erlang - compile dep
-btop
-nodejs-bash-language-server

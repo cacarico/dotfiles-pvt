@@ -28,11 +28,21 @@ create_links() {
                 continue
                 ;;
             gnupg)
-                ln -sfF "$config/gpg-agent.conf" "$HOME/.gnupg"
+                ln -sfF "$config/gpg-agent.conf" "$HOME/.gnupg/pgp-agent.conf"
+                continue
+                ;;
+            asdf)
+                ln -sfF "$config/asdfrc" "$HOME/.asdfrc"
                 continue
                 ;;
         esac
         ln -sfF "$config" "$HOME_CONFIG_DIR/"
+    done
+
+    # Links Desktop Entries
+    for entry in "$PWD/Desktop"/*
+    do
+        ln -sfF "$PWD/Desktop/$entry" "$HOME/Desktop/"
     done
 }
 

@@ -9,8 +9,9 @@
 {
     // Waybar Configuration
 	"layer": "top",
-    // "output": "HDMI-A-1",
-    "output": "eDP-1",
+    "output": "HDMI-A-1",
+    // "output": "eDP-1",
+    // "output": "DP-3",
 	"modules-left": ["hyprland/workspaces"],
 	"modules-center": ["clock"],
 	"modules-right": ["custom/updates", "network", "backlight","pulseaudio", "bluetooth", "upower"],
@@ -30,11 +31,11 @@
         "on-click-right": "pavucontrol",
 		"format-icons": {
 			"default": ["", "", ""],
-			// "default": ["🔈", "🔉", "🔊"],
 		}
 	},
 	"network": {
 		"tooltip": false,
+        "hide-if-empty": false,
 		"format-wifi": "  {essid}",
 		"format-ethernet": "",
    		"on-click":"alacritty -T floating_nmtui -e nmtui",
@@ -44,8 +45,8 @@
 		"tooltip": false,
 		"format": " {}%",
 		"interval":1,
-        "on-scroll-up": "light -A 10",
-		"on-scroll-down": "light -U 10"
+        "on-scroll-up": "brillo -A 10",
+		"on-scroll-down": "brillo -U 10"
 	},
 	"tray":{
 		"icon-size":18,
@@ -82,6 +83,8 @@
         "tooltip-format-connected": "{controller_alias}\\t{controller_address}\\n\\n{device_enumerate}",
         "tooltip-format-enumerate-connected": "{device_alias}\\t{device_address}",
         "on-click": "blueman-manager",
-        "on-click-right": "bluetoothctl show | grep Powered | grep yes && bluetoothctl power off || bluetoothctl power on"
+        "on-click-right": "bluetoothctl show | grep Powered | grep yes && bluetoothctl power off || bluetoothctl power on",
+        "on-scroll-up": "bluetoothctl connect 28:11:A5:38:CB:24",
+        "on-scroll-down": "bluetoothctl disconnect 28:11:A5:38:CB:24",
     }
 }

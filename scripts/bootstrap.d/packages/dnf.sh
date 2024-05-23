@@ -58,10 +58,37 @@ install_brillo() {
     cd "$GHQ_DIR/brillo"
 
     # Build Package and Install
-    make buil
-    make install
-)
+    make build
+    sudo make install
+    )
+}
 
+install_lazygit() {
+    sudo dnf -y copr enable atim/lazygit -y
+    sudo dnf -y install lazygit
+}
+
+install_swaylock() {
+    ghq get git@github.com:mortie/swaylock-effects.git
+    (
+        cd "$GHQ_DIR/mortie/swaylock-effects"
+
+        # Build and Install
+        meson build
+        ninja -C build
+        sudo ninja -C build install
+    )
+}
+
+install_forticlient() {
+    sudo dnf config-manager --add-repo https://repo.fortinet.com/repo/7.0/centos/8/os/x86_64/fortinet.repo
+    sudo dnf install forticlient
+}
+
+install_github_cli() {
+    sudo dnf -y install 'dnf-command(config-manager)'
+    sudo dnf -y config-manager --add-repo https://cli.github.com/packages/rpm/gh-cli.repo
+    sudo dnf -y install gh
 }
 
 cleanup() {
@@ -78,8 +105,29 @@ update_install() {
     # Update and install DNF Packages
     echo "Updating and Installing Fedora Packages"
     # sudo dnf -y update
-    sudo dnf -y install $(cat $PACKAGES_DIR/dnf.install)
+    sudo dnf -y install "$(cat $PACKAGES_DIR/dnf.install)"
+}
+
+install_1password() {
+    sudo rpm --import https://downloads.1password.com/linux/keys/1password.asc
+    sudo sh -c 'echo -e "[1password]\nname=1Password Stable Channel\nbaseurl=https://downloads.1password.com/linux/rpm/stable/\$basearch\nenabled=1\ngpgcheck=1\nrepo_gpgcheck=1\ngpgkey=\"https://downloads.1password.com/linux/keys/1password.asc\"" > /etc/yum.repos.d/1password.repo'
+    sudo dnf -y install 1password
+}
+
+install_dracula_gtk() {
+    # Install Theme
+    wget https://github.com/dracula/gtk/archive/master.zip
+    unzip master.zip
+    mv gtk-master/ ~/.themes/dracula
+    rm -f master.zip
+
+    # Install Icons
+    wget https://github.com/dracula/gtk/files/5214870/Dracula.zip
+    unzip Dracula.zip
+    mv Dracula ~/.icons
+    rm -f Dracula.zip
 }
 
 update_install
 install_starship
+install_swww

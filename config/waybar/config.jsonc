@@ -31,6 +31,7 @@
         "on-click": "pavucontrol",
 		"format-icons": {
 			"default": ["", "", ""],
+			// "default": ["🔈", "🔉", "🔊"],
 		}
 	},
 	"network": {

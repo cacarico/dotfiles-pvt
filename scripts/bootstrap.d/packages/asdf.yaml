@@ -1,0 +1,35 @@
+packages:
+  - name: elixir
+    versions: latest
+  - name: erlang
+    versions: latest
+  - name: ghq
+    versions: latest
+  - name: golang
+    versions: latest
+  - name: helm
+    versions: latest
+  - name: k9s
+    versions: latest
+  - name: kubectl
+    versions: latest
+  - name: lua-language-server
+    versions: latest
+  - name: meson # swaylocker
+    versions: latest
+  - name: nodejs
+    versions: latest
+  - name: rust
+    versions: latest
+  - name: terraform
+    versions: latest
+  - name: terragrunt
+    versions: latest
+  - name: terraform-lsp
+    versions: latest
+  - name: minikube
+    versions: latest
+  - name: awscli
+    versions: latest
+  - name: aws-vault
+    versions: latest

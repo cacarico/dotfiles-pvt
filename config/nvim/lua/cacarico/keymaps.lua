@@ -38,6 +38,7 @@ vim.keymap.set("n", "<C-s>", ":w <CR>")
 -- Replace all occurrences of the current word under the cursor with the same word
 vim.keymap.set("n", "<leader>sg", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/g<Left><Left>]])
 
+-- Moves using Alt hjkl
 vim.keymap.set("n", '<A-h>', '<C-w>h', {noremap = true})
 vim.keymap.set("n", '<A-j>', '<C-w>j', {noremap = true})
 vim.keymap.set("n", '<A-k>', '<C-w>k', {noremap = true})

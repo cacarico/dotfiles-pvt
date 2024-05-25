@@ -9,7 +9,7 @@
 
 
 DOTFILES_DIR="$HOME/ghq/github.com/cacarico/dotfiles"
-BOOTSTRAP_DIR="scripts/bootstrap.d"
+PACKAGES_DIR="$BOOTSTRAP_DIR/packages"
 
 # Clones dotfiles repository
 if [ ! -d "$DOTFILES_DIR/dotfiles" ]; then

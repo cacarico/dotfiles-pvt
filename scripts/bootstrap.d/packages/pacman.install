@@ -25,6 +25,7 @@ fprintd
 fzf
 gdu
 gimp
+gnome-keyring
 gopls
 helm
 imagemagick
@@ -41,11 +42,11 @@ mpv
 neofetch
 neovim
 noto-fonts-emoji
-noto-fonts-emoji
 nss-mdns
 obsidian
 p7zip
 pacman-contrib
+pamixer
 pavucontrol
 pcmanfm-gtk3
 peco
@@ -59,10 +60,12 @@ rofi
 spotify-launcher
 starship
 tmux
+tokei
 transmission-gtk
 unzip
 usbutils
 xclip
 xsecurelock
 yazi
+yq
 zoxide

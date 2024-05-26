@@ -9,6 +9,12 @@ vim.api.nvim_create_autocmd('LspAttach', {
   callback = function(event)
     local opts = {buffer = event.buf}
 
+    -- local function set_keymap(mode, lhs, rhs, desc, opts)
+    --     local options = {buffer = event.buf}
+    --         vim.keymap.set('n')
+    --     end
+    -- end
+
     -- these will be buffer-local keybindings
     -- because they only work if you have an active language server
 

@@ -2,8 +2,6 @@
 
 CONFIG_DIR="$PWD/config"
 HOME_CONFIG_DIR="$HOME/.config"
-XORG_DIR="/etc/X11/xorg.conf.d/"
-HOME_XORG_DIR="$PWD/system/X11"
 # Creates symlinks
 create_links() {
 
@@ -48,12 +46,6 @@ create_links() {
 
 # Create links for X
 link_x() {
-    #TODO Add check for X and Wayland
-    #
-    # for file in "$HOME_XORG_DIR"/*; do
-    #     sudo ln -sfF "$file" "$XORG_DIR/"
-    # done
-
     sudo ln -sfF "$PWD/system/backlight/backlight.rules" /etc/udev/rules.d/
     sudo ln -sfF "$PWD/system/fingerprint/50-net.reactivated.fprint.device.enroll.rules" /etc/polkit-1/rules.d/
     sudo ln -sfF "$PWD/system/modprobe/nobeep.conf" /etc/modprobe.d/

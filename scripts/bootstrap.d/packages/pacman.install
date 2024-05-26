@@ -18,6 +18,7 @@ exfat-utils
 eza
 feh
 figlet
+python-psutil
 firefox
 fish
 flameshot
@@ -53,6 +54,7 @@ peco
 picom
 podman
 pre-commit
+gimp
 pyright
 ranger
 ripgrep

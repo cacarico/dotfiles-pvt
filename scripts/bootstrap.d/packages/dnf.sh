@@ -7,8 +7,6 @@
 # Description : Script to update and Install DNF Packages
 # -----------------------------------------------------------------------------
 
-BOOTSTRAP_DIR="scripts/bootstrap.d"
-PACKAGES_DIR="$BOOTSTRAP_DIR/packages"
 GHQ_DIR="$HOME/ghq"
 
 install_starship() {

@@ -1,4 +1,4 @@
-packages:
+global:
   - name: elixir
     versions: latest
   - name: erlang
@@ -15,10 +15,10 @@ packages:
     versions: latest
   - name: lua-language-server
     versions: latest
-  - name: meson # swaylocker
-    versions: latest
   - name: nodejs
-    versions: latest
+    versions:
+      - latest
+      - test
   - name: rust
     versions: latest
   - name: terraform
@@ -32,4 +32,6 @@ packages:
   - name: awscli
     versions: latest
   - name: aws-vault
+    versions: latest
+  - name: meson # swaylocker remove move to dnf
     versions: latest

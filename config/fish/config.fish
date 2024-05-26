@@ -108,6 +108,9 @@ if type -q kubectl
     alias kn 'kubectl ns'
 end
 
+if type -q spotify-launcher
+    alias spotify spotify-launcher
+end
 # Sources for fish commands
 direnv hook fish | source
 starship init fish | source

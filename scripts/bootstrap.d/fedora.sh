@@ -7,9 +7,6 @@
 # Description : Script to configure Fedora
 # -----------------------------------------------------------------------------
 
-BOOTSTRAP_DIR="scripts/bootstrap.d"
-PACKAGES_DIR="$BOOTSTRAP_DIR/packages"
-
 #======= Fedora Setup ======#
 
 #+++++ Add Repositories +++++#
@@ -29,19 +26,3 @@ daemon_services=('snapd')
 for service in "${daemon_services[@]}"; do
     sudo systemctl enable --now "$service"
 done
-
-#TODO Enable user daemons
-echo "Enabling user daemons"
-user_services=()
-for user_service in "${user_services[@]}" ; do
-    sudo systemctl --user enable --now "$user_service"
-done
-
-#+++++ Add user to groups +++++#
-echo "Adding user $USER to groups"
-for group in vboxusers video input; do
-    sudo usermod -aG "$group" "$USER"
-done
-
-#+++++ Enable fingerprint +++++#
-$BOOTSTRAP_DIR/fingerprint.sh

@@ -1,10 +1,7 @@
 #!/usr/bin/env bash
 
-DOTFILES_DIR="$HOME/ghq/github.com/cacarico/dotfiles"
-PACKAGES_DIR="$BOOTSTRAP_DIR/packages"
-PACKAGES_YAML="scripts/bootstrap.d/packages/asdf.yaml"
-
 ASDF_DIR="$HOME/.asdf"
+PACKAGES_YAML="$PACKAGES_DIR/asdf.yaml"
 
 # Installs asdf if not already installed
 if [ ! -d "$ASDF_DIR" ]; then

@@ -1,3 +1,4 @@
+NetworkManager-tui
 alacritty
 autoconf # erlang - compile dep
 automake # erlang - compile dep
@@ -16,9 +17,9 @@ hyprland
 jaq #TODO
 lz4-devel # swww - compile dep
 make
+meson # swaylocker
 ncurses-devel # erlang - compile dep
 neovim
-NetworkManager-tui
 ninja-build # swaylocker
 nodejs-bash-language-server
 openssl # podman

@@ -31,7 +31,7 @@ require("lazy").setup({
     "mg979/vim-visual-multi",
     "cappyzawa/trim.nvim",
     "stevearc/conform.nvim",
-    { "kylechui/nvim-surround", event = "VeryLazy", },
+    { "kylechui/nvim-surround",          event = "VeryLazy", },
     { "folke/neoconf.nvim",              cmd = "Neoconf" },
     { "nvim-treesitter/nvim-treesitter", cmd = "TSUpdate" },
     {
@@ -104,11 +104,11 @@ require("lazy").setup({
         build = function() vim.fn["mkdp#util#install"]() end,
     },
 
-    {"ellisonleao/glow.nvim", config = true, cmd = "Glow"},
+    { "ellisonleao/glow.nvim", config = true,       cmd = "Glow" },
 
     -- Colors
-    { "rose-pine/neovim",             name = "rose-pine" },
-    { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
+    { "rose-pine/neovim",      name = "rose-pine" },
+    { "catppuccin/nvim",       name = "catppuccin", priority = 1000 },
     "Mofiqul/dracula.nvim",
     "AlessandroYorba/Alduin",
 

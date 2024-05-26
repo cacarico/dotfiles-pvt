@@ -26,4 +26,4 @@ dap.listeners.before.event_terminated["dapui_config"] = dapui.close
 dap.listeners.before.event_exited["dapui_config"] = dapui.close
 
 vim.g.dap_virtual_text = true
-vim.fn.sign_define('DapBreakpoint', {text='●', texthl='red', linehl='', numhl=''})
+vim.fn.sign_define('DapBreakpoint', { text = '●', texthl = 'red', linehl = '', numhl = '' })

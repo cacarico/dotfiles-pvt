@@ -2,7 +2,7 @@ local fineline = require('fine-cmdline')
 
 fineline.setup({
 
-    vim.api.nvim_set_keymap('n', ':', '<cmd>FineCmdline<CR>', {noremap = true, desc = 'Stage hunk'}),
+    vim.api.nvim_set_keymap('n', ':', '<cmd>FineCmdline<CR>', { noremap = true, desc = 'Stage hunk' }),
 
     -- after_mount = function(input)
     --   -- make escape go to normal mode

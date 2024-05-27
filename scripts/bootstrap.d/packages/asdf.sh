@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 ASDF_DIR="$HOME/.asdf"
+ASDF_BIN="$ASDF_DIR/bin/asdf"
 PACKAGES_YAML="$PACKAGES_DIR/asdf.yaml"
 
 # Installs asdf if not already installed
@@ -21,19 +22,19 @@ else
     )
 fi
 
-packages=$(yq '.packages[].name' $PACKAGES_YAML | tr -d \")
+packages=$(yq '.packages[].name' "$PACKAGES_YAML" | tr -d \")
 echo "Installing asdf packages..."
-for package in $packages; do
-    versions=$(yq ".packages[] | select(.name == \"$package\") | .versions" $PACKAGES_YAML | sed 's/\[//g; s/\]//g; s/,//g; s/\"//g')
+for package in "$packages"; do
+    versions=$(yq ".packages[] | select(.name == \"$package\") | .versions" "$PACKAGES_YAML" | sed 's/\[//g; s/\]//g; s/,//g; s/\"//g')
     for version in $versions; do
-        ~/.asdf/bin/asdf plugin add "$package"  > /dev/null 2>&1
-        ~/.asdf/bin/asdf install "$package" "$version" > /dev/null 2>&1
-        ~/.asdf/bin/asdf global "$package" "$version" > /dev/null 2>&1
-        if [ "$?" -eq 0 ]; then
+        $ASDF_BIN plugin add "$package"  > /dev/null 2>&1
+        $ASDF_BIN install "$package" "$version" > /dev/null 2>&1
+        $ASDF_BIN global "$package" "$version" > /dev/null 2>&1
+        if $($ASDF_BIN global "$package" "$version" > /dev/null 2>&1); then
             echo "Package $package version $version installed ✅"
         else
             echo "Package $package version $version ERROR ❌"
-        echo "~/.asdf/bin/asdf global \"$package\" \"$version\" > /dev/null 2>&1"
+        echo "$HOME/.asdf/bin/asdf global \"$package\" \"$version\" > /dev/null 2>&1"
         fi
     done
 done

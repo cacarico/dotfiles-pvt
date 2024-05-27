@@ -9,9 +9,10 @@
 {
     // Waybar Configuration
 	"layer": "top",
+    "output": ["HDMI-A-1", "eDP-1", "DP-2"],
     // "output": "HDMI-A-1",
-    "output": "eDP-1",
-    // "output": "DP-3",
+    // "output": "eDP-1",
+    // "output": "DP-2",
 	"modules-left": ["hyprland/workspaces"],
 	"modules-center": ["clock"],
 	"modules-right": ["custom/updates", "network", "backlight", "pulseaudio", "bluetooth", "upower"],
@@ -68,9 +69,9 @@
         "sort-by": "number",
         "active-only": true,
         "format-icons": {
-            "1": "",
-            "2": "",
-            "3": "",
+            "3": "",
+            "1": "",
+            "6": "",
             //"active": "",
             "default": ""
         },

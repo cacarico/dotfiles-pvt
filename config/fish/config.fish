@@ -5,7 +5,7 @@ end
 # exports nvim as default editor
 set -x EDITOR nvim
 set -x KUBE_EDITOR nvim
-set -g  fish_term_bell
+set -g fish_term_bell
 
 # -----------------------------
 # PATHS -----------------------
@@ -108,6 +108,9 @@ if type -q kubectl
     alias kn 'kubectl ns'
 end
 
+if type -q spotify-launcher
+    alias spotify spotify-launcher
+end
 # Sources for fish commands
 direnv hook fish | source
 starship init fish | source

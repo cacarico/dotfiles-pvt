@@ -3,6 +3,7 @@ brave-nightly-bin
 brillo
 dracula-gtk-theme
 k3s-bin
+mkinitcpio-numlock
 nordvpn-bin
 podman-docker
 rancher-k3d-bin

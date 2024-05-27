@@ -7,25 +7,17 @@
 # Description : Script to configure Archlinux
 # -----------------------------------------------------------------------------
 
+MKINITCPIO='/etc/mkinitcpio.conf'
 
-DOTFILES_DIR="$HOME/ghq/github.com/cacarico/dotfiles"
-BOOTSTRAP_DIR="scripts/bootstrap.d"
+echo "Starting Arch Install"
 
-# Clones dotfiles repository
-if [ ! -d "$DOTFILES_DIR/dotfiles" ]; then
-    sudo pacman -S git --noconfirm
-    mkdir -p "$DOTFILES_DIR"
-    git clone https://github.com/cacarico/dotfiles.git "$DOTFILES_DIR"
-    cd "$DOTFILES_DIR"
-else
-    echo "Dotfiles repository already cloned, skipping..."
-fi
-
-# Install packman packages
-$BOOTSTRAP_DIR/pacman.sh
+# Install pacman packages
+$PACKAGES_DIR/pacman.sh
 
 # Install yay and yay packages
-$BOOTSTRAP_DIR/yay.sh
+$PACKAGES_DIR/yay.sh
 
-# Install asdf
-$BOOTSTRAP_DIR/asdf.sh
+# Enables numlock on boot
+if ! grep -q numlock "$MKINITCPIO"; then
+    sudo sed -i '/^HOOKS=/ s/)/ numlock&/' "$MKINITCPIO"
+fi

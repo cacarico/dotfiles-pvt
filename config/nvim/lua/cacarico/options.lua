@@ -1,3 +1,6 @@
+-- Sets nvim to use the shell
+vim.o.shell = '/bin/sh'
+
 vim.opt.nu = true
 vim.opt.relativenumber = true
 
@@ -27,10 +30,6 @@ vim.opt.isfname:append("@-@")
 vim.opt.updatetime = 50
 
 vim.opt.colorcolumn = "80"
-
-if vim.fn.matchstr(vim.o.shell, 'fish$') ~= -1 then
-  vim.o.shell = '/bin/sh'
-end
 
 vim.opt.foldenable = false
 vim.opt.foldmethod = "indent"

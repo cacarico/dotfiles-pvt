@@ -6,25 +6,25 @@ vim.keymap.set('n', '<leader>t', '<cmd>Neotree toggle<cr>')
 
 
 local function getTelescopeOpts(state, path)
-  return {
-    cwd = path,
-    search_dirs = { path },
-    attach_mappings = function (prompt_bufnr, map)
-      local actions = require "telescope.actions"
-      actions.select_default:replace(function()
-        actions.close(prompt_bufnr)
-        local action_state = require "telescope.actions.state"
-        local selection = action_state.get_selected_entry()
-        local filename = selection.filename
-        if (filename == nil) then
-          filename = selection[1]
+    return {
+        cwd = path,
+        search_dirs = { path },
+        attach_mappings = function(prompt_bufnr, map)
+            local actions = require "telescope.actions"
+            actions.select_default:replace(function()
+                actions.close(prompt_bufnr)
+                local action_state = require "telescope.actions.state"
+                local selection = action_state.get_selected_entry()
+                local filename = selection.filename
+                if (filename == nil) then
+                    filename = selection[1]
+                end
+                -- any way to open the file without triggering auto-close event of neo-tree?
+                require("neo-tree.sources.filesystem").navigate(state, state.path, filename)
+            end)
+            return true
         end
-        -- any way to open the file without triggering auto-close event of neo-tree?
-        require("neo-tree.sources.filesystem").navigate(state, state.path, filename)
-      end)
-      return true
-    end
-  }
+    }
 end
 
 require("neo-tree").setup({
@@ -55,11 +55,11 @@ require("neo-tree").setup({
             },
         },
         follow_current_file = {
-            enabled = true, -- This will find and focus the file in the active buffer every time
+            enabled = true,                     -- This will find and focus the file in the active buffer every time
             --               -- the current file is changed while the tree is open.
-            leave_dirs_open = true, -- `false` closes auto expanded dirs, such as with `:Neotree reveal`
+            leave_dirs_open = true,             -- `false` closes auto expanded dirs, such as with `:Neotree reveal`
         },
-        group_empty_dirs = true, -- when true, empty folders will be grouped together
+        group_empty_dirs = true,                -- when true, empty folders will be grouped together
         hijack_netrw_behavior = "open_default", -- netrw disabled, opening a directory opens neo-tree
         -- in whatever position is specified in window.position
         -- "open_current",  -- netrw disabled, opening a directory opens within the
@@ -80,7 +80,7 @@ require("neo-tree").setup({
                 ["<c-x>"] = "clear_filter",
                 ["[g"] = "prev_git_modified",
                 ["]g"] = "next_git_modified",
-                ["o"] = { "show_help", nowait=false, config = { title = "Order by", prefix_key = "o" }},
+                ["o"] = { "show_help", nowait = false, config = { title = "Order by", prefix_key = "o" } },
                 ["oc"] = { "order_by_created", nowait = false },
                 ["od"] = { "order_by_diagnostics", nowait = false },
                 ["og"] = { "order_by_git_status", nowait = false },
@@ -92,7 +92,7 @@ require("neo-tree").setup({
                 ["tg"] = "telescope_grep",
             },
             fuzzy_finder_mappings = { -- define keymaps for filter popup window in fuzzy_finder_mode
-            ["<down>"] = "move_cursor_down",
+                ["<down>"] = "move_cursor_down",
                 ["<C-n>"] = "move_cursor_down",
                 ["<up>"] = "move_cursor_up",
                 ["<C-p>"] = "move_cursor_up",
@@ -128,28 +128,28 @@ require("neo-tree").setup({
         },
         renderers = {
             file = {
-                {"icon"},
-                {"name", use_git_status_colors = true},
-                {"harpoon_index"}, --> This is what actually adds the component in where you want it
-                {"diagnostics"},
-                {"git_status", highlight = "NeoTreeDimText"},
+                { "icon" },
+                { "name",         use_git_status_colors = true },
+                { "harpoon_index" }, --> This is what actually adds the component in where you want it
+                { "diagnostics" },
+                { "git_status",   highlight = "NeoTreeDimText" },
             }
         }
     },
     buffers = {
         follow_current_file = {
-            enabled = true, -- This will find and focus the file in the active buffer every time
+            enabled = true,         -- This will find and focus the file in the active buffer every time
             --              -- the current file is changed while the tree is open.
             leave_dirs_open = true, -- `false` closes auto expanded dirs, such as with `:Neotree reveal`
         },
-        group_empty_dirs = true, -- when true, empty folders will be grouped together
+        group_empty_dirs = true,    -- when true, empty folders will be grouped together
         show_unloaded = true,
         window = {
             mappings = {
                 ["bd"] = "buffer_delete",
                 ["<bs>"] = "navigate_up",
                 ["."] = "set_root",
-                ["o"] = { "show_help", nowait=false, config = { title = "Order by", prefix_key = "o" }},
+                ["o"] = { "show_help", nowait = false, config = { title = "Order by", prefix_key = "o" } },
                 ["oc"] = { "order_by_created", nowait = false },
                 ["od"] = { "order_by_diagnostics", nowait = false },
                 ["om"] = { "order_by_modified", nowait = false },

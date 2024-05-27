@@ -14,7 +14,6 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup({
 
     -- Code
-    "airblade/vim-gitgutter",
     "folke/neodev.nvim",
     "lewis6991/gitsigns.nvim",
     "folke/trouble.nvim",
@@ -31,7 +30,8 @@ require("lazy").setup({
     "junegunn/goyo.vim",
     "mg979/vim-visual-multi",
     "cappyzawa/trim.nvim",
-    { "kylechui/nvim-surround", event = "VeryLazy", },
+    "stevearc/conform.nvim",
+    { "kylechui/nvim-surround",          event = "VeryLazy", },
     { "folke/neoconf.nvim",              cmd = "Neoconf" },
     { "nvim-treesitter/nvim-treesitter", cmd = "TSUpdate" },
     {
@@ -46,38 +46,13 @@ require("lazy").setup({
                 end,
             },
             { "williamboman/mason-lspconfig.nvim" },
-
             -- Nvim cmp
             "hrsh7th/nvim-cmp",
             "hrsh7th/cmp-nvim-lsp",
-
-            -- Snippets
-            { "L3MON4D3/LuaSnip", build = "make install_jsregexp" },
-            'saadparwaiz1/cmp_luasnip',
-
-
-
-            --
         }
     },
-    -- {
- -- "ray-x/go.nvim",
-  -- dependencies = {  -- optional packages
-    -- "ray-x/guihua.lua",
-  -- },
-  -- config = function()
-    -- require("go").setup()
-  -- end,
-  -- event = {"CmdlineEnter"},
-  -- ft = {"go", 'gomod'},
-  -- build = ':lua require("go.install").update_all_sync()' -- if you need to install/update all binaries
--- },
-
-
     -- Obsidian
     "epwalsh/obsidian.nvim",
-
-
     -- Debugger
     {
         "mfussenegger/nvim-dap",
@@ -101,11 +76,10 @@ require("lazy").setup({
     "ThePrimeagen/harpoon",
     "ThePrimeagen/refactoring.nvim",
     "stevearc/oil.nvim",
-    -- 'akinsho/bufferline.nvim',
+    'akinsho/bufferline.nvim',
     "easymotion/vim-easymotion",
     "mbbill/undotree",
     "folke/which-key.nvim",
-    "francoiscabrol/ranger.vim",
     "stevearc/dressing.nvim",
     "vim-airline/vim-airline",
     "vim-airline/vim-airline-themes",
@@ -130,11 +104,11 @@ require("lazy").setup({
         build = function() vim.fn["mkdp#util#install"]() end,
     },
 
-    {"ellisonleao/glow.nvim", config = true, cmd = "Glow"},
+    { "ellisonleao/glow.nvim", config = true,       cmd = "Glow" },
 
     -- Colors
-    { "rose-pine/neovim",             name = "rose-pine" },
-    { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
+    { "rose-pine/neovim",      name = "rose-pine" },
+    { "catppuccin/nvim",       name = "catppuccin", priority = 1000 },
     "Mofiqul/dracula.nvim",
     "AlessandroYorba/Alduin",
 

@@ -1,7 +1,3 @@
--- <Leader>f{char} to move to {char}
-vim.api.nvim_set_keymap('', '<Leader>f', '<Plug>(easymotion-bd-f)', {})
-vim.api.nvim_set_keymap('n', '<Leader>f', '<Plug>(easymotion-overwin-f)', {})
-
 -- s{char}{char} to move to {char}{char}
 vim.api.nvim_set_keymap('n', 's', '<Plug>(easymotion-overwin-f2)', {})
 

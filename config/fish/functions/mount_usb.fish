@@ -10,7 +10,7 @@ function mount_usb
         if test $status -eq 0
             echo "USB mounted at /home/$USER/Mounts/usb-$DEVICE"
         else
-            echo "Failed"
+            echo Failed
         end
     end
 end

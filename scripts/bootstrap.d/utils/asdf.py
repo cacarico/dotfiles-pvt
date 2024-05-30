@@ -1,6 +1,11 @@
 #!/usr/bin/env python
 
+import subprocess
 import yaml
+from logs import setup_logger
+
+# Set up logger
+logger = setup_logger(__name__)
 
 # Define the path to your YAML file
 yaml_file_path = 'scripts/bootstrap.d/packages/asdf.yaml'

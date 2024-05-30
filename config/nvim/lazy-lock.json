@@ -1,9 +1,9 @@
 {
   "Alduin": { "branch": "master", "commit": "6575a0f167fef521c404681b96caebdb2b9cc4cd" },
-  "bufferline.nvim": { "branch": "main", "commit": "99337f63f0a3c3ab9519f3d1da7618ca4f91cffe" },
+  "LuaSnip": { "branch": "master", "commit": "8f3d3465ba5c7ade0a8adb41eca5736f291a3fa8" },
   "catppuccin": { "branch": "main", "commit": "5215ea59df6d0a7e27da9a5cd1165e06d1b04cbe" },
   "cmp-nvim-lsp": { "branch": "main", "commit": "39e2eda76828d88b773cc27a3f61d2ad782c922d" },
-  "conform.nvim": { "branch": "master", "commit": "f3b930db4964d60e255c8f9e37b7f2218dfc08cb" },
+  "cmp_luasnip": { "branch": "master", "commit": "05a9ab28b53f71d1aece421ef32fee2cb857a843" },
   "dracula.nvim": { "branch": "main", "commit": "8d8bddb8814c3e7e62d80dda65a9876f97eb699c" },
   "dressing.nvim": { "branch": "master", "commit": "3c38ac861e1b8d4077ff46a779cde17330b29f3a" },
   "fine-cmdline.nvim": { "branch": "main", "commit": "dd676584145d62b30d7e8dbdd011796a8f0a065f" },

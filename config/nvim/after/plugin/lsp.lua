@@ -41,6 +41,14 @@ local servers = { 'clangd', 'rust_analyzer', 'pyright', 'tsserver', 'gopls', 'ba
 for _, lsp in ipairs(servers) do
     lspconfig[lsp].setup {
         capabilities = capabilities,
+	settings = {
+     		python = {
+		analysis = {
+			autoSearchPaths = true,
+			useLibraryCodeForTypes = false,
+			}
+		}
+	}
     }
 end
 

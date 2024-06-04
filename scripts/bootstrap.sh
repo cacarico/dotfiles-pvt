@@ -92,12 +92,6 @@ for service in "${services[@]}"; do
     sudo systemctl enable --now "$service"
 done
 
-# Add user to groups
-echo "Adding user $USER to groups"
-for group in vboxusers video input; do
-    sudo usermod -aG "$group" "$USER"
-done
-
 # Set fish as default shell
 if [ "$SHELL" != "/usr/bin/fish" ]; then
     echo "Setting fish as default shell"

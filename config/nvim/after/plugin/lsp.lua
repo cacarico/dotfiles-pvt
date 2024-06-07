@@ -37,7 +37,7 @@ local capabilities = require("cmp_nvim_lsp").default_capabilities()
 local lspconfig = require('lspconfig')
 
 -- Enable some language servers with the additional completion capabilities offered by nvim-cmp
-local servers = { 'clangd', 'rust_analyzer', 'pyright', 'tsserver', 'gopls', 'bashls', 'lua_ls' }
+local servers = { 'clangd', 'rust_analyzer', 'pyright', 'tsserver', 'gopls', 'bashls', 'lua_ls', 'docker_compose_language_service' }
 for _, lsp in ipairs(servers) do
     lspconfig[lsp].setup {
         capabilities = capabilities,
@@ -56,9 +56,21 @@ require 'lspconfig'.terraform_lsp.setup {
     filetypes = { "terraform", "tf" }
 }
 
+require("lspconfig").dockerls.setup {
+    settings = {
+        docker = {
+	    languageserver = {
+	        formatter = {
+		    ignoreMultilineInstructions = true,
+		},
+	    },
+	}
+    }
+}
+
 require 'lspconfig'.elixirls.setup {
     cmd = { "/home/cacarico/.asdf/shims/elixir-ls" },
-    filetypes = { "elixir", "eelixir", "heex", "surface" },
+    filetypes = { "elixir", "eelixir", "heex", "surface"},
     root_dir = require 'lspconfig'.util.root_pattern("mix.exs", ".git"),
     settings = {
         elixirLS = {

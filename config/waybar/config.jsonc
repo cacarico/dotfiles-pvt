@@ -9,7 +9,7 @@
 {
     // Waybar Configuration
 	"layer": "top",
-    "output": ["HDMI-A-1", "eDP-1", "DP-2"],
+    "output": ["HDMI-A-1", "eDP-1", "DP-3"],
     // "output": "HDMI-A-1",
     // "output": "eDP-1",
     // "output": "DP-2",
@@ -69,9 +69,9 @@
         "sort-by": "number",
         "active-only": true,
         "format-icons": {
-            "3": "",
-            "1": "",
-            "6": "",
+            "1": "",
+            "2": "",
+            "3": "",
             //"active": "",
             "default": ""
         },

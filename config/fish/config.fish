@@ -25,6 +25,8 @@ set fish_user_paths \
 set -x GPG_TTY $(tty)
 set -x STARSHIP_CONFIG $HOME/.config/starship.toml
 
+# Enables fish vim mode
+set -g fish_key_bindings fish_vi_key_bindings
 
 # -----------------------------
 # Abbreviations ---------------
@@ -53,12 +55,12 @@ abbr -a ninstall nvim +PlugInstall +qal
 # -----------------------------
 
 if type -q aws
-    alias awsp "set -gx AWS_PROFILE "
+    abbr -a awsp "set -gx AWS_PROFILE "
 end
 
 if type -q aws-vault
-    alias av "aws-vault exec"
-    alias avl "aws-vault login"
+    abbr -a av "aws-vault exec"
+    abbr -a avl "aws-vault login"
 end
 
 # if type -q _awsp
@@ -66,31 +68,32 @@ end
 # end
 
 if type -q bat
-    alias cat bat
+    abbr -a cat bat
 end
 
 if type -q exa
-    alias ls exa
-    alias l ll
-    alias ll 'ls -l -g --icons'
-    alias la 'll -a'
-    alias lt 'la -T -L2'
+    abbr -a ls exa
+    abbr -a l 'ls -l'
+    abbr -a l ll
+    abbr -a ll 'ls -l -g --icons'
+    abbr -a la 'll -a'
+    abbr -a lt 'la -T -L2'
 end
 
 if type -q git
-    alias g git
-    alias ga 'git add'
-    alias gb 'git branch'
-    alias gc 'git commit -m'
-    alias gcm 'git switch main 2>/dev/null || git switch master'
-    alias gco 'git switch'
-    alias gcu 'git branch -u origin'
-    alias gd 'git diff'
-    alias gl 'git log'
-    alias gp 'git push'
-    alias gpl 'git pull'
-    alias gpsup 'echo git push --set-upstream origin (git rev-parse --abbrev-ref HEAD)'
-    alias gs 'git status'
+    abbr -a g git
+    abbr -a ga 'git add'
+    abbr -a gb 'git branch'
+    abbr -a gc 'git commit -m'
+    abbr -a gcm 'git switch main 2>/dev/null || git switch master'
+    abbr -a gco 'git switch'
+    abbr -a gcu 'git branch -u origin'
+    abbr -a gd 'git diff'
+    abbr -a gl 'git log'
+    abbr -a gp 'git push'
+    abbr -a gpl 'git pull'
+    abbr -a gpsup 'echo git push --set-upstream origin (git rev-parse --abbrev-ref HEAD)'
+    abbr -a gs 'git status'
     abbr -a gitd 'git diff --ignore-space-at-eol -b -w --ignore-blank-lines'
 end
 
@@ -99,17 +102,22 @@ if type -q ghq
 end
 
 if type -q jaq
-    alias jq jaq
+    abbr -a jq jaq
 end
 
 # Kubernetes
 if type -q kubectl
-    alias kc 'kubectl ctx'
-    alias kn 'kubectl ns'
+    abbr -a kc 'kubectl ctx'
+    abbr -a kn 'kubectl ns'
+end
+
+if type -q nvim
+    abbr -a n nvim
+    abbr -a vim nvim
 end
 
 if type -q spotify-launcher
-    alias spotify spotify-launcher
+    abbr -a spotify spotify-launcher
 end
 # Sources for fish commands
 direnv hook fish | source
@@ -117,4 +125,3 @@ starship init fish | source
 zoxide init fish | source
 
 # source ~/.config/fish/conf.d/*
-# source ~/.config/fish/functions/*

@@ -72,12 +72,11 @@ if type -q bat
 end
 
 if type -q exa
-    abbr -a ls exa
-    abbr -a l 'ls -l'
-    abbr -a l ll
-    abbr -a ll 'ls -l -g --icons'
-    abbr -a la 'll -a'
-    abbr -a lt 'la -T -L2'
+    alias ls exa
+    alias l 'exa -l'
+    alias ll 'ls -l -g --icons'
+    alias la 'll -a'
+    alias lt 'la -T -L2'
 end
 
 if type -q git

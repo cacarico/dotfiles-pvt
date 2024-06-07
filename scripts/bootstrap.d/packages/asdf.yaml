@@ -18,13 +18,14 @@ global:
   - name: nodejs
     versions:
       - latest
-      - test
   - name: rust
     versions: latest
   - name: terraform
     versions: latest
   - name: terragrunt
-    versions: latest
+    versions:
+    - latest
+    - 0.21.9
   - name: terraform-lsp
     versions: latest
   - name: minikube

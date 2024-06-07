@@ -65,8 +65,8 @@ vim.keymap.set("n", '<C-q>', ':bd<CR>', { noremap = true })
 
 -- Resize split
 vim.keymap.set("n", '<A-S-l>', ':vertical resize -5<CR>')
-vim.keymap.set("n", '<A-S-k>', ':resize +5<CR>')
-vim.keymap.set("n", '<A-S-j>', ':resize -5<CR>')
+vim.keymap.set("n", '<A-S-k>', ':resize -5<CR>')
+vim.keymap.set("n", '<A-S-j>', ':resize +5<CR>')
 vim.keymap.set("n", '<A-S-h>', ':vertical resize +5<CR>')
 
 -- Move split

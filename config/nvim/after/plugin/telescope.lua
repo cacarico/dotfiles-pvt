@@ -1,8 +1,7 @@
 local builtin = require('telescope.builtin')
 local actions = require('telescope.actions')
-local trouble = require("trouble.providers.telescope")
+local trouble = require("trouble.sources.telescope")
 
-require("telescope").load_extension('harpoon')
 require('telescope').setup {
     defaults = {
         sorting_strategy = "descending",
@@ -12,10 +11,10 @@ require('telescope').setup {
                 ["<C-o>"] = actions.select_default,
                 ["<C-v>"] = actions.select_vertical,
                 ["<C-s>"] = actions.select_horizontal,
-                ["<C-t>"] = trouble.open_with_trouble,
+                ["<C-t>"] = trouble.open,
             },
             n = {
-                ["<C-t>"] = trouble.open_with_trouble
+                ["<C-t>"] = trouble.open,
             },
         }
     }

@@ -1,5 +1,12 @@
 #!/usr/bin/env python
 
+# -----------------------------------------------------------------------------
+# Name        : Caio Quinilato Teixeira
+# Email       : caio.quinilato@gmail.com
+# Repository  : https://github.com/github/dotfiles
+# Description : Installs asdf pacages
+# -----------------------------------------------------------------------------
+
 import subprocess
 import yaml
 from logs import setup_logger

@@ -121,7 +121,7 @@ require("lazy").setup({
     -- Colors
     { "rose-pine/neovim",      name = "rose-pine" },
     { "catppuccin/nvim",       name = "catppuccin", priority = 1000 },
-    "Mofiqul/dracula.nvim",
+    -- "Mofiqul/dracula.nvim",
     "AlessandroYorba/Alduin",
 
     -- Wiki

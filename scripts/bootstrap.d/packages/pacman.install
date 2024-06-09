@@ -1,74 +1,75 @@
-amd-ucode
-arandr
-autorandr
-awesome-terminal-fonts
-bash-language-server
-bat
-blueman
-bluez
-bluez-utils
-btop
-cpio
-cups
-cups-pdf
-direnv
-discord
-dunst
-exfat-utils
-eza
-feh
-figlet
-python-psutil
-firefox
-fish
-flameshot
-fprintd
-fzf
-gdu
-gimp
-gnome-keyring
-gopls
-helm
-imagemagick
-jaq
-k9s
-kubectl
-lazygit
-less
-lua-language-server
-lxappearance-gtk3
-man-db
-man-pages
-mpv
-neofetch
-neovim
-noto-fonts-emoji
-nss-mdns
-obsidian
-p7zip
-pacman-contrib
-pamixer
-pavucontrol
-pcmanfm-gtk3
-peco
-picom
-aardvark-dns
-podman
-pre-commit
-gimp
-pyright
-ranger
-ripgrep
-rofi
-spotify-launcher
-starship
-tmux
-tokei
-transmission-gtk
-unzip
-usbutils
-xclip
-xsecurelock
-yazi
-yq
-zoxide
+global:
+    amd-ucode
+    arandr
+    autorandr
+    awesome-terminal-fonts
+    bash-language-server
+    bat
+    blueman
+    bluez
+    bluez-utils
+    btop
+    cpio
+    cups
+    cups-pdf
+    direnv
+    discord
+    dunst
+    exfat-utils
+    eza
+    feh
+    figlet
+    python-psutil
+    firefox
+    fish
+    flameshot
+    fprintd
+    fzf
+    gdu
+    gimp
+    gnome-keyring
+    gopls
+    helm
+    imagemagick
+    jaq
+    k9s
+    kubectl
+    lazygit
+    less
+    lua-language-server
+    lxappearance-gtk3
+    man-db
+    man-pages
+    mpv
+    neofetch
+    neovim
+    noto-fonts-emoji
+    nss-mdns
+    obsidian
+    p7zip
+    pacman-contrib
+    pamixer
+    pavucontrol
+    pcmanfm-gtk3
+    peco
+    picom
+    aardvark-dns
+    podman
+    pre-commit
+    gimp
+    pyright
+    ranger
+    ripgrep
+    rofi
+    spotify-launcher
+    starship
+    tmux
+    tokei
+    transmission-gtk
+    unzip
+    usbutils
+    xclip
+    xsecurelock
+    yazi
+    yq
+    zoxide

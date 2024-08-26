@@ -19,7 +19,8 @@ set fish_user_paths \
     $HOME/.local/share/gem/ruby/3.0.0/bin \
     $HOME/bin \
     $HOME/go/bin $HOME/.local/bin \
-    $JAVA_HOME/bin
+    $JAVA_HOME/bin \
+    /opt/mssql-tools18/bin/
 
 # This is neede so signing commits with git works
 set -x GPG_TTY $(tty)

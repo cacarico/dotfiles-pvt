@@ -37,7 +37,7 @@ local capabilities = require("cmp_nvim_lsp").default_capabilities()
 local lspconfig = require('lspconfig')
 
 -- Enable some language servers with the additional completion capabilities offered by nvim-cmp
-local servers = { 'clangd', 'rust_analyzer', 'pyright', 'tsserver', 'gopls', 'bashls', 'lua_ls', 'docker_compose_language_service' }
+local servers = { 'clangd', 'rust_analyzer', 'pyright', 'tsserver', 'gopls', 'bashls', 'lua_ls', 'docker_compose_language_service', 'yamlls', 'tailwindcss'}
 for _, lsp in ipairs(servers) do
     lspconfig[lsp].setup {
         capabilities = capabilities,
@@ -103,6 +103,16 @@ require 'lspconfig'.lua_ls.setup {
     settings = {
         Lua = {}
     }
+}
+
+lspconfig.helm_ls.setup {
+  settings = {
+    ['helm-ls'] = {
+      yamlls = {
+        path = "yaml-language-server",
+      }
+    }
+  }
 }
 
 -- nvim-cmp setup

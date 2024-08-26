@@ -62,7 +62,7 @@ require("lazy").setup({
     "leoluz/nvim-dap-go",
     "theHamsta/nvim-dap-virtual-text",
     "nvim-telescope/telescope-dap.nvim",
-
+    { 'towolf/vim-helm',       ft = 'helm' },
 
     -- UI
     {
@@ -126,6 +126,15 @@ require("lazy").setup({
 
     -- Wiki
     { "vimwiki/vimwiki" },
+
+    -- Databases
+    {
+        "kristijanhusak/vim-dadbod-ui",
+        dependencies = {
+            "tpope/vim-dadbod",
+            "kristijanhusak/vim-dadbod-completion"
+        },
+    },
 
 
 })

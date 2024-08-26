@@ -1,5 +1,5 @@
 require 'nvim-treesitter.configs'.setup {
-    ensure_installed = { "javascript", "typescript", "c", "lua", "rust", "go", "jsonnet", "bash", "fish", "python", "terraform", "markdown", "markdown_inline" },
+    ensure_installed = { "javascript", "typescript", "c", "lua", "rust", "go", "jsonnet", "bash", "fish", "python", "terraform", "markdown", "markdown_inline", "yaml", "helm" },
 
     sync_install = true,
     auto_install = true,

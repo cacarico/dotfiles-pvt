@@ -55,7 +55,7 @@ abbr -a ninstall nvim +PlugInstall +qal
 # -----------------------------
 
 if type -q aws
-    abbr -a awsp "set -gx AWS_PROFILE "
+    alias awsp "set -gx AWS_PROFILE "
 end
 
 if type -q aws-vault

@@ -107,7 +107,13 @@ require("lazy").setup({
             "MunifTanjim/nui.nvim",
         }
     },
-
+    {
+        "kristijanhusak/vim-dadbod-ui",
+        dependencies = {
+            "kristijanhusak/vim-dadbod-completion",
+            "tpope/vim-dadbod",
+        }
+    },
     -- Preview
     {
         "iamcco/markdown-preview.nvim",

@@ -36,6 +36,7 @@ local conditions = {
 -- Config
 local config = {
   options = {
+  globalstatus = true,
     ignore_focus = {
         "neo-tree"
     },
@@ -92,16 +93,17 @@ ins_left {
 ins_left {
   -- mode component
   function()
-    return ''
+    return ''
+    -- return ''
   end,
   color = function()
     -- auto change color according to neovims mode
     local mode_color = {
-      n = colors.red,
-      i = colors.green,
-      v = colors.blue,
-      [''] = colors.blue,
-      V = colors.blue,
+      n = colors.blue,
+      i = colors.magenta,
+      v = colors.green,
+      [''] = colors.green,
+      V = colors.green,
       c = colors.magenta,
       no = colors.red,
       s = colors.orange,
@@ -121,8 +123,6 @@ ins_left {
     return { fg = mode_color[vim.fn.mode()] }
   end,
   padding = { right = 1 },
-        return ''
-        -- return ''
 }
 
 ins_left {
@@ -135,7 +135,7 @@ ins_left {
   'filename',
   cond = conditions.buffer_not_empty,
   color = { fg = colors.magenta, gui = 'bold' },
-    path = 1,
+  path = 1,
 }
 
 ins_left { 'location' }

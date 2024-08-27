@@ -52,7 +52,11 @@ require("lazy").setup({
         }
     },
     -- Obsidian
-    "epwalsh/obsidian.nvim",
+    {
+        "epwalsh/obsidian.nvim",
+        lazy = true,
+        ft = "markdown"
+    },
     -- Debugger
     {
         "mfussenegger/nvim-dap",
@@ -80,6 +84,7 @@ require("lazy").setup({
         "rcarriga/nvim-notify",
         }
     },
+    "epwalsh/pomo.nvim",
     -- Navigation
     "mhinz/vim-startify",
     "nathom/tmux.nvim",
@@ -128,9 +133,6 @@ require("lazy").setup({
     { "catppuccin/nvim",       name = "catppuccin", priority = 1000 },
     -- "Mofiqul/dracula.nvim",
     "AlessandroYorba/Alduin",
-
-    -- Wiki
-    { "vimwiki/vimwiki" },
 
     -- Databases
     {

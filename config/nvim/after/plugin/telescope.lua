@@ -21,10 +21,12 @@ require('telescope').setup {
 }
 
 -- mappings
-vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
-vim.keymap.set('n', '<leader>fg', builtin.live_grep, {})
-vim.keymap.set('n', '<leader>fb', builtin.buffers, {})
-vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
-vim.keymap.set('n', '<leader>fk', builtin.keymaps, {})
-vim.keymap.set('n', '<C-p>', builtin.git_files, {})
-vim.keymap.set('n', '<leader>fd', builtin.current_buffer_fuzzy_find, {})
+vim.keymap.del('n', '<leader>f')
+vim.keymap.set('n', '<leader>ff', builtin.find_files, { desc = "Telescope fzf all files" })
+vim.keymap.set('n', '<leader>fg', builtin.live_grep, { desc = "Telescope grep" })
+vim.keymap.set('n', '<leader>fb', builtin.buffers, { desc = "Telescope search buffers" })
+vim.keymap.set('n', '<leader>fm', builtin.marks, { desc = "Telescope search marks" })
+vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = "Telescope Help Tags" })
+vim.keymap.set('n', '<leader>fk', builtin.keymaps, { desc = "Telescope fzf all keymaps" })
+vim.keymap.set('n', '<C-p>', builtin.git_files, { desc = "Telescope fzf git files" })
+vim.keymap.set('n', '<leader>fd', builtin.current_buffer_fuzzy_find, { desc = "Telescope fzf current buffer" })

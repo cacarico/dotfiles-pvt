@@ -67,21 +67,21 @@ require('gitsigns').setup {
         end)
 
         -- Actions
-        map('n', '<leader>hs', gitsigns.stage_hunk, { desc = 'Stage hunk' })
-        map('n', '<leader>hr', gitsigns.reset_hunk, { desc = 'Reset hunk' })
-        map('v', '<leader>hs', function() gitsigns.stage_hunk { vim.fn.line('.'), vim.fn.line('v') } end,
+        map('n', '<leader>gs', gitsigns.stage_hunk, { desc = 'Stage hunk' })
+        map('n', '<leader>gr', gitsigns.reset_hunk, { desc = 'Reset hunk' })
+        map('v', '<leader>gs', function() gitsigns.stage_hunk { vim.fn.line('.'), vim.fn.line('v') } end,
             { desc = 'Stage selected hunk' })
-        map('v', '<leader>hr', function() gitsigns.reset_hunk { vim.fn.line('.'), vim.fn.line('v') } end,
+        map('v', '<leader>gr', function() gitsigns.reset_hunk { vim.fn.line('.'), vim.fn.line('v') } end,
             { desc = 'Reset selected hunk' })
-        map('n', '<leader>hS', gitsigns.stage_buffer, { desc = 'Stage buffer' })
-        map('n', '<leader>hu', gitsigns.undo_stage_hunk, { desc = 'Undo stage hunk' })
-        map('n', '<leader>hR', gitsigns.reset_buffer, { desc = 'Reset buffer' })
-        map('n', '<leader>hp', gitsigns.preview_hunk, { desc = 'Preview hunk' })
-        map('n', '<leader>hbb', function() gitsigns.blame_line { full = true } end, { desc = 'Blame line (full)' })
-        map('n', '<leader>hb', gitsigns.toggle_current_line_blame, { desc = 'Toggle current line blame' })
-        map('n', '<leader>hd', gitsigns.diffthis, { desc = 'Diff this' })
-        map('n', '<leader>hD', function() gitsigns.diffthis('~') end, { desc = 'Diff this (against previous commit)' })
-        map('n', '<leader>hdd', gitsigns.toggle_deleted, { desc = 'Toggle deleted' })
+        map('n', '<leader>gS', gitsigns.stage_buffer, { desc = 'Stage buffer' })
+        map('n', '<leader>gu', gitsigns.undo_stage_hunk, { desc = 'Undo stage hunk' })
+        map('n', '<leader>gR', gitsigns.reset_buffer, { desc = 'Reset buffer' })
+        map('n', '<leader>gp', gitsigns.preview_hunk, { desc = 'Preview hunk' })
+        map('n', '<leader>gbb', function() gitsigns.blame_line { full = true } end, { desc = 'Blame line (full)' })
+        map('n', '<leader>gb', gitsigns.toggle_current_line_blame, { desc = 'Toggle current line blame' })
+        map('n', '<leader>gd', gitsigns.diffthis, { desc = 'Diff this' })
+        map('n', '<leader>gD', function() gitsigns.diffthis('~') end, { desc = 'Diff this (against previous commit)' })
+        map('n', '<leader>gdd', gitsigns.toggle_deleted, { desc = 'Toggle deleted' })
         -- Text object
         map({ 'o', 'x' }, 'ih', ':<C-U>Gitsigns select_hunk<CR>')
     end

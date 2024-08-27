@@ -42,7 +42,7 @@ vim.keymap.set("n", "<leader>j", "<cmd>lprev<CR>zz")
 
 vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
 
-vim.keymap.set("n", "<C-s>", ":w <CR>")
+vim.keymap.set({ "n", "i" }, "<C-s>", "<ESC>:w <CR>")
 -- Sed commands
 --
 -- Replace all occurrences of the current word under the cursor with the same word
@@ -65,10 +65,10 @@ vim.keymap.set("n", '<C-c>', ':bd<CR>', { noremap = true })
 vim.keymap.set("n", '<C-q>', ':qa<CR>', { noremap = true })
 
 -- Resize split
-vim.keymap.set("n", '<A-S-l>', ':vertical resize -5<CR>')
-vim.keymap.set("n", '<A-S-k>', ':resize -5<CR>')
-vim.keymap.set("n", '<A-S-j>', ':resize +5<CR>')
-vim.keymap.set("n", '<A-S-h>', ':vertical resize +5<CR>')
+vim.keymap.set("n", '<A-S-l>', ':vertical resize +5<CR>')
+vim.keymap.set("n", '<A-S-k>', ':resize +5<CR>')
+vim.keymap.set("n", '<A-S-j>', ':resize -5<CR>')
+vim.keymap.set("n", '<A-S-h>', ':vertical resize -5<CR>')
 
 -- Move split
 vim.keymap.set("n", '<A-C-h>', '<C-w>H', { silent = true })

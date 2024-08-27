@@ -2,7 +2,8 @@
 vim.cmd([[ let g:neo_tree_remove_legacy_commands = 1 ]])
 
 -- Mappings
-vim.keymap.set('n', '<leader>t', '<cmd>Neotree toggle<cr>')
+vim.keymap.set('n', '<leader>T', '<cmd>Neotree toggle<cr>')
+vim.keymap.set('n', '<leader>t', '<cmd>Neotree focus<cr>')
 
 
 local function getTelescopeOpts(state, path)
@@ -68,6 +69,7 @@ require("neo-tree").setup({
         use_libuv_file_watcher = true, -- This will use the OS level file watchers to detect changes
         -- instead of relying on nvim autocmd events.
         window = {
+            position = "right",
             mappings = {
                 ["<bs>"] = "navigate_up",
                 ["."] = "set_root",

@@ -44,6 +44,7 @@ abbr -a vrc 'nvim ~/.config/nvim/init.vim'
 abbr -a frc 'nvim ~/.config/fish/config.fish'
 abbr -a trc 'nvim ~/.tmux.conf'
 abbr -a lg lazygit
+abbr -a ld lazydocker
 
 # Sources
 abbr -a ff 'source ~/.config/fish/config.fish'

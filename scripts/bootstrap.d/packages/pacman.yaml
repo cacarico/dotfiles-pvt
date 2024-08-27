@@ -64,6 +64,7 @@ global:
     - rofi
     - spotify-launcher
     - starship
+    - tailwindcss-language-server
     - tmux
     - tokei
     - transmission-gtk
@@ -71,6 +72,7 @@ global:
     - usbutils
     - xclip
     - xsecurelock
+    - yaml-language-server
     - yazi
     - yq
     - zoxide

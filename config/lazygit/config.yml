@@ -8,9 +8,6 @@
 # https://github.com/jesseduffield/lazygit/blob/master/docs/Config.md
 
 #+++++ Sets up Vim Mode +++++#
-keybindingMode: "vim"
-
-#+++++ Sets up Vim Mode +++++#
 keybinding:
   universal:
     nextScreenMode: "="
@@ -18,6 +15,7 @@ keybinding:
 
 #+++++ GUI and Theme Configuration +++++#
 gui:
+  nerdFontsVersion: ""
   # Theme Macchiato
   theme:
     activeBorderColor:

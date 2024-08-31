@@ -1,32 +1,32 @@
-require 'nvim-treesitter.configs'.setup {
-  ensure_installed = {
-    "javascript",
-    "typescript",
-    "c",
-    "lua",
-    "rust",
-    "go",
-    "jsonnet",
-    "bash",
-    "fish",
-    "python",
-    "terraform",
-    "markdown",
-    "markdown_inline",
-    "vim",
-    "regex",
-    "yaml",
-    "helm"
-},
+require("nvim-treesitter.configs").setup({
+	ensure_installed = {
+		"javascript",
+		"typescript",
+		"c",
+		"lua",
+		"rust",
+		"go",
+		"jsonnet",
+		"bash",
+		"fish",
+		"python",
+		"terraform",
+		"markdown",
+		"markdown_inline",
+		"vim",
+		"regex",
+		"yaml",
+		"helm",
+	},
 
-  sync_install = true,
-  auto_install = true,
+	sync_install = true,
+	auto_install = true,
 
-  highlight = {
-    enable = true,
-    additional_vim_regex_highlighting = true,
-  },
-}
+	highlight = {
+		enable = true,
+		additional_vim_regex_highlighting = true,
+	},
+})
 
 -- Enable Treesitter folding for Go files
 -- vim.cmd("autocmd FileType go setlocal foldmethod=expr foldexpr=nvim_treesitter#foldexpr()")

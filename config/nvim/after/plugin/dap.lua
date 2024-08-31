@@ -1,10 +1,12 @@
 -- Check if 'dap' module is available, otherwise return
 local ok, dap = pcall(require, "dap")
-if not ok then return end
+if not ok then
+	return
+end
 
 -- Load necessary plugins and their configurations
 require("nvim-dap-virtual-text").setup()
-require('dap-go').setup()
+require("dap-go").setup()
 require("dapui").setup()
 
 -- Define mappings for DAP commands
@@ -26,4 +28,4 @@ dap.listeners.before.event_terminated["dapui_config"] = dapui.close
 dap.listeners.before.event_exited["dapui_config"] = dapui.close
 
 vim.g.dap_virtual_text = true
-vim.fn.sign_define('DapBreakpoint', { text = '●', texthl = 'red', linehl = '', numhl = '' })
+vim.fn.sign_define("DapBreakpoint", { text = "●", texthl = "red", linehl = "", numhl = "" })

@@ -1,5 +1,5 @@
 -- Sets nvim to use the shell
-vim.o.shell = '/bin/sh'
+vim.o.shell = "/bin/sh"
 
 vim.opt.nu = true
 vim.opt.relativenumber = true

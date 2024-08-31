@@ -14,26 +14,41 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup({
 
     -- Code
-    "folke/neodev.nvim",
+    --
+    -- Git integration to show git signs on buffer
     "lewis6991/gitsigns.nvim",
+    -- A pretty list for showing diagnostics, references, telescope results, quickfix and location lists
     "folke/trouble.nvim",
-    "nvim-treesitter/playground",
+    -- Automatically comments with gc
     "tpope/vim-commentary",
+    --TODO Improve fugitive or remove | Plugin to manage git using the file
     "tpope/vim-fugitive",
+    --TODO Really needed?
     "neovim/nvim-lspconfig",
+    --TODO Or tune or find alternative | Show color on buffer
     "norcalli/nvim-colorizer.lua",
-    "dag/vim-fish",
-    "nvim-treesitter/nvim-treesitter-context",
+    -- "dag/vim-fish",
     "preservim/vim-indent-guides",
+    -- Automatically insert pairs
     "windwp/nvim-autopairs",
+    -- Remembers last cursor location
     "farmergreg/vim-lastplace",
-    "junegunn/goyo.vim",
-    "mg979/vim-visual-multi",
+    --TODO Probably remove
+    -- "mg979/vim-visual-multi",
+    -- Trims white spaces and new lines
     "cappyzawa/trim.nvim",
+    -- Auto Format code on save
     "stevearc/conform.nvim",
+    -- Auto create the other part of surround
     { "kylechui/nvim-surround",          event = "VeryLazy", },
+    --TODO Check if really needed
     { "folke/neoconf.nvim",              cmd = "Neoconf" },
+    -- highlighting
     { "nvim-treesitter/nvim-treesitter", cmd = "TSUpdate" },
+    --TODO Maybe remove? Can see how treesitter is generating the highlighting
+    -- "nvim-treesitter/playground",
+    -- Shows where inside the context I am
+    "nvim-treesitter/nvim-treesitter-context",
     {
         "VonHeikemen/lsp-zero.nvim",
         dependencies = {
@@ -49,6 +64,8 @@ require("lazy").setup({
             -- Nvim cmp
             "hrsh7th/nvim-cmp",
             "hrsh7th/cmp-nvim-lsp",
+            "hrsh7th/cmp-path",
+            "hrsh7th/cmp-buffer",
         }
     },
     -- Obsidian
@@ -66,7 +83,7 @@ require("lazy").setup({
     "leoluz/nvim-dap-go",
     "theHamsta/nvim-dap-virtual-text",
     "nvim-telescope/telescope-dap.nvim",
-    { 'towolf/vim-helm',       ft = 'helm' },
+    -- { 'towolf/vim-helm',       ft = 'helm' },
 
     -- UI
     {
@@ -120,10 +137,13 @@ require("lazy").setup({
     },
     -- Preview
     {
-        "iamcco/markdown-preview.nvim",
-        cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
-        ft = { "markdown" },
-        build = function() vim.fn["mkdp#util#install"]() end,
+      "iamcco/markdown-preview.nvim",
+      cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
+      build = "cd app && yarn install",
+      init = function()
+        vim.g.mkdp_filetypes = { "markdown" }
+      end,
+      ft = { "markdown" },
     },
 
     { "ellisonleao/glow.nvim", config = true,       cmd = "Glow" },
@@ -142,6 +162,10 @@ require("lazy").setup({
             "kristijanhusak/vim-dadbod-completion"
         },
     },
-
-
+    {
+    "L3MON4D3/LuaSnip",
+    -- install jsregexp (optional!).
+    build = "make install_jsregexp"
+    },
+    "onsails/lspkind.nvim"
 })

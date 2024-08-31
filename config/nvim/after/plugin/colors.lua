@@ -27,10 +27,6 @@
 -- vim.api.nvim_set_hl(0, "BufferLineCloseButtonVisible", { bg = "NONE" })
 -- vim.api.nvim_set_hl(0, "BufferLineCloseButtonSelected", { bg = "NONE" })
 
-require('rose-pine').setup({
-    disable_background = true
-})
-
 require('catppuccin').setup({
     flavour = "frappe", -- latte, frappe, macchiato, mocha
     transparent_background = true,

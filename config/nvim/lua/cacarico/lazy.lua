@@ -107,6 +107,7 @@ require("lazy").setup({
     "nathom/tmux.nvim",
     "ThePrimeagen/harpoon",
     "ThePrimeagen/refactoring.nvim",
+    "stevearc/oil.nvim",
     'akinsho/bufferline.nvim',
     "easymotion/vim-easymotion",
     "mbbill/undotree",

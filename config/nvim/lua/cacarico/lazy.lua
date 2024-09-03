@@ -37,16 +37,16 @@ require("lazy").setup({
 		},
 	},
 	"ThePrimeagen/harpoon",
+	"akinsho/bufferline.nvim",
 	"easymotion/vim-easymotion",
+	"echasnovski/mini.nvim",
 	"folke/which-key.nvim",
 	"mbbill/undotree",
 	"mhinz/vim-startify",
 	"nathom/tmux.nvim",
 	"nvim-telescope/telescope.nvim",
 	"stevearc/dressing.nvim",
-	"akinsho/bufferline.nvim",
 	"stevearc/oil.nvim",
-	"echasnovski/mini.nvim",
 
 	-- -----------------------------------------------------
 	--  CODE

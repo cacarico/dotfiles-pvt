@@ -130,14 +130,31 @@ lspconfig.helm_ls.setup({
 	},
 })
 
+local luasnip = require("luasnip")
+
+vim.keymap.set({"i"}, "<C-K>", function() luasnip.expand() end, {silent = true})
+vim.keymap.set({"i", "s"}, "<C-N>", function() luasnip.jump( 1) end, {silent = true})
+vim.keymap.set({"i", "s"}, "<C-P>", function() luasnip.jump(-1) end, {silent = true})
+
+vim.keymap.set({"i", "s"}, "<C-E>", function()
+	if luasnip.choice_active() then
+		luasnip.change_choice(1)
+	end
+end, {silent = true})
+
+
 -- nvim-cmp setup
 local cmp = require("cmp")
 cmp.setup({
-	-- snippet = {
-	--   expand = function(args)
-	--     luasnip.lsp_expand(args.body)
-	--   end,
-	-- },
+	snippet = {
+	  expand = function(args)
+	    luasnip.lsp_expand(args.body)
+	  end,
+	},
+	window = {
+		completion = cmp.config.window.bordered(),  -- Adds border to the completion popup
+		documentation = cmp.config.window.bordered(),  -- Adds border to the documentation popup
+	},
 	mapping = cmp.mapping.preset.insert({
 		["<C-u>"] = cmp.mapping.scroll_docs(-4), -- Up
 		["<C-d>"] = cmp.mapping.scroll_docs(4), -- Down

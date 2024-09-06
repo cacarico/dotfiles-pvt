@@ -34,3 +34,11 @@ vim.opt.colorcolumn = "80"
 vim.opt.foldenable = false
 vim.opt.foldmethod = "indent"
 vim.opt.foldlevel = 99
+vim.opt.conceallevel = 1
+
+-- Set viminfo options
+vim.opt.viminfo = "'100,n$HOME/.vim/files/info/viminfo"
+
+-- Example for configuring Neovim to load user-installed installed Lua rocks:
+package.path = package.path .. ";" .. vim.fn.expand("$HOME") .. "/.luarocks/share/lua/5.1/?/init.lua"
+package.path = package.path .. ";" .. vim.fn.expand("$HOME") .. "/.luarocks/share/lua/5.1/?.lua"

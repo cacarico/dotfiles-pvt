@@ -27,10 +27,13 @@ vim.api.nvim_create_autocmd("LspAttach", {
 	end,
 })
 
+require("nvim-web-devicons").setup()
 -- Add additional capabilities supported by nvim-cmp
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
 local lspconfig = require("lspconfig")
+
+
 
 -- Enable some language servers with the additional completion capabilities offered by nvim-cmp
 local servers = {
@@ -39,8 +42,10 @@ local servers = {
 	"docker_compose_language_service",
 	"gopls",
 	"lua_ls",
+  "markdown_oxide",
 	"pyright",
 	"rust_analyzer",
+  "sqls",
 	"tailwindcss",
 	"tsserver",
 	"yamlls",
@@ -106,12 +111,7 @@ require("lspconfig").lua_ls.setup({
 				checkThirdParty = false,
 				library = {
 					vim.env.VIMRUNTIME,
-					-- Depending on the usage, you might want to add additional paths here.
-					-- "${3rd}/luv/library"
-					-- "${3rd}/busted/library",
-				},
-				-- or pull in all of 'runtimepath'. NOTE: this is a lot slower
-				-- library = vim.api.nvim_get_runtime_file("", true)
+				}
 			},
 		})
 	end,
@@ -185,8 +185,9 @@ cmp.setup({
 	}),
 	sources = {
 		{ name = "nvim_lsp" },
+    { name = "vim-dadbod-completion"},
 		{ name = "luasnip" },
-		{ name = "buffer" },
 		{ name = "path" },
+		{ name = "buffer" },
 	},
 })

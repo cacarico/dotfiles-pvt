@@ -60,7 +60,7 @@ vim.keymap.set("i", "<C-j>", "<C-o>j", { desc = "Move one character down in inse
 vim.keymap.set("i", "<C-k>", "<C-o>k", { desc = "Move one character up in insert mode" })
 vim.keymap.set("i", "<C-l>", "<C-o>l", { desc = "Move one character right in insert mode" })
 
-vim.keymap.set("n", "<C-c>", ":bd<CR>", { noremap = true })
+vim.keymap.set("n", "<C-c>", ":q<CR>", { noremap = true })
 vim.keymap.set("n", "<C-q>", ":qa<CR>", { noremap = true })
 
 -- Resize split

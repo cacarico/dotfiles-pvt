@@ -6,6 +6,10 @@ end
 set -x EDITOR nvim
 set -x KUBE_EDITOR nvim
 set -g fish_term_bell
+set -x GOPATH ~/go  # Replace ~/go with your desired path
+set -x GOBIN $GOPATH/bin  # This sets GOBIN to $GOPATH/bin, you can change it if you want it elsewhere
+set -x CARGO_INSTALL_ROOT ~/.local/cargo
+set -x CARGOBIN ~/.local/cargo/bin
 
 # -----------------------------
 # PATHS -----------------------
@@ -20,6 +24,8 @@ set fish_user_paths \
     $HOME/bin \
     $HOME/go/bin $HOME/.local/bin \
     $JAVA_HOME/bin \
+    $GOBIN \
+    $CARGOBIN \
     /opt/mssql-tools18/bin/
 
 # This is neede so signing commits with git works
@@ -43,8 +49,8 @@ abbr -a arc 'nvim ~/.config/alacritty/alacritty.toml'
 abbr -a vrc 'nvim ~/.config/nvim/init.vim'
 abbr -a frc 'nvim ~/.config/fish/config.fish'
 abbr -a trc 'nvim ~/.tmux.conf'
-abbr -a lg lazygit
-abbr -a ld lazydocker
+abbr -a zg lazygit
+abbr -a zd lazydocker
 
 # Sources
 abbr -a ff 'source ~/.config/fish/config.fish'
@@ -74,9 +80,9 @@ if type -q bat
 end
 
 if type -q exa
-    alias ls exa
-    alias l 'exa -l'
-    alias ll 'ls -l -g --icons'
+    alias ls 'exa --icons'
+    alias l 'exa -l --icons'
+    alias ll 'ls -l -g'
     alias la 'll -a'
     alias lt 'la -T -L2'
 end
@@ -124,5 +130,3 @@ end
 direnv hook fish | source
 starship init fish | source
 zoxide init fish | source
-
-# source ~/.config/fish/conf.d/*

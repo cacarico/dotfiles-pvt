@@ -1,4 +1,4 @@
-[#](#) Cacaricos dotfiles
+# Cacaricos dotfiles
 
 This repository contains the configuration files for my ThinkPad L14 Gen 3 Amd Ryzen.
 I'm not an experienced Rice maker, the only rice I know how to cook is Brazilian Rice, but take a look, you might find some stuff usefull.

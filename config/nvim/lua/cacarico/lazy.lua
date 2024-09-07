@@ -36,6 +36,13 @@ require("lazy").setup({
 			"nvim-tree/nvim-web-devicons",
 		},
 	},
+  {
+    "vhyrro/luarocks.nvim",
+    priority = 1000, -- Very high priority is required, luarocks.nvim should run as the first plugin in your config.
+    opts = {
+      rocks = { "magick" }, -- specifies a list of rocks to install
+    },
+  },
 	"ThePrimeagen/harpoon",
 	"akinsho/bufferline.nvim",
 	"easymotion/vim-easymotion",

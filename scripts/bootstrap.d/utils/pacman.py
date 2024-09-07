@@ -4,7 +4,7 @@
 # Name        : Caio Quinilato Teixeira
 # Email       : caio.quinilato@gmail.com
 # Repository  : https://github.com/github/dotfiles
-# Description : Installs asdf pacages
+# Description : Installs asdf packages
 # -----------------------------------------------------------------------------
 
 import subprocess

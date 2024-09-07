@@ -2,9 +2,12 @@
 size = 11
 
 [font.normal]
-# family = "FiraCodeNerdFont"
+# family = "FiraMonoNerdFont"
+# family = "GeistMonoNerdFont"
 # family = "DaddyTimeMonoNerdFont"
-family = "HackNerdFont"
+# family = "FiraCodeNerdFont"
+# family = "GohuFont11NerdFont"
+family = "GoMonoNerdFont"
 
 [window]
 opacity = 0.75

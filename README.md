@@ -57,7 +57,7 @@ cd dotfiles
 make full_install
 ```
 
-Or with `ghq` :p
+Or with `ghq` :
 ```
 ghq git@github.com:cacarico/dotfiles.git
 cd $HOME/ghq/github.com/cacarico/dotfiles

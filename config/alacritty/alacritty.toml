@@ -1,8 +1,10 @@
 [font]
 size = 11
 
-# [font.normal]
-# family = "FiraMonoNerdFont"
+[font.normal]
+# family = "FiraCodeNerdFont"
+# family = "DaddyTimeMonoNerdFont"
+family = "HackNerdFont"
 
 [window]
 opacity = 0.75

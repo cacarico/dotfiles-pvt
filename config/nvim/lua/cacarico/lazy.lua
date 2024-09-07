@@ -41,12 +41,15 @@ require("lazy").setup({
 	"easymotion/vim-easymotion",
 	"echasnovski/mini.nvim",
 	"folke/which-key.nvim",
+  "folke/todo-comments.nvim",
 	"mbbill/undotree",
 	"mhinz/vim-startify",
 	"nathom/tmux.nvim",
 	"nvim-telescope/telescope.nvim",
 	"stevearc/dressing.nvim",
 	"stevearc/oil.nvim",
+  "MeanderingProgrammer/render-markdown.nvim",
+  "3rd/image.nvim",
 
 	-- -----------------------------------------------------
 	--  CODE
@@ -56,7 +59,7 @@ require("lazy").setup({
 	-- A pretty list for showing diagnostics, references, telescope results, quickfix and location lists
 	"folke/trouble.nvim",
 	-- Automatically comments with gc
-	"tpope/vim-commentary",
+	-- "tpope/vim-commentary",
 	--TODO Improve fugitive or remove | Plugin to manage git using the file
 	"tpope/vim-fugitive",
 	--TODO Really needed?

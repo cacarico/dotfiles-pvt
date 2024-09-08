@@ -54,3 +54,10 @@ require('render-markdown').setup({
         highlight_inline = 'RenderMarkdownCodeInline',
     },
 })
+
+-- Sets CodeBlock to purple
+vim.cmd([[
+  "highlight RenderMarkdownCode guibg=#494159
+  "highlight RenderMarkdownCode guibg=#453565
+  highlight RenderMarkdownCode guibg=#473b5f
+]])

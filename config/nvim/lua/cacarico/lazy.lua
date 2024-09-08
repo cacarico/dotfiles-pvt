@@ -57,6 +57,7 @@ require("lazy").setup({
 	"stevearc/oil.nvim",
   "MeanderingProgrammer/render-markdown.nvim",
   "3rd/image.nvim",
+  "tpope/vim-rhubarb",
 
 	-- -----------------------------------------------------
 	--  CODE
@@ -110,6 +111,7 @@ require("lazy").setup({
 			-- Mason
 			"williamboman/mason.nvim",
 			"williamboman/mason-lspconfig.nvim",
+      'WhoIsSethDaniel/mason-tool-installer.nvim',
 			-- Nvim-cmp
 			"hrsh7th/cmp-buffer",
 			"hrsh7th/cmp-nvim-lsp",

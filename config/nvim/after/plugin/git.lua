@@ -87,5 +87,9 @@ require("gitsigns").setup({
 		map("n", "<leader>gdd", gitsigns.toggle_deleted, { desc = "Toggle deleted" })
 		-- Text object
 		map({ "o", "x" }, "ih", ":<C-U>Gitsigns select_hunk<CR>")
+
+    -- mappings
+    vim.keymap.set("n", "<leader>gg", vim.cmd.Git, { desc = "Opens Git Fugitive"})
+    vim.keymap.set("n", "<leader>gB", "<cmd>GBrowse<CR>", { desc = "Opens buffer on browser"})
 	end,
 })

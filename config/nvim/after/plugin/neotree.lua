@@ -2,8 +2,8 @@
 vim.cmd([[ let g:neo_tree_remove_legacy_commands = 1 ]])
 
 -- Mappings
-vim.keymap.set("n", "<leader>T", "<cmd>Neotree toggle<cr>")
-vim.keymap.set("n", "<leader>t", "<cmd>Neotree focus<cr>")
+vim.keymap.set("n", "<leader>t", "<cmd>Neotree toggle<cr>")
+vim.keymap.set("n", "<leader>T", "<cmd>Neotree focus<cr>")
 
 local function getTelescopeOpts(state, path)
 	return {

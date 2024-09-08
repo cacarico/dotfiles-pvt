@@ -5,7 +5,7 @@ I'm not an experienced Rice maker, the only rice I know how to cook is Brazilian
 Feel free to clone my configurations and give some ideas on how to improve them.
 
 
-```
+```txt
                    -`                       cacarico@darknet
                   .o+`                      ----------------
                  `ooo/                      OS: Arch Linux x86_64
@@ -25,10 +25,6 @@ Feel free to clone my configurations and give some ideas on how to improve them.
   `+sso+:-`                 `.-/+oso:
  `++:.                           `-/+/
  .`                                 `/
-
-
-
-
 ```
 ![Working Laptop Setup](images/desktop-vim-spt-neofetch.png)
 
@@ -45,20 +41,20 @@ You can run `make` without any argument for a list of options.
 
 ### install
 
-The `make install` will install all packages I use, this contain a huge list of packages so I strongly recomend to open the `packages/*.install` files and remove the packages you don't want.\
+The `make install` will install all packages I use, this contain a huge list of packages so I strongly recomend to open the `packages/*.install` files and remove the packages you don't want.
 This will also create the symbolic links in your $HOME/.config folder.\
 :warning: This can overwrite your already existing symlinks if any.\
 
 Clone the repo and run `make arch_install`, this will create a symbolic link of the configuration files to your $HOME dir.
 
-```
+```bash
 git clone git@github.com:cacarico/dotfiles.git
 cd dotfiles
 make full_install
 ```
 
 Or with `ghq` :
-```
+```bash
 ghq git@github.com:cacarico/dotfiles.git
 cd $HOME/ghq/github.com/cacarico/dotfiles
 make full_install

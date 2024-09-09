@@ -12,7 +12,9 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
-
+	ui = {
+		border = "rounded",
+	},
 	-- -----------------------------------------------------
 	-- UI
 	-- -----------------------------------------------------
@@ -36,31 +38,31 @@ require("lazy").setup({
 			"nvim-tree/nvim-web-devicons",
 		},
 	},
-  {
-    "vhyrro/luarocks.nvim",
-    priority = 1000, -- Very high priority is required, luarocks.nvim should run as the first plugin in your config.
-    opts = {
-      rocks = { "magick" }, -- specifies a list of rocks to install
-    },
-  },
+	{
+		"vhyrro/luarocks.nvim",
+		priority = 1000, -- Very high priority is required, luarocks.nvim should run as the first plugin in your config.
+		opts = {
+			rocks = { "magick" }, -- specifies a list of rocks to install
+		},
+	},
 	"ThePrimeagen/harpoon",
 	"akinsho/bufferline.nvim",
 	"easymotion/vim-easymotion",
-	"echasnovski/mini.nvim",
+	-- "echasnovski/mini.nvim",
 	"folke/which-key.nvim",
-  "folke/todo-comments.nvim",
+	"folke/todo-comments.nvim",
 	"mbbill/undotree",
 	"mhinz/vim-startify",
 	"nathom/tmux.nvim",
 	"nvim-telescope/telescope.nvim",
 	"stevearc/dressing.nvim",
 	"stevearc/oil.nvim",
-  "MeanderingProgrammer/render-markdown.nvim",
-  "3rd/image.nvim",
-  "tpope/vim-rhubarb",
+	"MeanderingProgrammer/render-markdown.nvim",
+	"3rd/image.nvim",
+	"tpope/vim-rhubarb",
 
 	-- -----------------------------------------------------
-	--  CODE
+	--  "CODE"
 	-- -----------------------------------------------------
 	-- Git integration to show git signs on buffer
 	"lewis6991/gitsigns.nvim",
@@ -111,7 +113,7 @@ require("lazy").setup({
 			-- Mason
 			"williamboman/mason.nvim",
 			"williamboman/mason-lspconfig.nvim",
-      'WhoIsSethDaniel/mason-tool-installer.nvim',
+			"WhoIsSethDaniel/mason-tool-installer.nvim",
 			-- Nvim-cmp
 			"hrsh7th/cmp-buffer",
 			"hrsh7th/cmp-nvim-lsp",

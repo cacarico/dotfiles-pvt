@@ -1,6 +1,39 @@
 require("nvim-web-devicons").setup()
 
--- note: diagnostics are not exclusive to lsp servers
+-- --------------------------------------
+-- FUNCTIONS
+-- --------------------------------------
+
+local function rename_file(old_name, new_name)
+	-- Rename file
+	vim.cmd(string.format("silent !mv %s %s", old_name, new_name))
+
+	-- Open the new file
+	vim.cmd(string.format("edit %s", new_name))
+
+	-- Create rename request parameters
+	local params = vim.lsp.util.make_position_params()
+
+	-- Add new name to parameters
+	params.newName = new_name
+	--
+	-- -- Calls LSP rename to update references
+	-- local params = {
+	-- 	newName = new_name,
+	-- 	textDocument = vim.lsp.util.make_text_document_params(),
+	-- }
+
+	vim.lsp.buf_request(0, "textDocument/rename", params, function(err, _, result)
+		if err then
+			vim.notify("Error renaming file: " .. err.message)
+		elseif result then
+			vim.lsp.util.apply_workspace_edit(result, "utf-8")
+			vim.notify("File and references renamed!")
+		end
+	end)
+end
+
+-- NOTE: diagnostics are not exclusive to lsp servers
 -- so these can be global keybindings
 vim.keymap.set("n", "gl", "<cmd>lua vim.diagnostic.open_float()<cr>")
 vim.keymap.set("n", "[d", "<cmd>lua vim.diagnostic.goto_prev()<cr>")
@@ -22,9 +55,21 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		map("n", "go", "<cmd>lua vim.lsp.buf.type_definition()<cr>", "Go to type of definition")
 		map("n", "gr", "<cmd>lua vim.lsp.buf.references()<cr>", "Go to reference")
 		map("n", "gs", "<cmd>lua vim.lsp.buf.signature_help()<cr>", "Display signature information")
-		map("n", "<F2>", "<cmd>lua vim.lsp.buf.rename()<cr>", "Renames symbol")
-		map({ "n", "x" }, "<F3>", "<cmd>lua vim.lsp.buf.format({async = true})<cr>", "Format File")
-		map("n", "<F4>", "<cmd>lua vim.lsp.buf.code_action()<cr>", "Code Action")
+		map("n", "<leader>rn", "<cmd>lua vim.lsp.buf.rename()<cr>", "Renames symbol")
+		map("n", "<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<cr>", "Code Action")
+		vim.api.nvim_set_keymap("n", "<leader>rf", "", {
+			desc = "Renames File and References",
+			noremap = true,
+			callback = function()
+				local old_name = vim.fn.expand("%") -- Get the current file name
+				local new_name = vim.fn.input("New file name: ", old_name) -- Ask user for the new name
+				if new_name and new_name ~= old_name then
+					rename_file(old_name, new_name)
+				else
+					vim.notify("Rename canceled or invalid new name.")
+				end
+			end,
+		})
 	end,
 })
 
@@ -117,32 +162,39 @@ local servers = {
 	rust_analyzer = {},
 	sqls = {},
 	tailwindcss = {},
+	terraformls = {
+		filetypes = { "terraform", "terraform-vars", "tf" },
+		root_dir = require("lspconfig").util.root_pattern(".terraform", ".git"),
+	},
 	tsserver = {},
 	yamlls = {},
 }
 
-require("mason").setup()
+require("mason").setup({
+	ui = {
+		border = "rounded",
+	},
+})
 
 -- Gets the keys from servers and appends other tools to be installed by Mason
 local ensure_installed = vim.tbl_keys(servers or {})
 vim.list_extend(ensure_installed, {
 	"stylua", -- Used to format Lua code
 })
+
+-- Installs Language Servers and extensions using Mason
 require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
 
+-- Setup Language Servers
 require("mason-lspconfig").setup({
 	handlers = {
 		function(server_name)
 			local server = servers[server_name] or {}
 			server.capabilities = vim.tbl_deep_extend("force", {}, capabilities, server.capabilities or {})
-			-- if server_name == "terraform_ls" then
-			-- end
 			require("lspconfig")[server_name].setup(server)
 		end,
 	},
 })
-
-require("lspconfig").terraform_ls.setup()
 
 -- --------------------------------------
 -- SNIPPETS
@@ -166,7 +218,7 @@ vim.keymap.set({ "i", "s" }, "<C-E>", function()
 end, { silent = true })
 
 -- --------------------------------------
--- NVIM-CMP
+-- COMPLETION
 -- --------------------------------------
 local cmp = require("cmp")
 cmp.setup({
@@ -191,8 +243,8 @@ cmp.setup({
 		["<Tab>"] = cmp.mapping(function(fallback)
 			if cmp.visible() then
 				cmp.select_next_item()
-			-- elseif luasnip.expand_or_jumpable() then
-			--   luasnip.expand_or_jump()
+			elseif luasnip.expand_or_jumpable() then
+				luasnip.expand_or_jump()
 			else
 				fallback()
 			end

@@ -31,7 +31,7 @@
 		"on-click":"pactl set-sink-mute @DEFAULT_SINK@ toggle",
         "on-click-right": "pavucontrol",
 		"format-icons": {
-			"default": ["", "", ""],
+			"default": ["", " ", "  "],
 			// "default": ["🔈", "🔉", "🔊"],
 		}
 	},
@@ -67,7 +67,7 @@
     "hyprland/workspaces": {
         "format": "{name}: {icon}",
         "sort-by": "number",
-        "active-only": true,
+        "active-only": false,
         "format-icons": {
             "1": "",
             "2": "",

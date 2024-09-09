@@ -35,7 +35,7 @@ require("neo-tree").setup({
 		filtered_items = {
 			visible = false, -- when true, they will just be displayed differently than normal items
 			hide_dotfiles = true,
-			hide_gitignored = true,
+			hide_gitignored = false,
 			hide_by_name = {
 				--"node_modules"
 			},
@@ -44,7 +44,10 @@ require("neo-tree").setup({
 				--"*/src/*/tsconfig.json",
 			},
 			always_show = { -- remains visible even if other settings would normally hide it
-				--".gitignored",
+				".deployment",
+				".github",
+				".git",
+				".gitignore",
 			},
 			never_show = { -- remains hidden even if visible is toggled to true, this overrides always_show
 				--".DS_Store",
@@ -119,7 +122,7 @@ require("neo-tree").setup({
 				local succuss, index = pcall(Marked.get_index_of, path)
 				if succuss and index and index > 0 then
 					return {
-						text = string.format(" ⥤ %d", index), -- <-- Add your favorite harpoon like arrow here
+						text = string.format("🔱%d", index), -- <-- Add your favorite harpoon like arrow here
 						highlight = config.highlight or "NeoTreeDirectoryIcon",
 					}
 				else
@@ -131,19 +134,18 @@ require("neo-tree").setup({
 			file = {
 				{ "icon" },
 				{ "name", use_git_status_colors = true },
-				{ "harpoon_index" }, --> This is what actually adds the component in where you want it
+				{ "harpoon_index" },
 				{ "diagnostics" },
-				{ "git_status", highlight = "NeoTreeDimText" },
+				-- { "git_status", highlight = "NeoTreeDimText" },
 			},
 		},
 	},
 	buffers = {
 		follow_current_file = {
-			enabled = true, -- This will find and focus the file in the active buffer every time
-			--              -- the current file is changed while the tree is open.
-			leave_dirs_open = true, -- `false` closes auto expanded dirs, such as with `:Neotree reveal`
+			enabled = true,
+			leave_dirs_open = true,
 		},
-		group_empty_dirs = true, -- when true, empty folders will be grouped together
+		group_empty_dirs = true,
 		show_unloaded = true,
 		window = {
 			mappings = {

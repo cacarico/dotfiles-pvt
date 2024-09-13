@@ -6,7 +6,7 @@ require("pomo").setup({
 		{
 			name = "Default",
 			opts = {
-        -- Sticky the notification to window
+				-- Sticky the notification to window
 				sticky = false,
 				title_icon = "⏳",
 				text_icon = "⏱️",

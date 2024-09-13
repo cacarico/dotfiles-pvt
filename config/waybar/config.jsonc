@@ -37,7 +37,7 @@
 	},
 	"network": {
 		"tooltip": false,
-        "hide-if-empty": false,
+    "hide-if-empty": false,
 		"format-wifi": "  {essid}",
 		"format-ethernet": "",
    		"on-click":"alacritty -T floating_nmtui -e nmtui",

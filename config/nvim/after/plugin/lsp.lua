@@ -106,6 +106,7 @@ local servers = {
 			},
 		},
 	},
+	emmet_language_server = {},
 	gopls = {},
 	helm_ls = {
 		settings = {
@@ -161,7 +162,6 @@ local servers = {
 	},
 	rust_analyzer = {},
 	sqls = {},
-	tailwindcss = {},
 	terraformls = {
 		filetypes = { "terraform", "terraform-vars", "tf" },
 		root_dir = require("lspconfig").util.root_pattern(".terraform", ".git"),

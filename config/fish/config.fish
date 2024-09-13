@@ -6,8 +6,8 @@ end
 set -x EDITOR nvim
 set -x KUBE_EDITOR nvim
 set -g fish_term_bell
-set -x GOPATH ~/go  # Replace ~/go with your desired path
-set -x GOBIN $GOPATH/bin  # This sets GOBIN to $GOPATH/bin, you can change it if you want it elsewhere
+set -x GOPATH ~/go # Replace ~/go with your desired path
+set -x GOBIN $GOPATH/bin # This sets GOBIN to $GOPATH/bin, you can change it if you want it elsewhere
 set -x CARGO_INSTALL_ROOT ~/.local/cargo
 set -x CARGOBIN ~/.local/cargo/bin
 
@@ -72,7 +72,7 @@ if type -q aws-vault
 end
 
 # if type -q _awsp
-#     alias awsp "source /home/cacarico/.asdf/shims/_awsp"
+#     alias awsp "source /home/config/fish/config.fishcacarico/.asdf/shims/_awsp"
 # end
 
 if type -q bat
@@ -80,11 +80,12 @@ if type -q bat
 end
 
 if type -q exa
+    alias l exa
     alias ls 'exa --icons'
-    alias l 'exa -l --icons'
-    alias ll 'ls -l -g'
-    alias la 'll -a'
-    alias lt 'la -T -L2'
+    alias ll 'ls -l'
+    alias la 'l -a'
+    alias lt 'ls -T -L2'
+    alias lt5 'la -T -L5'
 end
 
 if type -q git
@@ -126,6 +127,7 @@ end
 if type -q spotify-launcher
     abbr -a spotify spotify-launcher
 end
+
 # Sources for fish commands
 direnv hook fish | source
 starship init fish | source

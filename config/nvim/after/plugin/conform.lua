@@ -12,6 +12,7 @@ require("conform").setup({
 		python = { "isort", "black" },
 		javascript = { "prettierd", "prettier" },
 		yaml = { "yamllint", "yamlfix" },
+		fish = { "fish_ident" },
 	},
 	stop_after_first = {
 		javascript = true,

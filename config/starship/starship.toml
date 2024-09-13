@@ -1,7 +1,8 @@
 [git_status]
 conflicted = '☣️ '
 ahead = '🚀'
-behind = '⛑️'
+behind = '🐬'
+# behind = '⛑️'
 diverged = '😵'
 # up_to_date = '✓'
 untracked = '🤷'
@@ -15,6 +16,7 @@ deleted = '🗑'
 # format = 'on [⛵ ($user on )($cluster in )$context \($namespace\)](dimmed green) '
 format = ' [⛵ $cluster \($namespace\)](bold green) '
 disabled = false
+detect_env_vars = [ "K8S_CONTEXT" ]
 # contexts = [
 #   { context_pattern = "dev.local.cluster.k8s", style = "green", symbol = "💔 " },
 # ]

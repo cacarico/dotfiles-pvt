@@ -17,6 +17,9 @@ local colors = {
   magenta  = '#c678dd',
   blue     = '#51afef',
   red      = '#ec5f67',
+  purple   = '#614d9a',
+  blue_ribbon   = '#004eff',
+  spring_green = '#00ff75',
 }
 
 local conditions = {
@@ -154,6 +157,31 @@ ins_left({
 })
 
 -- Add components to right sections
+--
+ins_right({
+	function()
+		local ok, pomo = pcall(require, "pomo")
+		if not ok then
+			return ""
+		end
+
+		local timer = pomo.get_first_to_finish()
+		if timer == nil then
+			return ""
+		end
+		-- Convert timer to string
+		local timer_str = tostring(timer)
+
+		-- Remove any leading pattern like "#1," (numeric prefix with comma)
+		local cleaned_timer = timer_str:gsub("^#%d+,%s*", "")
+
+		-- return "󰄉 " .. cleaned_timer
+		-- return "🕷 " .. cleaned_timer
+		return "☢️  " .. cleaned_timer
+	end,
+	color = { fg = colors.purple, gui = "bold" },
+})
+
 ins_right({
 	"o:encoding", -- option component same as &encoding in viml
 	fmt = string.upper, -- I'm not sure why it's upper case either ;)
@@ -165,13 +193,13 @@ ins_right({
 	"fileformat",
 	fmt = string.upper,
 	icons_enabled = false, -- I think icons are cool but Eviline doesn't have them. sigh
-	color = { fg = colors.green, gui = "bold" },
+	color = { fg = colors.blue_ribbon, gui = "bold" },
 })
 
 ins_right({
 	"branch",
 	icon = "",
-	color = { fg = colors.violet, gui = "bold" },
+	color = { fg = colors.spring_green, gui = "bold" },
 })
 
 ins_right({
@@ -204,7 +232,7 @@ ins_right({
 		end
 		return msg
 	end,
-	color = { fg = "#ffffff", gui = "bold" },
+	color = { fg = "#81438a", gui = "bold" },
 })
 
 ins_right({

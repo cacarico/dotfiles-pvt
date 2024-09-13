@@ -80,3 +80,22 @@ vim.keymap.set("n", "\\\\", ":vsplit<CR>")
 
 -- Starts lazyvim in the current project
 vim.keymap.set("n", "<C-g>", "<cmd>silent !fish -c 'floating_git'<CR>")
+
+-- Function to toggle line wrapping
+function ToggleWrap()
+	if vim.wo.wrap then
+		vim.wo.wrap = false
+		print("Line wrap disabled")
+	else
+		vim.wo.wrap = true
+		print("Line wrap enabled")
+	end
+end
+
+-- Map a key to toggle line wrapping
+vim.api.nvim_set_keymap(
+	"n",
+	"<leader>ow",
+	":lua ToggleWrap()<CR>",
+	{ noremap = true, silent = true, desc = "Toggle Line Wrap" }
+)

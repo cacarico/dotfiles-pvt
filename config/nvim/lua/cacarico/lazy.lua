@@ -60,6 +60,7 @@ require("lazy").setup({
 	"MeanderingProgrammer/render-markdown.nvim",
 	"3rd/image.nvim",
 	"tpope/vim-rhubarb",
+	-- "github/copilot.vim",
 
 	-- -----------------------------------------------------
 	--  "CODE"

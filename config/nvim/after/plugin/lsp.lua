@@ -78,6 +78,8 @@ vim.api.nvim_create_autocmd("LspAttach", {
 -- --------------------------------------
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
+require("lspconfig").fish_lsp.setup({})
+
 local servers = {
 	bashls = {},
 	clangd = {},
@@ -106,6 +108,7 @@ local servers = {
 			},
 		},
 	},
+	-- Language server for frontend
 	emmet_language_server = {},
 	gopls = {},
 	helm_ls = {
@@ -166,7 +169,7 @@ local servers = {
 		filetypes = { "terraform", "terraform-vars", "tf" },
 		root_dir = require("lspconfig").util.root_pattern(".terraform", ".git"),
 	},
-	tsserver = {},
+	ts_ls = {},
 	yamlls = {},
 }
 
@@ -180,6 +183,10 @@ require("mason").setup({
 local ensure_installed = vim.tbl_keys(servers or {})
 vim.list_extend(ensure_installed, {
 	"stylua", -- Used to format Lua code
+	"stylelint",
+	"htmlbeautifier",
+	-- "markdownfmt",
+	"cbfmt",
 })
 
 -- Installs Language Servers and extensions using Mason

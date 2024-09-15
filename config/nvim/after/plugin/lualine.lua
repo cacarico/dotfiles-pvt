@@ -176,8 +176,8 @@ ins_right({
 		local cleaned_timer = timer_str:gsub("^#%d+,%s*", "")
 
 		-- return "󰄉 " .. cleaned_timer
-		-- return "🕷 " .. cleaned_timer
 		return "☢️  " .. cleaned_timer
+		-- return "🕷 " .. cleaned_timer
 	end,
 	color = { fg = colors.purple, gui = "bold" },
 })

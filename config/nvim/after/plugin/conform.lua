@@ -4,20 +4,23 @@ require("conform").setup({
 	-- 	timeout_ms = 500,
 	-- 	lsp_format = "fallback",
 	-- },
-  format_after_save = {
-    lsp_format = "fallback",
-  },
+	format_after_save = {
+		lsp_format = "fallback",
+	},
 	formatters_by_ft = {
+		css = { "stylelint" },
+		fish = { "fish_indent" },
+		go = { "gofmt", "goimports", "golines" },
+		html = { "htmlbeautifier" },
+		javascript = { "prettierd", "prettier" },
+		json = { "fixjson" },
 		lua = { "stylua" },
 		python = { "isort", "black" },
-		javascript = { "prettierd", "prettier" },
-		yaml = { "yamllint", "yamlfix" },
-		fish = { "fish_ident" },
+		yaml = { "yamlfix" },
+		markdown = { "cbfmt" },
 	},
 	stop_after_first = {
 		javascript = true,
 	},
-	formatters = {
-		yamlfix = {},
-	},
+	formatters = {},
 })

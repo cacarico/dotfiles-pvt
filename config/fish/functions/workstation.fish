@@ -4,20 +4,27 @@
 # Name        : Caio Quinilato Teixeira
 # Email       : caio.quinilato@gmail.com
 # Repository  : https://github.com/github/dotfiles
-# Description : Script to spawn tmux with dotfiles and the main
+# Description : Function that starts the workstation
 # -----------------------------------------------------------------------------
 
-
+# BUG: When workstation starts the windows are not split 30%
+# the function works when called externally or in other scripts
+# although when called here it does not work
 function workstation
-    if not tmux list-sessions | grep -q workstation
-        tmux new-session -s workstation -n main -d \; \
-            split-window -v -l 20% \; \
-            new-window -t workstation -n dotfiles -d 'cd ~/ghq/github.com/cacarico/dotfiles-pvt; nvim' \; \
-            select-window -t workstation:dotfiles \; \
-            split-window -v -l 20% \; \
-            send-keys -t workstation:dotfiles.2 'cd ~/ghq/github.com/cacarico/dotfiles-pvt; clear' C-m \; \
-            select-window -t workstation:dotfiles
-    end
+    set session_name workstation
+    set main_window main
 
-    tmux attach-session -t workstation
+    if test $(tmux list-sessions  2>/dev/null | grep workspace | wc -l) -lt 1
+
+        # Create main window
+        tmux new-session -d -s $session_name -n $main_window
+        tmux split-window -t $session_name:$main_window -v -l 30%
+
+        # Launch Projects
+        project_launch $session_name dotfiles "$HOME/ghq/github.com/cacarico/dotfiles-pvt"
+        project_launch $session_name blog-cacarico "$HOME/ghq/github.com/cacarico/blog-cacarico"
+
+        # Attach to the tmux session
+    end
+    tmux attach-session -t $session_name
 end

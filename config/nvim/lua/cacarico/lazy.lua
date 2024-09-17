@@ -70,7 +70,7 @@ require("lazy").setup({
 	-- A pretty list for showing diagnostics, references, telescope results, quickfix and location lists
 	"folke/trouble.nvim",
 	-- Automatically comments with gc
-	-- "tpope/vim-commentary",
+	"tpope/vim-commentary",
 	--TODO Improve fugitive or remove | Plugin to manage git using the file
 	"tpope/vim-fugitive",
 	--TODO Really needed?

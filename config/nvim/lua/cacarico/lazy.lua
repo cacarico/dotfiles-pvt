@@ -88,7 +88,7 @@ require("lazy").setup({
 	-- Trims white spaces and new lines
 	"cappyzawa/trim.nvim",
 	-- Auto Format code on save
-	-- "stevearc/conform.nvim",
+	"stevearc/conform.nvim",
 	-- Auto create the other part of surround
 	{ "kylechui/nvim-surround", event = "VeryLazy" },
 	--TODO Check if really needed

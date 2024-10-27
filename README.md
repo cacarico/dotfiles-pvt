@@ -5,6 +5,7 @@ I'm not an experienced Rice maker, the only rice I know how to cook is Brazilian
 Feel free to clone my configurations and give some ideas on how to improve them.
 
 
+#### Current Setup
 ```txt
                    -`                       cacarico@darknet
                   .o+`                      ----------------
@@ -29,6 +30,8 @@ Feel free to clone my configurations and give some ideas on how to improve them.
 ![Working Laptop Setup](images/desktop-vim-spt-neofetch.png)
 
 
+#### Bspwm with
+![Bspwm](images/desktop-bspwm.png)
 ## Requirements
 
 The are no requiremets needed to install this project.

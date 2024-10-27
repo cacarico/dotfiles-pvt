@@ -23,6 +23,7 @@ function workstation
         # Launch Projects
         project_launch $session_name dotfiles "$HOME/ghq/github.com/cacarico/dotfiles-pvt"
         project_launch $session_name blog-cacarico "$HOME/ghq/github.com/cacarico/blog-cacarico"
+        project_launch $session_name hyprlua"$HOME/ghq/github.com/cacarico/hyprlua"
 
         # Attach to the tmux session
     end

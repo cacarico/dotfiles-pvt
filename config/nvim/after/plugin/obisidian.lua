@@ -29,3 +29,4 @@ vim.keymap.set("n", "<leader>ot", "<cmd>ObsidianTemplate<CR>", { desc = "Insert 
 vim.keymap.set("n", "<leader>oN", "<cmd>ObsidianNew<CR>", { desc = "Insert Obsidian Template" })
 vim.keymap.set("n", "<leader>on", "<cmd>ObsidianNewFromTemplate<CR>", { desc = "Insert Obsidian from Template" })
 vim.keymap.set("n", "<leader>or", "<cmd>ObsidianRename<CR>", { desc = "Rename Obsidian Note" })
+vim.keymap.set("n", "<leader>oo", "<cmd>ObsidianFollowLink<CR>", { desc = "Opens url on browser" })

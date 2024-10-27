@@ -33,6 +33,10 @@ create_links() {
                 ln -sfF "$config/asdfrc" "$HOME/.asdfrc"
                 continue
                 ;;
+            # wezterm)
+            #     ln -sfF "$config/wezterm.lua" "$HOME/.wezterm.lua"
+            #     continue
+            #     ;;
         esac
         ln -sfF "$config" "$HOME_CONFIG_DIR/"
     done

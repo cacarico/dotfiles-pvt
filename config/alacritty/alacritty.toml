@@ -1,5 +1,5 @@
 [font]
-size = 10
+size = 9
 
 [font.normal]
 # family = "FiraMonoNerdFont"
@@ -10,7 +10,7 @@ size = 10
 family = "GoMonoNerdFont"
 
 [window]
-opacity = 0.75
+opacity = 0.70
 
 [colors]
 transparent_background_colors = true

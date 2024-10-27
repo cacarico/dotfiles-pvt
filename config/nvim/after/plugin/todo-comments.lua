@@ -28,15 +28,16 @@ require("todo-comments").setup({
 			alt = { "FIXME", "BUG", "FIXIT", "ISSUE" }, -- a set of other keywords that all map to this FIX keywords
 			-- signs = false, -- configure signs for some keywords individually
 		},
+		-- TODO: This is how TODO is displayed
 		TODO = { icon = " ", color = "warning" },
-		-- HACK: This is how HACK is displayed
-		HACK = { icon = " ", color = "#7C3AED" },
+		-- NOTE: This is how HACK is displayed
+		NOTE = { icon = " ", color = "#7C3AED" },
 		-- WARN: This is how WARN is displayed
 		WARN = { icon = " ", color = "warning", alt = { "WARNING", "XXX" } },
 		-- OPTIMIZE: This is how PERF is displayed
 		PERF = { icon = " ", alt = { "OPTIM", "PERFORMANCE", "OPTIMIZE" } },
-		-- NOTE: This is how NOTE is displayed
-		NOTE = { icon = " ", color = "hint", alt = { "INFO" } },
+		-- IMPROVE: This is how NOTE is displayed
+		IMPROVE = { icon = " ", color = "hint", alt = { "IMP", "FEAT" } },
 		-- TEST: This is how TEST is displayed
 		TEST = { icon = "💣", color = "error", alt = { "TESTING", "PASSED", "FAILED" } },
 		-- TEST = { icon = "⏲ ", color = "test", alt = { "TESTING", "PASSED", "FAILED" } },

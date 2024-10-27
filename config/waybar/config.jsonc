@@ -88,7 +88,7 @@
         "tooltip-format-enumerate-connected": "{device_alias}\\t{device_address}",
         "on-click": "bluetoothctl show | grep Powered | grep yes && bluetoothctl power off || bluetoothctl power on",
         "on-click-right": "blueman-manager",
-        "on-scroll-up": "bluetoothctl connect 28:11:A5:38:CB:24",
-        "on-scroll-down": "bluetoothctl disconnect 28:11:A5:38:CB:24",
+        "on-scroll-up": "bluetoothctl connect E8:EE:CC:DB:C1:59",
+        "on-scroll-down": "bluetoothctl disconnect E8:EE:CC:DB:C1:59",
     }
 }

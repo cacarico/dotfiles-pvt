@@ -83,6 +83,8 @@ Configs
 Funtions
 * n
 
+(Cacarico)[https://blog.cacari.co]
+
 #### Oh My Fish
 
 All plugins I have installed for omf

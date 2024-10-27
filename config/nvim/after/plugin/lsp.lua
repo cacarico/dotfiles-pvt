@@ -80,6 +80,13 @@ local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
 require("lspconfig").fish_lsp.setup({})
 
+----
+--vim.filetype.add({
+--  extension = {
+--    rockspec = 'rockspec',
+--  },
+--})
+
 local servers = {
 	bashls = {},
 	clangd = {},
@@ -147,7 +154,7 @@ local servers = {
 		settings = {
 			Lua = {
 				diagnostics = {
-					globals = { "vim" }, -- Tell the LSP that `vim` is a global variable
+					globals = { "vim", "hyprlua" },
 				},
 			},
 		},
@@ -170,6 +177,7 @@ local servers = {
 		root_dir = require("lspconfig").util.root_pattern(".terraform", ".git"),
 	},
 	ts_ls = {},
+  vimls = {},
 	yamlls = {},
 }
 
@@ -183,6 +191,7 @@ require("mason").setup({
 local ensure_installed = vim.tbl_keys(servers or {})
 vim.list_extend(ensure_installed, {
 	"stylua", -- Used to format Lua code
+  "luacheck",
 	"stylelint",
 	"htmlbeautifier",
 	-- "markdownfmt",

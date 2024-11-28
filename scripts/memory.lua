@@ -34,12 +34,14 @@ local total_ram = tonumber(info.totalram) * tonumber(info.mem_unit)
 local function get_cached_memory()
 	local meminfo = io.open("/proc/meminfo", "r")
 	local cached = 0
-	for line in meminfo:lines() do
-		if line:match("^Cached:") then
-			cached = tonumber(line:match("(%d+)"))
-			break
-		end
-	end
+  for line in meminfo:lines() do
+    if line == nil then
+      if line:match("^Cached:") then
+        cached = tonumber(line:match("(%d+)"))
+        break
+      end
+    end
+  end
 	meminfo:close()
 	return cached * 1024 -- Convert from KB to bytes
 end

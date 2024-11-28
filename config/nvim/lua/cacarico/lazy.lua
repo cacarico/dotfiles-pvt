@@ -170,6 +170,7 @@ require("lazy").setup({
 	},
 	-- Colors
 	{ "catppuccin/nvim", name = "catppuccin", priority = 1000 },
+  { "Mofiqul/dracula.nvim" },
 
 	-- Databases
 	{

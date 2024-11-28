@@ -8,6 +8,11 @@ require("catppuccin").setup({
 	transparent_background = true,
 })
 
+
+require("dracula").setup({
+  transparent_bg = true,
+})
+
 function ColorMyPencils(color)
 	-- color = color or "rose-pine"
 	color = color or "catppuccin"

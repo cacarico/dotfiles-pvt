@@ -6,20 +6,20 @@ local lualine = require("lualine")
 -- Color table for highlights
 -- stylua: ignore
 local colors = {
-  bg       = '#202328',
-  fg       = '#bbc2cf',
-  yellow   = '#ECBE7B',
-  cyan     = '#008080',
-  darkblue = '#081633',
-  green    = '#98be65',
-  orange   = '#FF8800',
-  violet   = '#a9a1e1',
-  magenta  = '#c678dd',
-  blue     = '#51afef',
-  red      = '#ec5f67',
-  purple   = '#614d9a',
+  bg            = '#202328',
+  fg            = '#bbc2cf',
+  yellow        = '#ECBE7B',
+  cyan          = '#008080',
+  darkblue      = '#081633',
+  green         = '#98be65',
+  orange        = '#FF8800',
+  violet        = '#a9a1e1',
+  magenta       = '#c678dd',
+  blue          = '#51afef',
+  red           = '#ec5f67',
+  purple        = '#614d9a',
   blue_ribbon   = '#004eff',
-  spring_green = '#00ff75',
+  spring_green  = '#00ff75',
 }
 
 local conditions = {
@@ -96,8 +96,9 @@ ins_left({
 ins_left({
 	-- mode component
 	function()
-		return ""
+		-- return ""
 		-- return ''
+		return ''
 	end,
 	color = function()
 		-- auto change color according to neovims mode
@@ -126,6 +127,25 @@ ins_left({
 		return { fg = mode_color[vim.fn.mode()] }
 	end,
 	padding = { right = 1 },
+})
+
+ins_left({
+	"branch",
+	icon = "",
+	color = { fg = colors.spring_green, gui = "bold" },
+})
+
+ins_right({
+	"diff",
+	-- Is it me or the symbol for modified us really weird
+	-- symbols = { added = " ", modified = "", removed = " " },
+	symbols = { added = " ", modified = " ", removed = " " },
+	diff_color = {
+		added = { fg = colors.green },
+		modified = { fg = colors.orange },
+		removed = { fg = colors.red },
+	},
+	cond = conditions.hide_in_width,
 })
 
 ins_left({
@@ -194,25 +214,6 @@ ins_right({
 	fmt = string.upper,
 	icons_enabled = false, -- I think icons are cool but Eviline doesn't have them. sigh
 	color = { fg = colors.blue_ribbon, gui = "bold" },
-})
-
-ins_right({
-	"branch",
-	icon = "",
-	color = { fg = colors.spring_green, gui = "bold" },
-})
-
-ins_right({
-	"diff",
-	-- Is it me or the symbol for modified us really weird
-	-- symbols = { added = " ", modified = "", removed = " " },
-	symbols = { added = " ", modified = " ", removed = " " },
-	diff_color = {
-		added = { fg = colors.green },
-		modified = { fg = colors.orange },
-		removed = { fg = colors.red },
-	},
-	cond = conditions.hide_in_width,
 })
 
 ins_right({

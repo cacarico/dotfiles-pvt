@@ -4,19 +4,21 @@ require("conform").setup({
 	-- 	timeout_ms = 500,
 	-- 	lsp_format = "fallback",
 	-- },
-  format_after_save = {
-    lsp_format = "fallback",
-  },
+	-- format_after_save = {
+	-- 	lsp_format = "fallback",
+	-- },
 	formatters_by_ft = {
 		lua = { "stylua" },
 		python = { "isort", "black" },
 		javascript = { "prettierd", "prettier" },
 		yaml = { "yamllint", "yamlfix" },
+		sql = {},
 	},
 	stop_after_first = {
 		javascript = true,
 	},
 	formatters = {
 		yamlfix = {},
+		sql = {},
 	},
 })

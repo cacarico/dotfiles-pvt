@@ -4,9 +4,6 @@ require("conform").setup({
 	-- 	timeout_ms = 500,
 	-- 	lsp_format = "fallback",
 	-- },
-	format_after_save = {
-		lsp_format = "fallback",
-	},
 	formatters_by_ft = {
 		css = { "stylelint" },
 		fish = { "fish_indent" },
@@ -23,4 +20,10 @@ require("conform").setup({
 		javascript = true,
 	},
 	formatters = {},
+})
+
+vim.keymap.set("n", "<leader>F", function()
+	require("conform").format({ async = true, lsp_format = "fallback" })
+end, {
+	desc = "[F]ormat buffer",
 })

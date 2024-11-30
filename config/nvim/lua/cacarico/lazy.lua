@@ -41,13 +41,10 @@ require("lazy").setup({
 	{
 		"vhyrro/luarocks.nvim",
 		priority = 1000, -- Very high priority is required, luarocks.nvim should run as the first plugin in your config.
-		opts = {
-			rocks = { "magick" }, -- specifies a list of rocks to install
-		},
 	},
 	"ThePrimeagen/harpoon",
 	"akinsho/bufferline.nvim",
-	"easymotion/vim-easymotion",
+	-- "easymotion/vim-easymotion",
 	-- "echasnovski/mini.nvim",
 	"folke/which-key.nvim",
 	"folke/todo-comments.nvim",

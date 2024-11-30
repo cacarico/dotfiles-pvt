@@ -43,33 +43,73 @@ vim.keymap.set("n", "]d", "<cmd>lua vim.diagnostic.goto_next()<cr>")
 vim.api.nvim_create_autocmd("LspAttach", {
 	desc = "LSP actions",
 	callback = function(event)
-		local function map(mode, lhs, rhs, desc)
-			local opts = { buffer = event.buf, desc = desc }
-			vim.keymap.set(mode, lhs, rhs, opts)
+		local map = function(keys, func, desc, mode)
+			mode = mode or "n"
+			vim.keymap.set(mode, keys, func, { buffer = event.buf, desc = "LSP: " .. desc })
 		end
 
-		map("n", "K", "<cmd>lua vim.lsp.buf.hover()<cr>", "Displays information about the symbol")
-		map("n", "gd", "<cmd>lua vim.lsp.buf.definition()<cr>", "Go to definition")
-		map("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<cr>", "Go to Declaration")
-		map("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<cr>", "Go to implementation")
-		map("n", "go", "<cmd>lua vim.lsp.buf.type_definition()<cr>", "Go to type of definition")
-		map("n", "gr", "<cmd>lua vim.lsp.buf.references()<cr>", "Go to reference")
-		map("n", "gs", "<cmd>lua vim.lsp.buf.signature_help()<cr>", "Display signature information")
-		map("n", "<leader>rn", "<cmd>lua vim.lsp.buf.rename()<cr>", "Renames symbol")
-		map("n", "<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<cr>", "Code Action")
+		map("<leader>ws", require("telescope.builtin").lsp_dynamic_workspace_symbols, "[W]orkspace [S]ymbols")
+		map("K", "<cmd>lua vim.lsp.buf.hover()<cr>", "Displays information about the symbol")
+		map("gd", "<cmd>lua vim.lsp.buf.definition()<cr>", "Go to definition")
+		map("gD", "<cmd>lua vim.lsp.buf.declaration()<cr>", "Go to Declaration")
+		map("gi", "<cmd>lua vim.lsp.buf.implementation()<cr>", "Go to implementation")
+		map("go", "<cmd>lua vim.lsp.buf.type_definition()<cr>", "Go to type of definition")
+		map("gr", "<cmd>lua vim.lsp.buf.references()<cr>", "Go to reference")
+		map("gs", "<cmd>lua vim.lsp.buf.signature_help()<cr>", "Display signature information")
+		map("<leader>rn", "<cmd>lua vim.lsp.buf.rename()<cr>", "Renames symbol")
+		map("<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<cr>", "Code Action")
 		vim.api.nvim_set_keymap("n", "<leader>rf", "", {
 			desc = "Renames File and References",
 			noremap = true,
 			callback = function()
 				local old_name = vim.fn.expand("%") -- Get the current file name
 				local new_name = vim.fn.input("New file name: ", old_name) -- Ask user for the new name
-				if new_name and new_name ~= old_name then
+				if #new_name > 1 and new_name ~= old_name then
 					rename_file(old_name, new_name)
 				else
 					vim.notify("Rename canceled or invalid new name.")
 				end
 			end,
 		})
+
+		-- The following two autocommands are used to highlight references of the
+		-- word under your cursor when your cursor rests there for a little while.
+		--    See `:help CursorHold` for information about when this is executed
+		--
+		-- When you move your cursor, the highlights will be cleared (the second autocommand).
+		local client = vim.lsp.get_client_by_id(event.data.client_id)
+		if client and client.supports_method(vim.lsp.protocol.Methods.textDocument_documentHighlight) then
+			local highlight_augroup = vim.api.nvim_create_augroup("kickstart-lsp-highlight", { clear = false })
+			vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
+				buffer = event.buf,
+				group = highlight_augroup,
+				callback = vim.lsp.buf.document_highlight,
+			})
+
+			vim.api.nvim_create_autocmd({ "CursorMoved", "CursorMovedI" }, {
+				buffer = event.buf,
+				group = highlight_augroup,
+				callback = vim.lsp.buf.clear_references,
+			})
+
+			vim.api.nvim_create_autocmd("LspDetach", {
+				group = vim.api.nvim_create_augroup("kickstart-lsp-detach", { clear = true }),
+				callback = function(event2)
+					vim.lsp.buf.clear_references()
+					vim.api.nvim_clear_autocmds({ group = "kickstart-lsp-highlight", buffer = event2.buf })
+				end,
+			})
+		end
+
+		-- The following code creates a keymap to toggle inlay hints in your
+		-- code, if the language server you are using supports them
+		--
+		-- This may be unwanted, since they displace some of your code
+		if client and client.supports_method(vim.lsp.protocol.Methods.textDocument_inlayHint) then
+			map("<leader>th", function()
+				vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({ bufnr = event.buf }))
+			end, "[t]oggle inlay [h]ints")
+		end
 	end,
 })
 
@@ -96,7 +136,7 @@ local servers = {
 			docker = {
 				languageserver = {
 					formatter = {
-						--TODO Check if needed
+						--TODO: Check if needed
 						ignoreMultilineInstructions = true,
 					},
 				},
@@ -128,13 +168,13 @@ local servers = {
 		},
 	},
 	lua_ls = {
-		on_init = function(client)
-			local path = client.workspace_folders[1].name
+		on_init = function(lua_client)
+			local path = lua_client.workspace_folders[1].name
 			if vim.loop.fs_stat(path .. "/.luarc.json") or vim.loop.fs_stat(path .. "/.luarc.jsonc") then
 				return
 			end
 
-			client.config.settings.Lua = vim.tbl_deep_extend("force", client.config.settings.Lua, {
+			lua_client.config.settings.Lua = vim.tbl_deep_extend("force", lua_client.config.settings.Lua, {
 				runtime = {
 					-- Tell the language server which version of Lua you're using
 					-- (most likely LuaJIT in the case of Neovim)
@@ -147,6 +187,7 @@ local servers = {
 						vim.env.VIMRUNTIME,
 						-- This is needed to fix "undefined field fs_stat"
 						"${3rd}/luv/library",
+						"/home/cacarico/.luarocks/lib/luarocks/rocks-5.4",
 					},
 				},
 			})
@@ -154,7 +195,7 @@ local servers = {
 		settings = {
 			Lua = {
 				diagnostics = {
-					globals = { "vim", "hyprlua" },
+					globals = { "vim", "hyprlua", },
 				},
 			},
 		},
@@ -177,7 +218,7 @@ local servers = {
 		root_dir = require("lspconfig").util.root_pattern(".terraform", ".git"),
 	},
 	ts_ls = {},
-  vimls = {},
+	vimls = {},
 	yamlls = {},
 }
 
@@ -191,7 +232,7 @@ require("mason").setup({
 local ensure_installed = vim.tbl_keys(servers or {})
 vim.list_extend(ensure_installed, {
 	"stylua", -- Used to format Lua code
-  "luacheck",
+	"luacheck",
 	"stylelint",
 	"htmlbeautifier",
 	-- "markdownfmt",
